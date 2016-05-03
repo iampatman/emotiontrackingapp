@@ -13,13 +13,21 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        callJson()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    
+    func callJson(){
+        print("call json")
+        let params = ["longitude":"1234", "mobilePhone":"8173308212143"] as Dictionary<String, String>
+        let result: NSDictionary = Utils.sendHTTPPostRequest("http://localhost:5000/listUsers", params: params)
+        print(result)
+    }
 
 }
 

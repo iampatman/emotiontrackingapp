@@ -13,6 +13,14 @@
 		3F185F2C1CD88CCD00EFE11B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F185F2A1CD88CCD00EFE11B /* Main.storyboard */; };
 		3F185F2E1CD88CCD00EFE11B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F185F2D1CD88CCD00EFE11B /* Assets.xcassets */; };
 		3F185F311CD88CCD00EFE11B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F185F2F1CD88CCD00EFE11B /* LaunchScreen.storyboard */; };
+		3F185F391CD88CDF00EFE11B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F381CD88CDF00EFE11B /* Utils.swift */; };
+		3F185F3D1CD89EDC00EFE11B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F3C1CD89EDC00EFE11B /* LoginViewController.swift */; };
+		3F185F421CD8CB3A00EFE11B /* DataManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F411CD8CB3A00EFE11B /* DataManagement.swift */; };
+		3F185F441CD8CBB300EFE11B /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F185F431CD8CBB300EFE11B /* libsqlite3.tbd */; };
+		3F185F481CD8CC2F00EFE11B /* Bridging-Header.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F471CD8CC2F00EFE11B /* Bridging-Header.m */; };
+		3F185F4B1CD8D37900EFE11B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F4A1CD8D37900EFE11B /* User.swift */; };
+		3F185F4D1CD8D3BE00EFE11B /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F4C1CD8D3BE00EFE11B /* Activity.swift */; };
+		3F185F4F1CD8D47700EFE11B /* EmotionsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F4E1CD8D47700EFE11B /* EmotionsEnum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,15 @@
 		3F185F2D1CD88CCD00EFE11B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F185F301CD88CCD00EFE11B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F185F321CD88CCD00EFE11B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F185F381CD88CDF00EFE11B /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		3F185F3C1CD89EDC00EFE11B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
+		3F185F411CD8CB3A00EFE11B /* DataManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManagement.swift; sourceTree = "<group>"; };
+		3F185F431CD8CBB300EFE11B /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		3F185F461CD8CC2F00EFE11B /* EmotionTracking-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EmotionTracking-Bridging-Header.h"; sourceTree = "<group>"; };
+		3F185F471CD8CC2F00EFE11B /* Bridging-Header.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Bridging-Header.m"; sourceTree = "<group>"; };
+		3F185F4A1CD8D37900EFE11B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3F185F4C1CD8D3BE00EFE11B /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		3F185F4E1CD8D47700EFE11B /* EmotionsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionsEnum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F185F441CD8CBB300EFE11B /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +58,11 @@
 		3F185F181CD88CCD00EFE11B = {
 			isa = PBXGroup;
 			children = (
+				3F185F471CD8CC2F00EFE11B /* Bridging-Header.m */,
+				3F185F431CD8CBB300EFE11B /* libsqlite3.tbd */,
 				3F185F231CD88CCD00EFE11B /* EmotionTracking */,
 				3F185F221CD88CCD00EFE11B /* Products */,
+				3F185F461CD8CC2F00EFE11B /* EmotionTracking-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +77,8 @@
 		3F185F231CD88CCD00EFE11B /* EmotionTracking */ = {
 			isa = PBXGroup;
 			children = (
+				3F185F491CD8D35D00EFE11B /* DataManagement */,
+				3F185F3C1CD89EDC00EFE11B /* LoginViewController.swift */,
 				3F185F241CD88CCD00EFE11B /* AppDelegate.swift */,
 				3F185F261CD88CCD00EFE11B /* FirstViewController.swift */,
 				3F185F281CD88CCD00EFE11B /* SecondViewController.swift */,
@@ -63,8 +86,20 @@
 				3F185F2D1CD88CCD00EFE11B /* Assets.xcassets */,
 				3F185F2F1CD88CCD00EFE11B /* LaunchScreen.storyboard */,
 				3F185F321CD88CCD00EFE11B /* Info.plist */,
+				3F185F381CD88CDF00EFE11B /* Utils.swift */,
 			);
 			path = EmotionTracking;
+			sourceTree = "<group>";
+		};
+		3F185F491CD8D35D00EFE11B /* DataManagement */ = {
+			isa = PBXGroup;
+			children = (
+				3F185F411CD8CB3A00EFE11B /* DataManagement.swift */,
+				3F185F4A1CD8D37900EFE11B /* User.swift */,
+				3F185F4C1CD8D3BE00EFE11B /* Activity.swift */,
+				3F185F4E1CD8D47700EFE11B /* EmotionsEnum.swift */,
+			);
+			name = DataManagement;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +175,14 @@
 			files = (
 				3F185F291CD88CCD00EFE11B /* SecondViewController.swift in Sources */,
 				3F185F251CD88CCD00EFE11B /* AppDelegate.swift in Sources */,
+				3F185F421CD8CB3A00EFE11B /* DataManagement.swift in Sources */,
+				3F185F481CD8CC2F00EFE11B /* Bridging-Header.m in Sources */,
+				3F185F4F1CD8D47700EFE11B /* EmotionsEnum.swift in Sources */,
+				3F185F4B1CD8D37900EFE11B /* User.swift in Sources */,
 				3F185F271CD88CCD00EFE11B /* FirstViewController.swift in Sources */,
+				3F185F4D1CD8D3BE00EFE11B /* Activity.swift in Sources */,
+				3F185F3D1CD89EDC00EFE11B /* LoginViewController.swift in Sources */,
+				3F185F391CD88CDF00EFE11B /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,10 +295,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = EmotionTracking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sg.edu.nus.iss.wlad.EmotionTracking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EmotionTracking-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -264,10 +309,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = EmotionTracking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sg.edu.nus.iss.wlad.EmotionTracking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EmotionTracking-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -290,6 +337,7 @@
 				3F185F371CD88CCD00EFE11B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
