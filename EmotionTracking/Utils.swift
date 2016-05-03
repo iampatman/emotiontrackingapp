@@ -15,7 +15,7 @@ class Utils {
         
     }
     
-    class func sendHTTPPostRequest(urlStr: String, params: NSDictionary) -> [String:AnyObject] {
+    class func sendHTTPPostRequest(urlStr: String, params: NSDictionary) -> NSDictionary {
         var resultJSON: NSDictionary = [:]
         let url: NSURL = NSURL(string: urlStr)!
         let request: NSMutableURLRequest = NSMutableURLRequest(URL: url)
@@ -50,6 +50,6 @@ class Utils {
             // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
             
         }).resume()
-        return resultJSON as! [String : AnyObject]
+        return resultJSON
     }
 }

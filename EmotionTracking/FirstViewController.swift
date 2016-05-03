@@ -25,7 +25,7 @@ class FirstViewController: UIViewController {
     func callJson(){
         print("call json")
         let params = ["longitude":"1234", "mobilePhone":"8173308212143"] as Dictionary<String, String>
-        let result: NSDictionary = Utils.sendHTTPPostRequest("http://localhost:5000/listUsers", params: params)
+        let result: NSDictionary = Utils.sendHTTPPostRequest("https://emotionstrackingapp.herokuapp.com/listUsers", params: params)
         print(result)
     }
 
