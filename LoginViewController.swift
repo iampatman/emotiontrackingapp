@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        DataManagement.initDatabase()
     }
     
     override func didReceiveMemoryWarning() {
@@ -25,8 +26,7 @@ class LoginViewController: UIViewController {
         let username = textFieldUsername.text
         let mobilePhone = textFieldMobileNumber.text
         let params: [String:String] = ["username":username!,"mobilePhone":mobilePhone!]
-        Utils.sendHTTPPostRequest("http://localhost:5000/addUser", params: params)
-        
+        Utils.sendHTTPPostRequest("http://localhost:5000/addUser", params: params)        
     }
     
     

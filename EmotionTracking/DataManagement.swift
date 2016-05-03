@@ -37,15 +37,19 @@ class DataManagement{
             print("Failed to open the DB")
             print(sqlite3_errmsg(emotionsDB))
         }
+        
+        print("OK")
     }
     
     static func addNewActivity(activity: Activity){
-        //Add new activity to db
+        //Add new activity to db 
+        //Chenyao and TangTing
     }
     
         
     static func selectAllActivities(username: String) -> [Activity]{
         //select new activity to db
+        //Haijun
         return []
     }
     
