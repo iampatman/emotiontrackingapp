@@ -9,11 +9,15 @@
 import UIKit
 
 class FirstViewController: UIViewController {
+    
+    var activitiesList: [NSDictionary]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        //callJson()
+        let timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
+        
+ 
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,11 +26,20 @@ class FirstViewController: UIViewController {
     }
     
     
-    func callJson(){
+    func updateMap(){
         print("call json")
-       // let params = ["longitude":"1234", "mobilePhone":"8173308212143"] as Dictionary<String, String>
-       // let result: NSDictionary = Utils.sendHTTPPostRequest("https://emotionstrackingapp.herokuapp.com/listUsers", params: params)
-      //  print(result)
+        let params = [:]
+        Utils.sendHTTPPostRequest("https://emotionstrackingapp.herokuapp.com/listActivities", params: params){
+            (returnJSON: NSDictionary) in
+            //print(returnJSON["list"])
+            self.activitiesList = returnJSON["list"] as? [NSDictionary]
+            for activity in self.activitiesList! {
+                //print(activity["location"]!)
+                //Show pin on the map based on these values
+                
+            }
+        }
+      
     }
 
 }

@@ -9,10 +9,17 @@
 import Foundation
 
 class DataManagement{
-    static var emotionsDB: COpaquePointer = nil
-    static let SQLITE_TRANSIENT = unsafeBitCast(-1, sqlite3_destructor_type.self)
-
-    static func initDatabase(){
+    
+    static var _instance: DataManagement?
+    var emotionsDB: COpaquePointer = nil
+    let SQLITE_TRANSIENT = unsafeBitCast(-1, sqlite3_destructor_type.self)
+    static func getInstance() -> DataManagement {
+        if (_instance == nil){
+            _instance = DataManagement()
+        }
+        return _instance!
+    }
+    func initDatabase(){
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         print(paths)
         
@@ -29,25 +36,22 @@ class DataManagement{
             if (sqlite3_exec(emotionsDB, sql, nil, nil, nil) != SQLITE_OK) {
                 print("Failed to create ACTIVITIES table")
                 print(sqlite3_errmsg(emotionsDB))
-            }
-            
-            
-            
+            }            
         } else {
             print("Failed to open the DB")
             print(sqlite3_errmsg(emotionsDB))
         }
         
-        print("OK")
+        print("DB Created successfully")
     }
     
-    static func addNewActivity(activity: Activity){
+    func addNewActivity(activity: Activity){
         //Add new activity to db 
         //Chenyao and TangTing
     }
     
         
-    static func selectAllActivities(username: String) -> [Activity]{
+    func selectAllActivities(username: String) -> [Activity]{
         //select new activity to db
         //Haijun
         return []

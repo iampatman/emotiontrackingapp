@@ -16,7 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.displayMainScreen), name: "displayMainScreen", object: nil)
+        
+        
+        DataManagement.getInstance().initDatabase()
+        
+        
         
         
         return true

@@ -15,7 +15,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        DataManagement.initDatabase()
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,10 +43,7 @@ class LoginViewController: UIViewController {
                 self.performSegueWithIdentifier("login", sender: self)
             } else {
                 Utils.showMessageBox("Your current username is duplicated", viewController: self)
-
-            }
-
-            
+            }            
         }
     }
     
