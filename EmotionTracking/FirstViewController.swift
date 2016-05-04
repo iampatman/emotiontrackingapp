@@ -19,7 +19,12 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
-        
+               
+        let long: Double = 103.776611
+        let lat: Double = 1.292516
+        let position: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: (lat as? CLLocationDegrees)!, longitude: (long as? CLLocationDegrees)!)
+        self.annotateMap(position)
+
  
     }
 
