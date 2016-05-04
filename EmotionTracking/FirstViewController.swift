@@ -13,7 +13,7 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        callJson()
+        //callJson()
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,9 +24,9 @@ class FirstViewController: UIViewController {
     
     func callJson(){
         print("call json")
-        let params = ["longitude":"1234", "mobilePhone":"8173308212143"] as Dictionary<String, String>
-        let result: NSDictionary = Utils.sendHTTPPostRequest("https://emotionstrackingapp.herokuapp.com/listUsers", params: params)
-        print(result)
+       // let params = ["longitude":"1234", "mobilePhone":"8173308212143"] as Dictionary<String, String>
+       // let result: NSDictionary = Utils.sendHTTPPostRequest("https://emotionstrackingapp.herokuapp.com/listUsers", params: params)
+      //  print(result)
     }
 
 }

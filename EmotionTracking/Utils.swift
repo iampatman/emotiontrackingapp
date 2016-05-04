@@ -11,11 +11,10 @@ import Foundation
 
 class Utils {
     
-    class func initializeDB(){
-        
-    }
-    
-    class func sendHTTPPostRequest(urlStr: String, params: NSDictionary) -> NSDictionary {
+
+    class func sendHTTPPostRequest(urlStr: String, params: NSDictionary, completion: (result: NSDictionary) -> Void) {
+        print("Url request: \(urlStr)")
+        print("Param request: \(params)")
         var resultJSON: NSDictionary = [:]
         let url: NSURL = NSURL(string: urlStr)!
         let request: NSMutableURLRequest = NSMutableURLRequest(URL: url)
@@ -39,7 +38,7 @@ class Utils {
                 resultJSON = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as! NSDictionary
                 // The JSONObjectWithData constructor didn't return an error. But, we should still
                 // check and make sure that json has a value using optional binding.
-                
+                completion(result: resultJSON)
             } catch let error as NSError {
                 print(error.localizedDescription)
                 let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
@@ -50,6 +49,5 @@ class Utils {
             // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
             
         }).resume()
-        return resultJSON
     }
 }

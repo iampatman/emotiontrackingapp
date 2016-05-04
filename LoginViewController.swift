@@ -26,7 +26,11 @@ class LoginViewController: UIViewController {
         let username = textFieldUsername.text
         let mobilePhone = textFieldMobileNumber.text
         let params: [String:String] = ["username":username!,"mobilePhone":mobilePhone!]
-        Utils.sendHTTPPostRequest("http://localhost:5000/addUser", params: params)        
+        Utils.sendHTTPPostRequest("https://emotionstrackingapp.herokuapp.com/addUser", params: params){(result: NSDictionary) in
+            print("Result from Login Screen: \(result)")
+
+            
+        }
     }
     
     
