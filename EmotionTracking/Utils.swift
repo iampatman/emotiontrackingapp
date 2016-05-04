@@ -7,10 +7,20 @@
 //
 
 import Foundation
-
+import UIKit
 
 class Utils {
     
+    
+    class func showMessageBox(content: String, viewController: UIViewController){
+        let alertPopUp:UIAlertController = UIAlertController(title: "Alert", message: content, preferredStyle: .Alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .Cancel){
+            action -> Void in
+        }
+        alertPopUp.addAction(cancelAction)
+        viewController.presentViewController(alertPopUp, animated: true, completion: nil)
+        
+    }
 
     class func sendHTTPPostRequest(urlStr: String, params: NSDictionary, completion: (result: NSDictionary) -> Void) {
         print("Url request: \(urlStr)")
