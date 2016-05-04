@@ -7,19 +7,29 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class FirstViewController: UIViewController {
     
     var activitiesList: [NSDictionary]?
 
+    @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
-        
+        NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
+        let long: Double = 100
+        let lat: Double = 1.33
+        let position: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: (lat as? CLLocationDegrees)!, longitude: (long as? CLLocationDegrees)!)
+        self.annotateMap(position)
  
     }
 
+    func initMapView(){
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -33,14 +43,34 @@ class FirstViewController: UIViewController {
             (returnJSON: NSDictionary) in
             //print(returnJSON["list"])
             self.activitiesList = returnJSON["list"] as? [NSDictionary]
-            for activity in self.activitiesList! {
+            
+    //        for activity in self.activitiesList! {
                 //print(activity["location"]!)
                 //Show pin on the map based on these values
                 
-            }
+       //     }
         }
       
     }
+    
+    func annotateMap(coordinate: CLLocationCoordinate2D){
+        let latDelta: CLLocationDegrees = 0.01
+        let longDelta: CLLocationDegrees = 0.01
+        let theSpan: MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+        let newLocation: CLLocationCoordinate2D = coordinate
+        let theRegion: MKCoordinateRegion = MKCoordinateRegionMake(newLocation, theSpan)
+        self.mapView.setRegion(theRegion, animated: false)
+        self.mapView.mapType = .Standard
+        
+        let homePin = MKPointAnnotation()
+        homePin.coordinate = coordinate
+        homePin.title = "Some one status"
+        self.mapView.addAnnotation(homePin)
+
+    }
+    
+    
+    
 
 }
 
