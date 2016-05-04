@@ -41,6 +41,23 @@ class FirstViewController: UIViewController {
         }
       
     }
+    
+    func annotateMap(coordinate: CLLocationCoordinate2D){
+        let latDelta: CLLocationDegrees = 0.01
+        let longDelta: CLLocationDegrees = 0.01
+        let theSpan: MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+        let newLocation: CLLocationCoordinate2D = coordinate
+        let theRegion: MKCoordinateRegion = MKCoordinateRegionMake(newLocation, theSpan)
+        self.mapView.setRegion(theRegion, animated: false)
+        self.mapView.mapType = .Standard
+        
+        let homePin = MKPointAnnotation()
+        homePin.coordinate = coordinate
+        homePin.title = "Some one status"
+        self.mapView.addAnnotation(homePin)
+        
+    }
+
 
 }
 
