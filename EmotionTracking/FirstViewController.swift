@@ -7,15 +7,18 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class FirstViewController: UIViewController {
     
+    @IBOutlet weak var mapView: MKMapView!
     var activitiesList: [NSDictionary]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
         
  
     }
