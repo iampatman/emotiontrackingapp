@@ -15,6 +15,7 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     var activitiesList: [NSDictionary]?
 
+    @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -28,6 +29,10 @@ class FirstViewController: UIViewController {
  
     }
 
+    func initMapView(){
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -41,11 +46,12 @@ class FirstViewController: UIViewController {
             (returnJSON: NSDictionary) in
             //print(returnJSON["list"])
             self.activitiesList = returnJSON["list"] as? [NSDictionary]
-            for activity in self.activitiesList! {
+            
+    //        for activity in self.activitiesList! {
                 //print(activity["location"]!)
                 //Show pin on the map based on these values
                 
-            }
+       //     }
         }
       
     }
