@@ -12,6 +12,10 @@ class DataManagement{
     
     static var _instance: DataManagement?
     var emotionsDB: COpaquePointer = nil
+    var insertStatement: COpaquePointer = nil
+    
+    
+    
     let SQLITE_TRANSIENT = unsafeBitCast(-1, sqlite3_destructor_type.self)
     static func getInstance() -> DataManagement {
         if (_instance == nil){
@@ -48,6 +52,8 @@ class DataManagement{
     func addNewActivity(activity: Activity){
         //Add new activity to db 
         //Chenyao and TangTing
+        
+        
     }
     
         

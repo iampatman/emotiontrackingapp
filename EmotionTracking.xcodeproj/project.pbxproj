@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F053FC61CDB29F1002C50BD /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F053FC51CDB29F1002C50BD /* ActivityViewController.swift */; };
 		3F185F251CD88CCD00EFE11B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F241CD88CCD00EFE11B /* AppDelegate.swift */; };
 		3F185F271CD88CCD00EFE11B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F261CD88CCD00EFE11B /* FirstViewController.swift */; };
 		3F185F291CD88CCD00EFE11B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F281CD88CCD00EFE11B /* SecondViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F053FC51CDB29F1002C50BD /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		3F185F211CD88CCD00EFE11B /* EmotionTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F185F241CD88CCD00EFE11B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F185F261CD88CCD00EFE11B /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				3F185F2F1CD88CCD00EFE11B /* LaunchScreen.storyboard */,
 				3F185F321CD88CCD00EFE11B /* Info.plist */,
 				3F185F381CD88CDF00EFE11B /* Utils.swift */,
+				3F053FC51CDB29F1002C50BD /* ActivityViewController.swift */,
 			);
 			path = EmotionTracking;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				3F185F4D1CD8D3BE00EFE11B /* Activity.swift in Sources */,
 				3F185F3D1CD89EDC00EFE11B /* LoginViewController.swift in Sources */,
 				3F185F391CD88CDF00EFE11B /* Utils.swift in Sources */,
+				3F053FC61CDB29F1002C50BD /* ActivityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
