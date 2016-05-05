@@ -150,6 +150,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yz2-uX-TuW">
+                                <rect key="frame" x="90" y="346" width="117" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="sendMessage:" destination="rFW-UE-fgm" eventType="touchUpInside" id="kNr-ve-JiT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.3692871513" green="0.48694536900000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>

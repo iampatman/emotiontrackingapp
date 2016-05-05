@@ -24,6 +24,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var textFieldUsername: UITextField!
     @IBOutlet weak var textFieldMobileNumber: UITextField!
     
+    @IBAction func sendMessage(sender: AnyObject) {
+        let msgComposer = MessageComposer()
+        msgComposer.sendMessage("Hello dude", number: "81733082", parentVC: self)
+    }
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if (identifier=="login"){
             return loginResult == 1
