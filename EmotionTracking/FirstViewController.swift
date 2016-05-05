@@ -29,7 +29,7 @@ class FirstViewController: UIViewController {
     }
 
     func initMapView(){
-        
+        //
     }
     
     override func didReceiveMemoryWarning() {
