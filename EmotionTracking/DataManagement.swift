@@ -15,7 +15,6 @@ class DataManagement{
     var insertStatement: COpaquePointer = nil
     
     
-    
     let SQLITE_TRANSIENT = unsafeBitCast(-1, sqlite3_destructor_type.self)
     static func getInstance() -> DataManagement {
         if (_instance == nil){
