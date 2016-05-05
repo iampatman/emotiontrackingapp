@@ -17,7 +17,7 @@ class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Do any additional setup after loading the view, typically from a nib.asfdasf
         NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
                
         let long: Double = 103.776611
