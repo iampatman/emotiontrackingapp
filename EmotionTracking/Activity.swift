@@ -12,10 +12,10 @@ class Activity {
     var username: String!
     var thought: String!
     var emotionId: Int
-    var longitude: Float
-    var latitude: Float
+    var longitude: Double
+    var latitude: Double
     
-    init(username: String, emotionId: Int, longitude: Float, latitude: Float, thought: String){
+    init(username: String, emotionId: Int, longitude: Double, latitude: Double, thought: String){
         self.username = username
         self.emotionId = emotionId
         self.longitude = longitude

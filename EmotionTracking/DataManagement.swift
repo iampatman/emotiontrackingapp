@@ -45,23 +45,47 @@ class DataManagement{
             print(sqlite3_errmsg(emotionsDB))
         }
         
+        prepareStatement()
         print("DB Created successfully")
     }
     
     func addNewActivity(activity: Activity){
         //Add new activity to db 
         //Chenyao and TangTing
+        let usernameStr = activity.username
+        let longitudeDob = activity.longitude
+        let latitudeDob = activity.latitude
+        let thoughtStr = activity.thought
+        let emotionIdInt = Int32(activity.emotionId)
         
-        
+        sqlite3_bind_text(insertStatement, 1, usernameStr, -1, SQLITE_TRANSIENT)
+        sqlite3_bind_double(insertStatement, 2, longitudeDob)
+        sqlite3_bind_double(insertStatement, 3, latitudeDob)
+        sqlite3_bind_text(insertStatement, 4, thoughtStr, -1, SQLITE_TRANSIENT)
+        sqlite3_bind_int(insertStatement, 5, emotionIdInt)
+        if (sqlite3_step(insertStatement) == SQLITE_DONE) {
+            print("Add avtivity successful")
+        }else{
+            print("Error code: ", sqlite3_errcode(emotionsDB))
+        }
+        sqlite3_reset(insertStatement)
+        sqlite3_clear_bindings(insertStatement)
     }
     
+    func prepareStatement() {
+        var sql: String
         
+        sql = "INSERT INTO ACTIVITIES (username, longitude, latitude, thought, emotionId) VALUES (?, ?, ?, ?, ?)"
+        let cSql = sql.cStringUsingEncoding(NSUTF8StringEncoding)
+        sqlite3_prepare_v2(emotionsDB, cSql!, -1, &insertStatement, nil)
+    }
+    
+    
+    
     func selectAllActivities(username: String) -> [Activity]{
         //select new activity to db
         //Haijun
         return []
     }
-    
-    
-    
+   
 }
