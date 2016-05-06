@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AFB15CA1CDC8D9600CAC5E4 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFB15C91CDC8D9600CAC5E4 /* MessageComposer.swift */; };
+		2AFB15CC1CDC92D800CAC5E4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AFB15CB1CDC92D800CAC5E4 /* MessageUI.framework */; };
 		3F185F251CD88CCD00EFE11B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F241CD88CCD00EFE11B /* AppDelegate.swift */; };
 		3F185F271CD88CCD00EFE11B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F261CD88CCD00EFE11B /* FirstViewController.swift */; };
 		3F185F291CD88CCD00EFE11B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F281CD88CCD00EFE11B /* SecondViewController.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2AFB15C91CDC8D9600CAC5E4 /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
+		2AFB15CB1CDC92D800CAC5E4 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3F185F211CD88CCD00EFE11B /* EmotionTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F185F241CD88CCD00EFE11B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F185F261CD88CCD00EFE11B /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AFB15CC1CDC92D800CAC5E4 /* MessageUI.framework in Frameworks */,
 				3F185F441CD8CBB300EFE11B /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,6 +63,7 @@
 		3F185F181CD88CCD00EFE11B = {
 			isa = PBXGroup;
 			children = (
+				2AFB15CB1CDC92D800CAC5E4 /* MessageUI.framework */,
 				3F185F471CD8CC2F00EFE11B /* Bridging-Header.m */,
 				3F185F431CD8CBB300EFE11B /* libsqlite3.tbd */,
 				3F185F231CD88CCD00EFE11B /* EmotionTracking */,
@@ -87,6 +93,7 @@
 				3F185F2F1CD88CCD00EFE11B /* LaunchScreen.storyboard */,
 				3F185F321CD88CCD00EFE11B /* Info.plist */,
 				3F185F381CD88CDF00EFE11B /* Utils.swift */,
+				2AFB15C91CDC8D9600CAC5E4 /* MessageComposer.swift */,
 			);
 			path = EmotionTracking;
 			sourceTree = "<group>";
@@ -183,6 +190,7 @@
 				3F185F4D1CD8D3BE00EFE11B /* Activity.swift in Sources */,
 				3F185F3D1CD89EDC00EFE11B /* LoginViewController.swift in Sources */,
 				3F185F391CD88CDF00EFE11B /* Utils.swift in Sources */,
+				2AFB15CA1CDC8D9600CAC5E4 /* MessageComposer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
