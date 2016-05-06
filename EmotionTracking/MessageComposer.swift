@@ -8,6 +8,7 @@
 
 import Foundation
 import MessageUI
+
 class MessageComposer: UIViewController, MFMessageComposeViewControllerDelegate {
     
     func sendMessage(content: String, number: String, parentView: UIViewController){
@@ -18,7 +19,6 @@ class MessageComposer: UIViewController, MFMessageComposeViewControllerDelegate 
         messageVC.messageComposeDelegate = self;
         if (MFMessageComposeViewController.canSendText()){
             parentView.presentViewController(messageVC, animated: false, completion: nil)
-
         }
     }
     
