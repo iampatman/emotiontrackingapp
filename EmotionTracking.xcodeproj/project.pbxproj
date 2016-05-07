@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A4FDDC51CDDA33A0033A50E /* LoginUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4FDDC41CDDA33A0033A50E /* LoginUnitTest.swift */; };
 		2AFB15CA1CDC8D9600CAC5E4 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFB15C91CDC8D9600CAC5E4 /* MessageComposer.swift */; };
 		2AFB15CC1CDC92D800CAC5E4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AFB15CB1CDC92D800CAC5E4 /* MessageUI.framework */; };
 		3F185F251CD88CCD00EFE11B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F241CD88CCD00EFE11B /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A4FDDC41CDDA33A0033A50E /* LoginUnitTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUnitTest.swift; sourceTree = "<group>"; };
 		2AFB15C91CDC8D9600CAC5E4 /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 		2AFB15CB1CDC92D800CAC5E4 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3F185F211CD88CCD00EFE11B /* EmotionTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A4FDDC61CDDA3440033A50E /* Unit Testing */ = {
+			isa = PBXGroup;
+			children = (
+				2A4FDDC41CDDA33A0033A50E /* LoginUnitTest.swift */,
+			);
+			name = "Unit Testing";
+			sourceTree = "<group>";
+		};
 		3F185F181CD88CCD00EFE11B = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +78,7 @@
 				3F185F431CD8CBB300EFE11B /* libsqlite3.tbd */,
 				3F185F231CD88CCD00EFE11B /* EmotionTracking */,
 				3F185F221CD88CCD00EFE11B /* Products */,
+				2A4FDDC61CDDA3440033A50E /* Unit Testing */,
 				3F185F461CD8CC2F00EFE11B /* EmotionTracking-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
@@ -183,6 +194,7 @@
 				3F185F291CD88CCD00EFE11B /* SecondViewController.swift in Sources */,
 				3F185F251CD88CCD00EFE11B /* AppDelegate.swift in Sources */,
 				3F185F421CD8CB3A00EFE11B /* DataManagement.swift in Sources */,
+				2A4FDDC51CDDA33A0033A50E /* LoginUnitTest.swift in Sources */,
 				3F185F481CD8CC2F00EFE11B /* Bridging-Header.m in Sources */,
 				3F185F4F1CD8D47700EFE11B /* EmotionsEnum.swift in Sources */,
 				3F185F4B1CD8D37900EFE11B /* User.swift in Sources */,
