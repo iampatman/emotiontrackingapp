@@ -23,6 +23,8 @@
 		3F185F4F1CD8D47700EFE11B /* EmotionsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F4E1CD8D47700EFE11B /* EmotionsEnum.swift */; };
 		3F1CA31C1CDE0AC100076736 /* EmotionTrackingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1CA31B1CDE0AC100076736 /* EmotionTrackingTests.swift */; };
 		3F1CA3241CDE0AD300076736 /* LoginUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1CA3231CDE0AD300076736 /* LoginUnitTesting.swift */; };
+		3F27DFAA1CDE2ED0006FBF0B /* DetailLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27DFA81CDE2ED0006FBF0B /* DetailLocationView.swift */; };
+		3F27DFAB1CDE2ED0006FBF0B /* LocationObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27DFA91CDE2ED0006FBF0B /* LocationObject.swift */; };
 		3F7E99E91CDB756F00EBC190 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7E99E81CDB756F00EBC190 /* MessageUI.framework */; };
 		3F7E99EB1CDB761800EBC190 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E99EA1CDB761800EBC190 /* MessageComposer.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +62,8 @@
 		3F1CA31B1CDE0AC100076736 /* EmotionTrackingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionTrackingTests.swift; sourceTree = "<group>"; };
 		3F1CA31D1CDE0AC100076736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F1CA3231CDE0AD300076736 /* LoginUnitTesting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUnitTesting.swift; sourceTree = "<group>"; };
+		3F27DFA81CDE2ED0006FBF0B /* DetailLocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailLocationView.swift; sourceTree = "<group>"; };
+		3F27DFA91CDE2ED0006FBF0B /* LocationObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationObject.swift; sourceTree = "<group>"; };
 		3F7E99E81CDB756F00EBC190 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3F7E99EA1CDB761800EBC190 /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +123,8 @@
 		3F185F231CD88CCD00EFE11B /* EmotionTracking */ = {
 			isa = PBXGroup;
 			children = (
+				3F27DFA81CDE2ED0006FBF0B /* DetailLocationView.swift */,
+				3F27DFA91CDE2ED0006FBF0B /* LocationObject.swift */,
 				3F185F491CD8D35D00EFE11B /* DataManagement */,
 				3F185F3C1CD89EDC00EFE11B /* LoginViewController.swift */,
 				3F185F241CD88CCD00EFE11B /* AppDelegate.swift */,
@@ -261,7 +267,9 @@
 				3F185F421CD8CB3A00EFE11B /* DataManagement.swift in Sources */,
 				3F185F481CD8CC2F00EFE11B /* Bridging-Header.m in Sources */,
 				3F185F4F1CD8D47700EFE11B /* EmotionsEnum.swift in Sources */,
+				3F27DFAB1CDE2ED0006FBF0B /* LocationObject.swift in Sources */,
 				3F185F4B1CD8D37900EFE11B /* User.swift in Sources */,
+				3F27DFAA1CDE2ED0006FBF0B /* DetailLocationView.swift in Sources */,
 				3F185F271CD88CCD00EFE11B /* FirstViewController.swift in Sources */,
 				3F185F4D1CD8D3BE00EFE11B /* Activity.swift in Sources */,
 				3F185F3D1CD89EDC00EFE11B /* LoginViewController.swift in Sources */,

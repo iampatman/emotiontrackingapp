@@ -36,7 +36,7 @@ class DetailLocationView: UIViewController {
        
     }
     @IBAction func sendMessage(){
-        MessageComposer().sendMessage(message.text!, number: location.mobileNumber, parentView: self)
+        MessageComposer().sendMessage(message.text!, number: location.mobileNumber, parentVC: self)
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
