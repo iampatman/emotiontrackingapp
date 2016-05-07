@@ -26,13 +26,13 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(1000.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
                
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
+      //  locationManager.startUpdatingLocation()
         
         //Receive JSON data and Annotate locations
         self.updateMap()
@@ -54,9 +54,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
     }
     
     func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                  regionRadius, regionRadius)
-        mapView.setRegion(coordinateRegion, animated: true)
+   //     let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,                                                               
+                //egionRadius, regionRadius)
+    //    mapView.setRegion(coordinateRegion, animated: true)
     }
     
     func initialData() {
@@ -101,9 +101,10 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
     }
     override func prepareForSegue(segue: UIStoryboardSegue,
                                   sender: AnyObject?){
-        let controller = segue.destinationViewController as! DetailLocationView
+        if let controller = (segue.destinationViewController as! UINavigationController).viewControllers[0] as? DetailLocationView {
+            controller.location = location
+        }
         //controller.detailItem = object
-        controller.location = location
     }
     
     override func didReceiveMemoryWarning() {
@@ -122,7 +123,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
                 self.mapView.removeAnnotations(self.locationsResult)
                 self.locationsResult.removeAll()
                 for activity in activitiesList {
-                    
                     self.locationsResult.append(LocationObject(title: Utils.emotionList[((activity["emotionId"] as AnyObject? as? Int) ?? 0)] ?? "", subtitle: (activity["thought"] as AnyObject? as? String) ?? "",username: (activity["username"] as AnyObject? as? String) ?? "", latitude: (activity["latitude"] as AnyObject? as? Double) ?? 1.294455, longitude: (activity["longitude"] as AnyObject? as? Double) ?? 103.7829, time: (activity["time"] as AnyObject? as? NSDate) ?? NSDate(), mobileNumber: (activity["mobileNumber"] as AnyObject? as? String) ?? ""))
                     //Show pin on the map based on these values
                     

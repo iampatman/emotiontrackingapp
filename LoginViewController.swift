@@ -11,7 +11,8 @@ import UIKit
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var loginResult: Int = 0
-    
+    @IBOutlet weak var textFieldUsername: UITextField!
+    @IBOutlet weak var textFieldMobileNumber: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +36,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBOutlet weak var textFieldUsername: UITextField!
-    @IBOutlet weak var textFieldMobileNumber: UITextField!
+
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()

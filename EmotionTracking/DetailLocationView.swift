@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 
-class DetailLocationView: UIViewController {
+class DetailLocationView: UIViewController, UITextViewDelegate {
     var location : LocationObject!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var emotion: UILabel!
@@ -27,14 +27,15 @@ class DetailLocationView: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         //self.configureView()
         // Build a programmatic view
-        view.backgroundColor = UIColor(
-            red: 0.8,
-            green: 0.5,
-            blue: 0.2,
-            alpha: 1.0)
-    
        
     }
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        guard let text = textView.text else { return true }
+        let newLength = text.characters.count + text.characters.count - range.length
+        return newLength <= 50
+    }
+    
     @IBAction func sendMessage(){
         MessageComposer().sendMessage(message.text!, number: location.mobileNumber, parentView: self)
     }

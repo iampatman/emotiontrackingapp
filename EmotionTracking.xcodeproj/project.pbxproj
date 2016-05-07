@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A4FDDC51CDDA33A0033A50E /* LoginUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4FDDC41CDDA33A0033A50E /* LoginUnitTest.swift */; };
-		2AFB15CA1CDC8D9600CAC5E4 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFB15C91CDC8D9600CAC5E4 /* MessageComposer.swift */; };
 		2AFB15CC1CDC92D800CAC5E4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AFB15CB1CDC92D800CAC5E4 /* MessageUI.framework */; };
 		3F185F251CD88CCD00EFE11B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F241CD88CCD00EFE11B /* AppDelegate.swift */; };
 		3F185F271CD88CCD00EFE11B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F261CD88CCD00EFE11B /* FirstViewController.swift */; };
@@ -32,8 +30,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2A4FDDC41CDDA33A0033A50E /* LoginUnitTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUnitTest.swift; sourceTree = "<group>"; };
-		2AFB15C91CDC8D9600CAC5E4 /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 		2AFB15CB1CDC92D800CAC5E4 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3F185F211CD88CCD00EFE11B /* EmotionTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F185F241CD88CCD00EFE11B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,7 +73,6 @@
 		2A4FDDC61CDDA3440033A50E /* Unit Testing */ = {
 			isa = PBXGroup;
 			children = (
-				2A4FDDC41CDDA33A0033A50E /* LoginUnitTest.swift */,
 			);
 			name = "Unit Testing";
 			sourceTree = "<group>";
@@ -108,20 +103,19 @@
 		3F185F231CD88CCD00EFE11B /* EmotionTracking */ = {
 			isa = PBXGroup;
 			children = (
-				58A8E7FA1CDE0A9600FDB5C9 /* MessageComposer.swift */,
 				3F185F491CD8D35D00EFE11B /* DataManagement */,
+				58A8E7FA1CDE0A9600FDB5C9 /* MessageComposer.swift */,
 				3F185F3C1CD89EDC00EFE11B /* LoginViewController.swift */,
 				3F185F241CD88CCD00EFE11B /* AppDelegate.swift */,
+				3F185F281CD88CCD00EFE11B /* SecondViewController.swift */,
 				3F185F261CD88CCD00EFE11B /* FirstViewController.swift */,
 				582D09DA1CDC88C000FE443A /* LocationObject.swift */,
-				3F185F281CD88CCD00EFE11B /* SecondViewController.swift */,
 				3F185F2A1CD88CCD00EFE11B /* Main.storyboard */,
 				3F185F2D1CD88CCD00EFE11B /* Assets.xcassets */,
 				3F185F2F1CD88CCD00EFE11B /* LaunchScreen.storyboard */,
 				3F185F321CD88CCD00EFE11B /* Info.plist */,
 				3F185F381CD88CDF00EFE11B /* Utils.swift */,
 				582D09DC1CDDD70500FE443A /* DetailLocationView.swift */,
-				2AFB15C91CDC8D9600CAC5E4 /* MessageComposer.swift */,
 			);
 			path = EmotionTracking;
 			sourceTree = "<group>";
@@ -212,7 +206,6 @@
 				3F185F291CD88CCD00EFE11B /* SecondViewController.swift in Sources */,
 				3F185F251CD88CCD00EFE11B /* AppDelegate.swift in Sources */,
 				3F185F421CD8CB3A00EFE11B /* DataManagement.swift in Sources */,
-				2A4FDDC51CDDA33A0033A50E /* LoginUnitTest.swift in Sources */,
 				3F185F481CD8CC2F00EFE11B /* Bridging-Header.m in Sources */,
 				3F185F4F1CD8D47700EFE11B /* EmotionsEnum.swift in Sources */,
 				582D09DD1CDDD70500FE443A /* DetailLocationView.swift in Sources */,
@@ -222,7 +215,6 @@
 				3F185F4D1CD8D3BE00EFE11B /* Activity.swift in Sources */,
 				3F185F3D1CD89EDC00EFE11B /* LoginViewController.swift in Sources */,
 				3F185F391CD88CDF00EFE11B /* Utils.swift in Sources */,
-				2AFB15CA1CDC8D9600CAC5E4 /* MessageComposer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +347,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sg.edu.nus.iss.wlad.EmotionTracking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "EmotionTracking-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Release;
 		};
