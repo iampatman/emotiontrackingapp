@@ -24,6 +24,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var textFieldUsername: UITextField!
     @IBOutlet weak var textFieldMobileNumber: UITextField!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBAction func sendMessage(sender: AnyObject) {
         let msgComposer = MessageComposer()
         msgComposer.sendMessage("Hello dude", number: "81733082", parentVC: self)
@@ -47,6 +48,7 @@ class LoginViewController: UIViewController {
     }
     @IBAction func loginAction(sender: AnyObject) {
         print("login press")
+        activityIndicator.startAnimating()
         let username = textFieldUsername.text
         let mobilePhone = textFieldMobileNumber.text
         let params: [String:String] = ["username":username!,"mobilePhone":mobilePhone!]
@@ -55,6 +57,7 @@ class LoginViewController: UIViewController {
             
             let returnCode: Int = (returnData["result"] as? Int)!
             print("Result from Login Screen: \(returnCode)")
+            self.activityIndicator.stopAnimating()
             if (returnCode == 1 || returnCode == 2){
                 self.performSegueWithIdentifier("login", sender: self)
             } else {
