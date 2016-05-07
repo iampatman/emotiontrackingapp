@@ -43,14 +43,14 @@
                     <tabBarItem key="tabBarItem" title="Map" image="first" selectedImage="map" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="mapView" destination="ucR-Ck-fCe" id="wFG-H5-Wlu"/>
-                        <segue destination="pzm-2j-8gj" kind="show" identifier="showLocationDetail" id="wto-SM-fT2"/>
+                        <segue destination="pzm-2j-8gj" kind="showDetail" identifier="showLocationDetail" action="showViewController:sender:" id="wto-SM-fT2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="-332.74647887323943"/>
         </scene>
-        <!--Detail Location View-->
+        <!--Detail-->
         <scene sceneID="ftO-Af-QzU">
             <objects>
                 <viewController storyboardIdentifier="DetailLocationView" automaticallyAdjustsScrollViewInsets="NO" id="tv2-iL-24u" customClass="DetailLocationView" customModule="EmotionTracking" customModuleProvider="target" sceneMemberID="viewController">
@@ -103,7 +103,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="mqc-S0-dEs"/>
+                    <navigationItem key="navigationItem" title="Detail" id="mqc-S0-dEs">
+                        <barButtonItem key="backBarButtonItem" title="Main" id="B6B-2X-beZ"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="emotion" destination="46V-2r-Ucc" id="Uk9-89-UGM"/>
                         <outlet property="message" destination="PaM-sG-vje" id="cLQ-wp-gDE"/>
@@ -128,7 +130,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="What's in your mind?" id="8sH-3q-l2T"/>
+                    <navigationItem key="navigationItem" title="What's in your mind?" id="8sH-3q-l2T">
+                        <barButtonItem key="backBarButtonItem" title="Main" id="vMY-xi-bRL"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i6d-00-FwV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
