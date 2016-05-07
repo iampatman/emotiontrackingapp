@@ -14,7 +14,7 @@ class FirstViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     var activitiesList: [NSDictionary]?
-
+    var username: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.asfdasf
@@ -26,6 +26,10 @@ class FirstViewController: UIViewController {
         self.annotateMap(position)
 
  
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
     }
 
     func initMapView(){

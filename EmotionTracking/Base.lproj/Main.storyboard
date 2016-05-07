@@ -17,13 +17,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFR-1N-uPE">
-                                <rect key="frame" x="268" y="466" width="22" height="22"/>
-                                <color key="backgroundColor" red="0.52377286685341096" green="0.71806076357237625" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ucR-Ck-fCe">
-                                <rect key="frame" x="0.0" y="20" width="321" height="433"/>
+                                <rect key="frame" x="0.0" y="20" width="321" height="499"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFR-1N-uPE">
+                                <rect key="frame" x="250" y="454" width="50" height="35"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <segue destination="rcO-Ey-Fxt" kind="showDetail" id="UiC-8C-68H"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -35,6 +39,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
+        </scene>
+        <!--What's in your mind?-->
+        <scene sceneID="Byf-uc-622">
+            <objects>
+                <viewController id="XKn-Z6-MCd" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Obq-wz-Iyo"/>
+                        <viewControllerLayoutGuide type="bottom" id="iKU-Yq-H7s"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kL9-3F-UWl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="What's in your mind?" id="8sH-3q-l2T"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i6d-00-FwV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1780" y="-320"/>
         </scene>
         <!--History-->
         <scene sceneID="wg7-f3-ORb">
@@ -186,6 +209,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p5e-kr-Mxn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="360"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2Z3-up-0hA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rcO-Ey-Fxt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gM8-Dw-B5i">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Ll3-aq-tVt">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="XKn-Z6-MCd" kind="relationship" relationship="rootViewController" id="O7a-bQ-HXT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RIE-Cx-SHz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1274" y="-320"/>
         </scene>
     </scenes>
     <resources>

@@ -41,7 +41,10 @@ class Utils {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             print("Response: \(response)")
-            print("Error: \(error?.localizedDescription)")
+            if (error != nil){
+                print("Error: \(error?.localizedDescription)")
+                completion(result: [:])
+            }
             let strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
             print("Body: \(strData!)")
             

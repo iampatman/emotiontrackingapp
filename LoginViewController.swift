@@ -28,8 +28,20 @@ class LoginViewController: UIViewController {
         let msgComposer = MessageComposer()
         msgComposer.sendMessage("Hello dude", number: "81733082", parentVC: self)
     }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "login"){
+            if let nextVC:FirstViewController = (segue.destinationViewController as? UITabBarController)!.viewControllers![0] as? FirstViewController {
+                nextVC.username = textFieldUsername.text!
+            }
+            if let nextVC:SecondViewController = (segue.destinationViewController as? UITabBarController)!.viewControllers![1] as? SecondViewController {
+                nextVC.username = textFieldUsername.text!
+            }
+            
+        }
+    }
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if (identifier=="login"){
+            
             return loginResult == 1
         }
         return false

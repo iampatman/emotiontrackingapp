@@ -12,6 +12,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBOutlet weak var tableView: UITableView!
     
+    var username: String = ""
+    
     let activityHistory = NSMutableArray()
     
     
@@ -35,7 +37,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        DataManagement.getInstance().selectAllActivities("test")
+        DataManagement.getInstance().selectAllActivities(username)
 
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         let activity = activityHistory[activityHistory.count-indexPath.row-1] as! Activity
