@@ -40,8 +40,7 @@ class LoginViewController: UIViewController {
         }
     }
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-        if (identifier=="login"){
-            
+        if (identifier=="login"){            
             return loginResult == 1
         }
         return false
