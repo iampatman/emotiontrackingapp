@@ -36,9 +36,9 @@ class LoginViewController: UIViewController {
         let mobilePhone = textFieldMobileNumber.text
         let params: [String:String] = ["username":username!,"mobilePhone":mobilePhone!]
         Utils.sendHTTPPostRequest("https://emotionstrackingapp.herokuapp.com/addUser", params: params){(returnData: NSDictionary) in
-            print("Result from Login Screen: \(returnData)")
+            //print("Result from Login Screen: \(returnData)")
             let returnCode: Int = (returnData["result"] as? Int)!
-            print("Result from Login Screen: \(returnCode)")
+            //print("Result from Login Screen: \(returnCode)")
             if (returnCode == 1){
                 self.performSegueWithIdentifier("login", sender: self)
             } else {
