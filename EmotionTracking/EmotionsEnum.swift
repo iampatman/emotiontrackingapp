@@ -9,6 +9,6 @@
 import Foundation
 
 class Emotions {
-    var emotions: [Int:String] = [1: "Happy", 2: "Angry", 3: "Sad"]
+    static var emotions: [Int:String] = [1: "Happy", 2: "Angry", 3: "Sad", 4: "Tired", 5: "Exciting"]
     
 }
