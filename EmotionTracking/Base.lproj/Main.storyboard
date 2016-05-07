@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--First-->
@@ -17,24 +18,98 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFR-1N-uPE">
-                                <rect key="frame" x="268" y="466" width="22" height="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFR-1N-uPE">
+                                <rect key="frame" x="292" y="489" width="22" height="22"/>
                                 <color key="backgroundColor" red="0.52377286685341096" green="0.71806076357237625" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ucR-Ck-fCe">
-                                <rect key="frame" x="0.0" y="20" width="321" height="433"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ucR-Ck-fCe">
+                                <rect key="frame" x="-1" y="20" width="321" height="499"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="hFR-1N-uPE" secondAttribute="trailing" constant="-10" id="1Db-cu-VpJ"/>
+                            <constraint firstAttribute="trailing" secondItem="ucR-Ck-fCe" secondAttribute="trailing" id="C8J-3s-xhi"/>
+                            <constraint firstItem="ucR-Ck-fCe" firstAttribute="bottom" secondItem="4ug-Mw-9AY" secondAttribute="top" id="FrZ-qS-XhJ"/>
+                            <constraint firstItem="ucR-Ck-fCe" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="Lkb-h2-O0G"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="hFR-1N-uPE" secondAttribute="bottom" constant="8" symbolic="YES" id="lq6-uS-SPq"/>
+                            <constraint firstItem="ucR-Ck-fCe" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="vth-H6-HDU"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="mapView" destination="ucR-Ck-fCe" id="wFG-H5-Wlu"/>
+                        <segue destination="tv2-iL-24u" kind="show" identifier="showLocationDetail" id="wto-SM-fT2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="750" y="-332.74647887323943"/>
+        </scene>
+        <!--Detail Location View-->
+        <scene sceneID="ftO-Af-QzU">
+            <objects>
+                <viewController storyboardIdentifier="DetailLocationView" automaticallyAdjustsScrollViewInsets="NO" id="tv2-iL-24u" customClass="DetailLocationView" customModule="EmotionTracking" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NA0-Z7-81q"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZeA-55-H3w"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="51a-Ef-vPy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Message:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFP-MT-OJs">
+                                <rect key="frame" x="21" y="197" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="thoughtDescription" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgU-GI-VNy">
+                                <rect key="frame" x="51" y="146" width="148" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxn-qv-kC1">
+                                <rect key="frame" x="84" y="44" width="82" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRr-Rm-rVu">
+                                <rect key="frame" x="213" y="207" width="36" height="30"/>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="sendMessage" destination="tv2-iL-24u" eventType="touchUpInside" id="ouX-NR-gwM"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PaM-sG-vje">
+                                <rect key="frame" x="40" y="259" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Emotion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46V-2r-Ucc">
+                                <rect key="frame" x="186" y="86" width="63" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mqc-S0-dEs"/>
+                    <connections>
+                        <outlet property="emotion" destination="46V-2r-Ucc" id="Uk9-89-UGM"/>
+                        <outlet property="message" destination="PaM-sG-vje" id="cLQ-wp-gDE"/>
+                        <outlet property="thoughtDescription" destination="KgU-GI-VNy" id="7Oe-Pw-Gt0"/>
+                        <outlet property="userName" destination="vxn-qv-kC1" id="iXg-rG-0t4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ccW-ix-DMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1550.625" y="-310.56338028169012"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
@@ -135,7 +210,7 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginAction:" destination="rFW-UE-fgm" eventType="touchUpInside" id="FP9-Ob-hPI"/>
-                                    <segue destination="49e-Tb-3d3" kind="show" identifier="login" id="sSk-BP-nGF"/>
+                                    <segue destination="49e-Tb-3d3" kind="presentation" identifier="login" id="sSk-BP-nGF"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Copyright to ISS NUS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rk-WY-5cr">
@@ -161,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eMv-au-mXr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-588" y="-6"/>
+            <point key="canvasLocation" x="-783.75" y="-13.732394366197182"/>
         </scene>
     </scenes>
     <resources>

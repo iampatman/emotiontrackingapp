@@ -10,26 +10,100 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopoverPresentationControllerDelegate, MKMapViewDelegate
+{
     
     @IBOutlet weak var mapView: MKMapView!
-    var activitiesList: [NSDictionary]?
-
+    //var activitiesList: [NSDictionary]?
+    var location : LocationObject!
+    //For current location
+    var locationManager:CLLocationManager!
+    let regionRadius: CLLocationDistance = 2000
+    
+    //List of nearby users
+    var locationsResult = [LocationObject]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
                
-        let long: Double = 103.776611
-        let lat: Double = 1.292516
-        let position: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: (lat as? CLLocationDegrees)!, longitude: (long as? CLLocationDegrees)!)
-        self.annotateMap(position)
-
- 
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        
+        //Receive JSON data and Annotate locations
+        self.updateMap()
+        //initialData()
+        mapView.delegate = self
     }
 
-    func initMapView(){
-        //test push
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let lastLocation = locations.last?.description as String!
+        print("locations = \(lastLocation)")
+        
+        if let location1: CLLocation = manager.location {
+            //centerMapOnLocation(location1)
+            let coordinate1: CLLocationCoordinate2D = location1.coordinate
+            self.annotateMap(coordinate1)
+            locationManager.stopUpdatingLocation();
+            // ... proceed with the location and coordintes
+        }
+    }
+    
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+                                                                  regionRadius, regionRadius)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    func initialData() {
+        locationsResult.append(LocationObject(title: "Happy", subtitle: "I AM HAPPY",username: "user1", latitude: 1.29167724, longitude: 103.77683571, time: NSDate(), mobileNumber: "6599998888"))
+        
+        locationsResult.append(LocationObject(title: "Sad", subtitle: "I AM SAD", username: "user2", latitude: 1.294455, longitude: 103.7829, time: NSDate(), mobileNumber: "6577774444"))
+        
+        self.mapView.addAnnotations(self.locationsResult)
+    }
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if let annotation = annotation as? LocationObject {
+            let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+            pin.canShowCallout = true
+            pin.animatesDrop = true
+            pin.rightCalloutAccessoryView = UIButton.init(type: .DetailDisclosure) as UIView
+            pin.pinTintColor = annotation.pinTintColor()
+            
+            return pin
+        }
+        return nil
+    }
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView,
+                 calloutAccessoryControlTapped control: UIControl) {
+        //let location = view.annotation as! LocationObject
+        //print("info showed")
+        location = view.annotation as! LocationObject
+        self.performSegueWithIdentifier("showLocationDetail", sender: self)
+        //let contentController = DetailLocationView()
+        /*let contentController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailLocationView") as UIViewController
+        contentController.modalPresentationStyle = UIModalPresentationStyle.Popover
+        contentController.popoverPresentationController?.sourceView = view
+        contentController.popoverPresentationController?.sourceRect = CGRectMake(30, 50, 10, 10)
+        let detailPopover: UIPopoverPresentationController = contentController.popoverPresentationController!
+        detailPopover.permittedArrowDirections = UIPopoverArrowDirection.Any
+        contentController.preferredContentSize = CGSizeMake(50, 100)
+        contentController.location = 
+        presentViewController(contentController, animated: true, completion: nil)*/
+        
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue,
+                                  sender: AnyObject?){
+        let controller = segue.destinationViewController as! DetailLocationView
+        //controller.detailItem = object
+        controller.location = location
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,13 +118,17 @@ class FirstViewController: UIViewController {
         Utils.sendHTTPPostRequest("https://emotionstrackingapp.herokuapp.com/listActivities", params: params){
             (returnJSON: NSDictionary) in
             //print(returnJSON["list"])
-            self.activitiesList = returnJSON["list"] as? [NSDictionary]
-            
-    //        for activity in self.activitiesList! {
-                //print(activity["location"]!)
-                //Show pin on the map based on these values
-                
-       //     }
+            if let activitiesList = returnJSON["list"] as? [NSDictionary]{
+                self.mapView.removeAnnotations(self.locationsResult)
+                self.locationsResult.removeAll()
+                for activity in activitiesList {
+                    
+                    self.locationsResult.append(LocationObject(title: Utils.emotionList[((activity["emotionId"] as AnyObject? as? Int) ?? 0)] ?? "", subtitle: (activity["thought"] as AnyObject? as? String) ?? "",username: (activity["username"] as AnyObject? as? String) ?? "", latitude: (activity["latitude"] as AnyObject? as? Double) ?? 1.294455, longitude: (activity["longitude"] as AnyObject? as? Double) ?? 103.7829, time: (activity["time"] as AnyObject? as? NSDate) ?? NSDate(), mobileNumber: (activity["mobileNumber"] as AnyObject? as? String) ?? ""))
+                    //Show pin on the map based on these values
+                    
+                }
+                self.mapView.addAnnotations(self.locationsResult)
+            }
         }
       
     }
@@ -66,7 +144,7 @@ class FirstViewController: UIViewController {
         
         let homePin = MKPointAnnotation()
         homePin.coordinate = coordinate
-        homePin.title = "Some one status"
+        homePin.title = "I am here"
         self.mapView.addAnnotation(homePin)
         
     }

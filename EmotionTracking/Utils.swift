@@ -11,7 +11,7 @@ import UIKit
 
 class Utils {
     
-    
+    static var emotionList = ["Happy", "Sad", "Despressed", "Afraid", "Anger"] //0...4
     class func showMessageBox(content: String, viewController: UIViewController){
         let alertPopUp:UIAlertController = UIAlertController(title: "Alert", message: content, preferredStyle: .Alert)
         let cancelAction = UIAlertAction(title: "OK", style: .Cancel){

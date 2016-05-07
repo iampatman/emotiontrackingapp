@@ -21,6 +21,11 @@
 		3F185F4B1CD8D37900EFE11B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F4A1CD8D37900EFE11B /* User.swift */; };
 		3F185F4D1CD8D3BE00EFE11B /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F4C1CD8D3BE00EFE11B /* Activity.swift */; };
 		3F185F4F1CD8D47700EFE11B /* EmotionsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F4E1CD8D47700EFE11B /* EmotionsEnum.swift */; };
+		582D09D71CDC880600FE443A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 582D09D61CDC880600FE443A /* MapKit.framework */; };
+		582D09D91CDC880D00FE443A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 582D09D81CDC880D00FE443A /* CoreLocation.framework */; };
+		582D09DB1CDC88C000FE443A /* LocationObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582D09DA1CDC88C000FE443A /* LocationObject.swift */; };
+		582D09DD1CDDD70500FE443A /* DetailLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582D09DC1CDDD70500FE443A /* DetailLocationView.swift */; };
+		58A8E7FB1CDE0A9600FDB5C9 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8E7FA1CDE0A9600FDB5C9 /* MessageComposer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +46,11 @@
 		3F185F4A1CD8D37900EFE11B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3F185F4C1CD8D3BE00EFE11B /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		3F185F4E1CD8D47700EFE11B /* EmotionsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionsEnum.swift; sourceTree = "<group>"; };
+		582D09D61CDC880600FE443A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		582D09D81CDC880D00FE443A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		582D09DA1CDC88C000FE443A /* LocationObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationObject.swift; sourceTree = "<group>"; };
+		582D09DC1CDDD70500FE443A /* DetailLocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailLocationView.swift; sourceTree = "<group>"; };
+		58A8E7FA1CDE0A9600FDB5C9 /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				582D09D91CDC880D00FE443A /* CoreLocation.framework in Frameworks */,
+				582D09D71CDC880600FE443A /* MapKit.framework in Frameworks */,
 				3F185F441CD8CBB300EFE11B /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,6 +70,8 @@
 		3F185F181CD88CCD00EFE11B = {
 			isa = PBXGroup;
 			children = (
+				582D09D81CDC880D00FE443A /* CoreLocation.framework */,
+				582D09D61CDC880600FE443A /* MapKit.framework */,
 				3F185F471CD8CC2F00EFE11B /* Bridging-Header.m */,
 				3F185F431CD8CBB300EFE11B /* libsqlite3.tbd */,
 				3F185F231CD88CCD00EFE11B /* EmotionTracking */,
@@ -77,16 +91,19 @@
 		3F185F231CD88CCD00EFE11B /* EmotionTracking */ = {
 			isa = PBXGroup;
 			children = (
+				58A8E7FA1CDE0A9600FDB5C9 /* MessageComposer.swift */,
 				3F185F491CD8D35D00EFE11B /* DataManagement */,
 				3F185F3C1CD89EDC00EFE11B /* LoginViewController.swift */,
 				3F185F241CD88CCD00EFE11B /* AppDelegate.swift */,
 				3F185F261CD88CCD00EFE11B /* FirstViewController.swift */,
+				582D09DA1CDC88C000FE443A /* LocationObject.swift */,
 				3F185F281CD88CCD00EFE11B /* SecondViewController.swift */,
 				3F185F2A1CD88CCD00EFE11B /* Main.storyboard */,
 				3F185F2D1CD88CCD00EFE11B /* Assets.xcassets */,
 				3F185F2F1CD88CCD00EFE11B /* LaunchScreen.storyboard */,
 				3F185F321CD88CCD00EFE11B /* Info.plist */,
 				3F185F381CD88CDF00EFE11B /* Utils.swift */,
+				582D09DC1CDDD70500FE443A /* DetailLocationView.swift */,
 			);
 			path = EmotionTracking;
 			sourceTree = "<group>";
@@ -173,11 +190,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				582D09DB1CDC88C000FE443A /* LocationObject.swift in Sources */,
 				3F185F291CD88CCD00EFE11B /* SecondViewController.swift in Sources */,
 				3F185F251CD88CCD00EFE11B /* AppDelegate.swift in Sources */,
 				3F185F421CD8CB3A00EFE11B /* DataManagement.swift in Sources */,
 				3F185F481CD8CC2F00EFE11B /* Bridging-Header.m in Sources */,
 				3F185F4F1CD8D47700EFE11B /* EmotionsEnum.swift in Sources */,
+				582D09DD1CDDD70500FE443A /* DetailLocationView.swift in Sources */,
+				58A8E7FB1CDE0A9600FDB5C9 /* MessageComposer.swift in Sources */,
 				3F185F4B1CD8D37900EFE11B /* User.swift in Sources */,
 				3F185F271CD88CCD00EFE11B /* FirstViewController.swift in Sources */,
 				3F185F4D1CD8D3BE00EFE11B /* Activity.swift in Sources */,
