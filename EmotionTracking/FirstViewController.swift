@@ -33,11 +33,11 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
-        //  locationManager.startUpdatingLocation()
+        locationManager.startUpdatingLocation()
         
         //Receive JSON data and Annotate locations
-        //self.updateMap()
-        initialData()
+        self.updateMap()
+        //initialData()
         mapView.delegate = self
     }
     
@@ -55,9 +55,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
     }
     
     func centerMapOnLocation(location: CLLocation) {
-        //     let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-        //egionRadius, regionRadius)
-        //    mapView.setRegion(coordinateRegion, animated: true)
+             let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+        regionRadius, regionRadius)
+            mapView.setRegion(coordinateRegion, animated: true)
     }
     
     func initialData() {
@@ -102,10 +102,11 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
     }
     override func prepareForSegue(segue: UIStoryboardSegue,
                                   sender: AnyObject?){
-        if let controller = (segue.destinationViewController as! UINavigationController).viewControllers[0] as? DetailLocationView {
-            controller.location = location
+        if (segue.identifier == "showLocationDetail"){
+            if let controller = (segue.destinationViewController as! UINavigationController).viewControllers[0] as? DetailLocationView {
+                controller.location = location
+            }
         }
-        //controller.detailItem = object
     }
     
     override func didReceiveMemoryWarning() {
@@ -147,16 +148,12 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
         homePin.coordinate = coordinate
         homePin.title = "I am here"
         self.mapView.addAnnotation(homePin)
-        
     }
     
     @IBAction func cancelToActivityViewController(segue:UIStoryboardSegue) {
-        print("cancel")
     }
     
-    @IBAction func saveActivity(segue:UIStoryboardSegue) {
-    }
-    
+
     
     
     
