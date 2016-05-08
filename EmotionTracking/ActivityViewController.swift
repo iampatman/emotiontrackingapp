@@ -94,7 +94,6 @@ class ActivityViewController: UIViewController,UITextFieldDelegate {
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if (identifier == "gotoMapView"){
             AddActivities()
-            
             return returnCode == 1
         }else if(identifier == "backtoView"){
             self.performSegueWithIdentifier("backtoView", sender: self)
@@ -118,6 +117,7 @@ class ActivityViewController: UIViewController,UITextFieldDelegate {
         thought.text = thoughtStr
         
         let newActivity: Activity = Activity.init(username: usernameStr, emotionId: emotionIdInt, longitude: long, latitude: lat, thought: thoughtStr)
+        DataManagement.getInstance().initDatabase()
         DataManagement.getInstance().addNewActivity(newActivity)
         
         let params = ["username":usernameStr, "emotionId":emotionIdInt, "longitude":long, "latitude":lat, "thought":thoughtStr]
