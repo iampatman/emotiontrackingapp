@@ -150,7 +150,12 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
         
     }
     
+    @IBAction func cancelToActivityViewController(segue:UIStoryboardSegue) {
+        print("cancel")
+    }
     
+    @IBAction func saveActivity(segue:UIStoryboardSegue) {
+    }
     
     
     

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A672FD91CDEEDEB0067872C /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A672FD81CDEEDEB0067872C /* ActivityViewController.swift */; };
+		2A67301A1CDF2BC70067872C /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6730191CDF2BC70067872C /* MessageComposer.swift */; };
 		3F185F251CD88CCD00EFE11B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F241CD88CCD00EFE11B /* AppDelegate.swift */; };
 		3F185F271CD88CCD00EFE11B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F261CD88CCD00EFE11B /* FirstViewController.swift */; };
 		3F185F291CD88CCD00EFE11B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F281CD88CCD00EFE11B /* SecondViewController.swift */; };
@@ -27,7 +28,6 @@
 		3F27DFAA1CDE2ED0006FBF0B /* DetailLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27DFA81CDE2ED0006FBF0B /* DetailLocationView.swift */; };
 		3F27DFAB1CDE2ED0006FBF0B /* LocationObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27DFA91CDE2ED0006FBF0B /* LocationObject.swift */; };
 		3F7E99E91CDB756F00EBC190 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7E99E81CDB756F00EBC190 /* MessageUI.framework */; };
-		3F7E99EB1CDB761800EBC190 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E99EA1CDB761800EBC190 /* MessageComposer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +42,7 @@
 
 /* Begin PBXFileReference section */
 		2A672FD81CDEEDEB0067872C /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
-		2AFB15C91CDC8D9600CAC5E4 /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
+		2A6730191CDF2BC70067872C /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 		3F185F211CD88CCD00EFE11B /* EmotionTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F185F241CD88CCD00EFE11B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F185F261CD88CCD00EFE11B /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -67,7 +67,6 @@
 		3F27DFA81CDE2ED0006FBF0B /* DetailLocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailLocationView.swift; sourceTree = "<group>"; };
 		3F27DFA91CDE2ED0006FBF0B /* LocationObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationObject.swift; sourceTree = "<group>"; };
 		3F7E99E81CDB756F00EBC190 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		3F7E99EA1CDB761800EBC190 /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				3F1CA3231CDE0AD300076736 /* LoginUnitTesting.swift */,
-				3F7E99EA1CDB761800EBC190 /* MessageComposer.swift */,
 				3F7E99E81CDB756F00EBC190 /* MessageUI.framework */,
 				3F185F471CD8CC2F00EFE11B /* Bridging-Header.m */,
 				3F185F431CD8CBB300EFE11B /* libsqlite3.tbd */,
@@ -125,6 +123,7 @@
 		3F185F231CD88CCD00EFE11B /* EmotionTracking */ = {
 			isa = PBXGroup;
 			children = (
+				2A6730191CDF2BC70067872C /* MessageComposer.swift */,
 				3F185F491CD8D35D00EFE11B /* DataManagement */,
 				2A672FD81CDEEDEB0067872C /* ActivityViewController.swift */,
 				3F27DFA81CDE2ED0006FBF0B /* DetailLocationView.swift */,
@@ -138,7 +137,6 @@
 				3F185F2F1CD88CCD00EFE11B /* LaunchScreen.storyboard */,
 				3F185F321CD88CCD00EFE11B /* Info.plist */,
 				3F185F381CD88CDF00EFE11B /* Utils.swift */,
-				2AFB15C91CDC8D9600CAC5E4 /* MessageComposer.swift */,
 			);
 			path = EmotionTracking;
 			sourceTree = "<group>";
@@ -274,11 +272,11 @@
 				3F185F4B1CD8D37900EFE11B /* User.swift in Sources */,
 				3F27DFAA1CDE2ED0006FBF0B /* DetailLocationView.swift in Sources */,
 				3F185F271CD88CCD00EFE11B /* FirstViewController.swift in Sources */,
+				2A67301A1CDF2BC70067872C /* MessageComposer.swift in Sources */,
 				3F185F4D1CD8D3BE00EFE11B /* Activity.swift in Sources */,
 				3F185F3D1CD89EDC00EFE11B /* LoginViewController.swift in Sources */,
 				2A672FD91CDEEDEB0067872C /* ActivityViewController.swift in Sources */,
 				3F185F391CD88CDF00EFE11B /* Utils.swift in Sources */,
-				3F7E99EB1CDB761800EBC190 /* MessageComposer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

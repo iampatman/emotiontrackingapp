@@ -11,6 +11,7 @@ import UIKit
 class ActivityViewController: UIViewController,UITextFieldDelegate {
     
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var returnCode: Int = 0
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var thought: UITextField!
@@ -48,7 +49,7 @@ class ActivityViewController: UIViewController,UITextFieldDelegate {
         if (identifier == "gotoMapView"){
             return returnCode == 1
         }
-        return false;
+        return true;
     }
 
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
@@ -58,7 +59,8 @@ class ActivityViewController: UIViewController,UITextFieldDelegate {
         return newString.length <= maxLength   
     }
     
-    @IBAction func createActivities(sender: AnyObject) {
+    func createActivities(sender: AnyObject) {
+        self.activityIndicator.startAnimating()
         let usernameStr = userNameLabel.text!
         let long: Double = 103.776611
         let lat: Double = 1.292516
@@ -73,13 +75,19 @@ class ActivityViewController: UIViewController,UITextFieldDelegate {
       Utils.sendHTTPPostRequest("https://emotionstrackingapp.herokuapp.com/postActivity", params: params){(returnData: NSDictionary) in
                 let resultCode: Int = (returnData["result"] as? Int)!
             self.returnCode = resultCode
-        print(resultCode)
-
+            print(resultCode)
+            self.activityIndicator.stopAnimating()
             if (resultCode == 1){
                //self.performSegueWithIdentifier("gotoMapView", sender: self)
             } else {
                 Utils.showMessageBox("Add activity failed", viewController: self)
             }
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "postActivity"){
+            createActivities(sender!)
         }
     }
     

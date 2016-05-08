@@ -17,6 +17,9 @@ class DetailLocationView: UIViewController {
     @IBOutlet weak var thoughtDescription: UILabel!
     //var edidtingCourse : Course!
     
+    @IBOutlet weak var textFieldMobile: UITextField!
+    @IBOutlet weak var textFieldThought: UITextField!
+    @IBOutlet weak var textFieldEmotion: UITextField!
     @IBOutlet weak var message: UITextView!
    
     //@IBOutlet weak var detailDescriptionLabel: UILabel!
@@ -31,13 +34,15 @@ class DetailLocationView: UIViewController {
        
     }
     @IBAction func sendMessage(){
-        MessageComposer().sendMessage(message.text!, number: location.mobileNumber, parentVC: self)
+        MessageComposer().sendMessage(message.text!, number: location.mobileNumber, parentView: self)
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        navigationItem.title = location.username
         userName.text = location.username
-        emotion.text = location.title
-        thoughtDescription.text = location.subtitle
+        textFieldEmotion.text = location.title
+        textFieldThought.text = location.subtitle
+        textFieldMobile.text = location.mobileNumber
     }
     
     override func didReceiveMemoryWarning() {

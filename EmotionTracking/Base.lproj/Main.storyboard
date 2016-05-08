@@ -26,7 +26,7 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="+"/>
                                 <connections>
-                                    <segue destination="kjY-xv-Agq" kind="showDetail" id="k2E-yz-CqB"/>
+                                    <segue destination="2KJ-gr-Mc8" kind="show" id="ODy-dF-bJL"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -63,13 +63,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Message:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFP-MT-OJs">
-                                <rect key="frame" x="21" y="197" width="74" height="21"/>
+                                <rect key="frame" x="31" y="266" width="74" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="thoughtDescription" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgU-GI-VNy">
-                                <rect key="frame" x="51" y="146" width="148" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thought" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgU-GI-VNy">
+                                <rect key="frame" x="31" y="162" width="80" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -81,21 +81,42 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRr-Rm-rVu">
-                                <rect key="frame" x="213" y="207" width="36" height="30"/>
+                                <rect key="frame" x="99" y="461" width="123" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Send"/>
                                 <connections>
                                     <action selector="sendMessage" destination="tv2-iL-24u" eventType="touchUpInside" id="ouX-NR-gwM"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PaM-sG-vje">
-                                <rect key="frame" x="40" y="259" width="240" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Hi there, how are you today?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PaM-sG-vje">
+                                <rect key="frame" x="34" y="310" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iGr-DE-dru">
+                                <rect key="frame" x="105" y="106" width="163" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Spa-NB-FUx">
+                                <rect key="frame" x="106" y="158" width="163" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l4S-9H-Iff">
+                                <rect key="frame" x="106" y="213" width="162" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mobile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QpW-ru-Zsu">
+                                <rect key="frame" x="31" y="217" width="52" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Emotion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46V-2r-Ucc">
-                                <rect key="frame" x="186" y="86" width="63" height="21"/>
+                                <rect key="frame" x="34" y="110" width="63" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -105,15 +126,24 @@
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="mqc-S0-dEs">
                         <barButtonItem key="backBarButtonItem" title="Main" id="B6B-2X-beZ"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="K0D-Bb-Qxn">
+                            <connections>
+                                <segue destination="FoE-PF-hq6" kind="unwind" unwindAction="cancelToActivityViewController:" id="5Pf-jJ-1Pk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="emotion" destination="46V-2r-Ucc" id="Uk9-89-UGM"/>
                         <outlet property="message" destination="PaM-sG-vje" id="cLQ-wp-gDE"/>
+                        <outlet property="textFieldEmotion" destination="iGr-DE-dru" id="Q9e-65-k4x"/>
+                        <outlet property="textFieldMobile" destination="l4S-9H-Iff" id="rDB-or-Q6t"/>
+                        <outlet property="textFieldThought" destination="Spa-NB-FUx" id="2Oe-6p-cIO"/>
                         <outlet property="thoughtDescription" destination="KgU-GI-VNy" id="7Oe-Pw-Gt0"/>
                         <outlet property="userName" destination="vxn-qv-kC1" id="iXg-rG-0t4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccW-ix-DMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="FoE-PF-hq6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2003" y="-199"/>
         </scene>
@@ -179,14 +209,14 @@
                                     <outletCollection property="gestureRecognizers" destination="iMd-yP-saY" appends="YES" id="4R9-8K-4Ez"/>
                                 </connections>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="5pc-Pl-yqt">
+                                <rect key="frame" x="141" y="342" width="20" height="20"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H88-P1-WiJ">
                                 <rect key="frame" x="104" y="391" width="95" height="41"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <state key="normal" title="Add"/>
-                                <connections>
-                                    <action selector="createActivities:" destination="wHQ-eN-ZRY" eventType="touchUpInside" id="Vpl-7t-wbV"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.36862745098039218" green="0.48627450980392156" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -194,13 +224,25 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="What's in your mind?" id="Ueo-7W-nAP">
                         <barButtonItem key="backBarButtonItem" title="Map" id="8Ut-Lt-QKv"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Pao-ck-sPb">
+                            <connections>
+                                <segue destination="bDO-YV-Wfd" kind="unwind" unwindAction="cancelToActivityViewController:" id="EzA-sx-MaE"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="8vK-KA-vMN">
+                            <connections>
+                                <segue destination="bDO-YV-Wfd" kind="unwind" identifier="postActivity" unwindAction="saveActivity:" id="UkA-RJ-nWu"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="5pc-Pl-yqt" id="ZgZ-3h-aYk"/>
                         <outlet property="thought" destination="d8X-cb-ykg" id="u08-07-U2Y"/>
                         <outlet property="userNameLabel" destination="uZs-B3-JmN" id="gpl-Nl-WBF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wEp-et-Ulj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bDO-YV-Wfd" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="iMd-yP-saY" userLabel="cuteTap">
                     <connections>
                         <action selector="cuteTap:" destination="wHQ-eN-ZRY" id="Ayh-A6-3ML"/>
@@ -227,7 +269,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1971" y="-947"/>
+            <point key="canvasLocation" x="2680" y="-947"/>
         </scene>
         <!--History-->
         <scene sceneID="wg7-f3-ORb">
@@ -419,22 +461,22 @@
             <point key="canvasLocation" x="1491" y="-142"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="mft-3i-lhA">
+        <scene sceneID="zRm-9n-m7X">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kjY-xv-Agq" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2KJ-gr-Mc8" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ugD-x1-naa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6oX-me-DUW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="wHQ-eN-ZRY" kind="relationship" relationship="rootViewController" id="q2Y-Yo-n8w"/>
+                        <segue destination="wHQ-eN-ZRY" kind="relationship" relationship="rootViewController" id="ElV-u1-rJK"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K7C-CX-YpI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HXN-TJ-9WL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1345" y="-947"/>
+            <point key="canvasLocation" x="1868" y="-947"/>
         </scene>
     </scenes>
     <resources>

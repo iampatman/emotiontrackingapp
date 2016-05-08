@@ -26,8 +26,9 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBAction func sendMessage(sender: AnyObject) {
+
         let msgComposer = MessageComposer()
-        msgComposer.sendMessage("Hello dude", number: "81733082", parentVC: self)
+        msgComposer.sendMessage("Hello dude", number: "81733082", parentView: self)
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "login"){
