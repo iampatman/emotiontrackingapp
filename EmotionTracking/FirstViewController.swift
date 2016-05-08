@@ -25,7 +25,6 @@ class FirstViewController: UIViewController {
         let position: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: (lat as? CLLocationDegrees)!, longitude: (long as? CLLocationDegrees)!)
         self.annotateMap(position)
 
- 
     }
 
     func initMapView(){
