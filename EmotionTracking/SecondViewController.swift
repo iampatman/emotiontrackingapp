@@ -14,11 +14,13 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var username: String = ""
     
-    let activityHistory = NSMutableArray()
+    var activityHistory: [Activity] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -26,6 +28,12 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        activityHistory = DataManagement.getInstance().selectAllActivities(username)
+        tableView.reloadData()
+    }
+    
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
@@ -37,17 +45,13 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        DataManagement.getInstance().selectAllActivities(username)
-
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        let activity = activityHistory[activityHistory.count-indexPath.row-1] as! Activity
-        //
-        //to do more work to parse the raw data for better presentation
-        //1. convert emothion id into actual emotion(happy, unhappy)
-        //2. convert numeric loaciont info into actual location name
-        //
-        cell.textLabel?.text = "\(activity.time): Emotion:\(activity.emotionId), Location(\(activity.longitude),\(activity.latitude))"
-        
+        let activity = activityHistory[activityHistory.count-indexPath.row-1]
+
+        cell.textLabel?.text = "\(activity.thought)"
+        cell.detailTextLabel?.text = "\(activity.time)"
+        let filename = Utils.emotionImagesFileName[activity.emotionId-1] + "_normal"
+        cell.imageView!.image = UIImage(named: filename)
         return cell
     }
 

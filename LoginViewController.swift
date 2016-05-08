@@ -31,11 +31,15 @@ class LoginViewController: UIViewController {
         msgComposer.sendMessage("Hello dude", number: "81733082", parentView: self)
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let tabbarVC = segue.destinationViewController as! UITabBarController
         if (segue.identifier == "login"){
             if let nextVC:FirstViewController = (segue.destinationViewController as? UITabBarController)!.viewControllers![0] as? FirstViewController {
                 nextVC.username = textFieldUsername.text!
             }
-            if let nextVC:SecondViewController = (segue.destinationViewController as? UITabBarController)!.viewControllers![1] as? SecondViewController {
+            
+            let navigationUIVC: UINavigationController = ((segue.destinationViewController as? UITabBarController)!.viewControllers![1] as? UINavigationController)!
+            
+            if let nextVC:SecondViewController = navigationUIVC.childViewControllers[0] as? SecondViewController {
                 nextVC.username = textFieldUsername.text!
             }
             

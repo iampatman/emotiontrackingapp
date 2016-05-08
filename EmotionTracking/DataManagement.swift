@@ -13,7 +13,7 @@ class DataManagement{
     static var _instance: DataManagement?
     var emotionsDB: COpaquePointer = nil
     var selectAllStatement:COpaquePointer = nil
-    var activities:[Activity] = []
+    var insertStatement: COpaquePointer = nil
 
     let SQLITE_TRANSIENT = unsafeBitCast(-1, sqlite3_destructor_type.self)
     static func getInstance() -> DataManagement {
@@ -46,39 +46,68 @@ class DataManagement{
         }
         
         print("DB Created successfully")
+       prepareStatement()
+    }
+    
+    func prepareStatement(){
         var sqlString: String
-        //prepare statement
+        //prepare statement select all
         sqlString = "SELECT * FROM ACTIVITIES"
         var cSql = sqlString.cStringUsingEncoding(NSUTF8StringEncoding)
         sqlite3_prepare_v2(emotionsDB, cSql!, -1, &selectAllStatement, nil)
+        
+        //insert into tables
+        sqlString = "INSERT INTO ACTIVITIES (username, longitude, latitude, thought, emotionId) VALUES (?, ?, ?, ?, ?)"
+        cSql = sqlString.cStringUsingEncoding(NSUTF8StringEncoding)
+        sqlite3_prepare_v2(emotionsDB, cSql!, -1, &insertStatement, nil)
     }
     
     func addNewActivity(activity: Activity){
-        //Add new activity to db 
+        //Add new activity to db
         //Chenyao and TangTing
+        let usernameStr = activity.username
+        let longitudeDob = activity.longitude
+        let latitudeDob = activity.latitude
+        let thoughtStr = activity.thought
+        let emotionIdInt = Int32(activity.emotionId)
+        
+        sqlite3_bind_text(insertStatement, 1, usernameStr, -1, SQLITE_TRANSIENT)
+        sqlite3_bind_double(insertStatement, 2, longitudeDob)
+        sqlite3_bind_double(insertStatement, 3, latitudeDob)
+        sqlite3_bind_text(insertStatement, 4, thoughtStr, -1, SQLITE_TRANSIENT)
+        sqlite3_bind_int(insertStatement, 5, emotionIdInt)
+        if (sqlite3_step(insertStatement) == SQLITE_DONE) {
+            print("Add avtivity successful")
+        }else{
+            print("Error code: ", sqlite3_errcode(emotionsDB))
+        }
+        sqlite3_reset(insertStatement)
+        sqlite3_clear_bindings(insertStatement)
     }
-    
         
     func selectAllActivities(username: String) -> [Activity]{
         //select new activity to db
+        var activities:[Activity] = []
+        
         //Haijun
         while(sqlite3_step(selectAllStatement) == SQLITE_ROW)
         {
-            let username_buf = String.fromCString(UnsafePointer<CChar>(sqlite3_column_text(selectAllStatement, 0)))
-            let longitude_buf = sqlite3_column_double(selectAllStatement, 1)
-            
-            let latitude_buf = sqlite3_column_double(selectAllStatement, 2)
-            let thought_buf = String.fromCString(UnsafePointer<CChar>(sqlite3_column_text(selectAllStatement, 3)))
-            let emotionid_buf:Int32 = sqlite3_column_int(selectAllStatement, 4)
-            let time_buf = String.fromCString(UnsafePointer<CChar>(sqlite3_column_text(selectAllStatement, 5)))
-
+            let username_buf = String.fromCString(UnsafePointer<CChar>(sqlite3_column_text(selectAllStatement, 1)))
+            let longitude_buf = sqlite3_column_double(selectAllStatement, 2)
+            let latitude_buf = sqlite3_column_double(selectAllStatement, 3)
+            let thought_buf = String.fromCString(UnsafePointer<CChar>(sqlite3_column_text(selectAllStatement, 4)))
+            let emotionid_buf:Int32 = sqlite3_column_int(selectAllStatement, 5)
+            var time_buf = String.fromCString(UnsafePointer<CChar>(sqlite3_column_text(selectAllStatement, 6)))
+            if (time_buf) == nil {
+                time_buf = ""
+            }
             if(username == username_buf) {
-                activities.append(Activity(username: username_buf!, emotionId: emotionid_buf, longitude: longitude_buf, latitude: latitude_buf, thought: thought_buf!, time: time_buf!))
+                activities.append(Activity(username: username_buf!, emotionId: Int(emotionid_buf), longitude: longitude_buf, latitude: latitude_buf, thought: thought_buf!, time: time_buf!))
             }
         }
         sqlite3_reset(selectAllStatement)
         sqlite3_clear_bindings(selectAllStatement)
-        
+        print("Read from SQLITE: \(activities.count)")
         return activities
     }
     

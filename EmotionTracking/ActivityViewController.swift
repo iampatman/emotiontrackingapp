@@ -17,31 +17,64 @@ class ActivityViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var thought: UITextField!
     var emotionIdInt:Int = 0
     
-    @IBAction func cuteTap(sender: AnyObject) {
+    @IBOutlet weak var excitedImage: UIImageView!
+    @IBOutlet weak var happyImage: UIImageView!
+    @IBOutlet weak var apatheticImage: UIImageView!
+    @IBOutlet weak var sadImage: UIImageView!
+    @IBOutlet weak var angryImage: UIImageView!
+    
+    @IBAction func excitedTap(sender: AnyObject) {
         emotionIdInt = 1
+        // excitedImage.image = imageViewArray[x]
+        excitedImage.image = UIImage(named: "excited_select.png" )
+        happyImage.image = UIImage(named: "happy_normal.png")
+        apatheticImage.image = UIImage(named: "apathetic_normal.png")
+        sadImage.image = UIImage(named: "sad_normal.png")
+        angryImage.image = UIImage(named: "angry_normal.png")
     }
     
     @IBAction func happyTap(sender: AnyObject) {
         emotionIdInt = 2
+        happyImage.image = UIImage(named: "happy_select.png" )
+        excitedImage.image = UIImage(named: "excited_normal.png")
+        apatheticImage.image = UIImage(named: "apathetic_normal.png")
+        sadImage.image = UIImage(named: "sad_normal.png")
+        angryImage.image = UIImage(named: "angry_normal.png")
     }
     
-    @IBAction func smileTap(sender: AnyObject) {
+    @IBAction func apatheticTap(sender: AnyObject) {
         emotionIdInt = 3
+        apatheticImage.image = UIImage(named: "apathetic_select.png")
+        excitedImage.image = UIImage(named: "excited_normal.png")
+        happyImage.image = UIImage(named: "happy_normal.png")
+        sadImage.image = UIImage(named: "sad_normal.png")
+        angryImage.image = UIImage(named: "angry_normal.png")
     }
     
     @IBAction func sadTap(sender: AnyObject) {
         emotionIdInt = 4
+        sadImage.image = UIImage(named: "sad_select.png")
+        excitedImage.image = UIImage(named: "excited_normal.png")
+        happyImage.image = UIImage(named: "happy_normal.png")
+        apatheticImage.image = UIImage(named: "apathetic_normal.png")
+        angryImage.image = UIImage(named: "angry_normal.png")
     }
     
     @IBAction func angryTap(sender: AnyObject) {
+        //tapViews(angryImage, imageName: "angry", emotionId: emotionIdInt)
         emotionIdInt = 5
+        angryImage.image = UIImage(named: "angry_select.png")
+        happyImage.image = UIImage(named: "happy_normal.png")
+        sadImage.image = UIImage(named: "sad_normal.png")
+        apatheticImage.image = UIImage(named: "apathetic_normal.png")
+        sadImage.image = UIImage(named: "sad_normal.png")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       thought.delegate = self
-    userNameLabel.text = "trung"
-
+        thought.delegate = self
+        userNameLabel.text = "trung"
+        
         // Do any additional setup after loading the view, typically from a nib
     }
     
@@ -51,34 +84,34 @@ class ActivityViewController: UIViewController,UITextFieldDelegate {
         }
         return true;
     }
-
+    
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         let maxLength = 15
         let currentgString:NSString = textField.text!
         let newString:NSString = currentgString.stringByReplacingCharactersInRange(range, withString: string)
-        return newString.length <= maxLength   
+        return newString.length <= maxLength
     }
     
-    func createActivities(sender: AnyObject) {
+    @IBAction func createActivities(sender: AnyObject) {
         self.activityIndicator.startAnimating()
         let usernameStr = userNameLabel.text!
         let long: Double = 103.776611
         let lat: Double = 1.292516
         let thoughtStr = thought.text! as String
-        thought.text = thoughtStr
+        //thought.text = thoughtStr
         
-        let newActivity: Activity = Activity.init(username: usernameStr, emotionId: 2, longitude: long, latitude: lat, thought: thoughtStr, time: "")
+        let newActivity: Activity = Activity(username: usernameStr, emotionId: emotionIdInt, longitude: long, latitude: lat, thought: thoughtStr)
         DataManagement.getInstance().addNewActivity(newActivity)
         
         let params = ["username":usernameStr, "emotionId":emotionIdInt, "longitude":long, "latitude":lat, "thought":thoughtStr]
         
-      Utils.sendHTTPPostRequest("https://emotionstrackingapp.herokuapp.com/postActivity", params: params){(returnData: NSDictionary) in
-                let resultCode: Int = (returnData["result"] as? Int)!
+        Utils.sendHTTPPostRequest("https://emotionstrackingapp.herokuapp.com/postActivity", params: params){(returnData: NSDictionary) in
+            let resultCode: Int = (returnData["result"] as? Int)!
             self.returnCode = resultCode
             print(resultCode)
             self.activityIndicator.stopAnimating()
             if (resultCode == 1){
-               //self.performSegueWithIdentifier("gotoMapView", sender: self)
+                //self.performSegueWithIdentifier("gotoMapView", sender: self)
             } else {
                 Utils.showMessageBox("Add activity failed", viewController: self)
             }

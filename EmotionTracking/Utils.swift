@@ -13,6 +13,7 @@ import MessageUI
 class Utils {
     
     static var emotionList = ["Happy", "Sad", "Despressed", "Afraid", "Anger"] //0...4
+    static var emotionImagesFileName = ["excited","happy","apathetic","sad","angry"]
 
     class func showMessageBox(content: String, viewController: UIViewController){
         let alertPopUp:UIAlertController = UIAlertController(title: "Alert", message: content, preferredStyle: .Alert)
