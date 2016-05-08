@@ -13,6 +13,7 @@ import CoreLocation
 class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopoverPresentationControllerDelegate, MKMapViewDelegate
 {
     
+    @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     //var activitiesList: [NSDictionary]?
     var location : LocationObject!
@@ -26,6 +27,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.addButton.layer.cornerRadius = 25
+        
         // Do any additional setup after loading the view, typically from a nib.
         NSTimer.scheduledTimerWithTimeInterval(1000.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
         

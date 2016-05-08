@@ -8,13 +8,36 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var loginResult: Int = 0
     
+    @IBOutlet weak var loginButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.loginButton.layer.cornerRadius = 5
+        textFieldUsername.becomeFirstResponder()
+        
+        textFieldUsername.delegate = self
+        textFieldMobileNumber.delegate = self
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textFieldUsername.resignFirstResponder()
+        textFieldMobileNumber.resignFirstResponder()
+        return true
+    }
+    
+    
+    @IBAction func aboutUsButton(sender: AnyObject) {
+        printMessage("\nNguyen Bui AN Trung\n Vuong Quy Ngoc\n Gao HaiJun\n Chen Yao\n Tang Ting")
+        
+    }
+    func printMessage(name:String){
+        let aletrPopUp:UIAlertController = UIAlertController(title:"About us.",message: name, preferredStyle:UIAlertControllerStyle.Alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .Cancel){action -> Void in}
+        aletrPopUp.addAction(cancelAction)
+        self.presentViewController(aletrPopUp, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
