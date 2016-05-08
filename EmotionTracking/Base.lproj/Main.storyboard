@@ -228,13 +228,6 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ae0-qJ-PaR">
                                 <rect key="frame" x="150" y="351" width="20" height="20"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T9M-6c-abc">
-                                <rect key="frame" x="125" y="397" width="71" height="46"/>
-                                <state key="normal" title="Post"/>
-                                <connections>
-                                    <action selector="createActivities:" destination="wHQ-eN-ZRY" eventType="touchUpInside" id="sy0-Oo-uix"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -243,7 +236,12 @@
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="reply" id="QtE-n8-rga">
                             <color key="tintColor" red="0.27058823529999998" green="0.63137254899999995" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="bDO-YV-Wfd" kind="unwind" unwindAction="cancelToActivityViewController:" id="QuF-dE-irm"/>
+                                <segue destination="bDO-YV-Wfd" kind="unwind" identifier="backToMap" unwindAction="cancelToActivityViewController:" id="QuF-dE-irm"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="XTQ-p3-dhg">
+                            <connections>
+                                <action selector="createActivities:" destination="wHQ-eN-ZRY" id="bu2-3c-mfj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

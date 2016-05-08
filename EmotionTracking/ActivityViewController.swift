@@ -103,15 +103,16 @@ class ActivityViewController: UIViewController,UITextFieldDelegate {
         let newActivity: Activity = Activity(username: usernameStr, emotionId: emotionIdInt, longitude: long, latitude: lat, thought: thoughtStr)
         DataManagement.getInstance().addNewActivity(newActivity)
         
-        let params = ["username":usernameStr, "emotionId":emotionIdInt, "longitude":long, "latitude":lat, "thought":thoughtStr]
+        let params = ["username": usernameStr, "emotionId":emotionIdInt, "longitude":long, "latitude":lat, "thought":thoughtStr]
         
         Utils.sendHTTPPostRequest("https://emotionstrackingapp.herokuapp.com/postActivity", params: params){(returnData: NSDictionary) in
             let resultCode: Int = (returnData["result"] as? Int)!
             self.returnCode = resultCode
             print(resultCode)
             self.activityIndicator.stopAnimating()
+            self.thought.text = ""
             if (resultCode == 1){
-                //self.performSegueWithIdentifier("gotoMapView", sender: self)
+                self.performSegueWithIdentifier("backToMap", sender: self)
             } else {
                 Utils.showMessageBox("Add activity failed", viewController: self)
             }

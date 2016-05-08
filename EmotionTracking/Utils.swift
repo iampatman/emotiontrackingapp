@@ -38,6 +38,8 @@ class Utils {
         viewController.presentViewController(alertPopUp, animated: true, completion: nil)
         
     }
+    
+    
 
     class func sendHTTPPostRequest(urlStr: String, params: NSDictionary, completion: (result: NSDictionary) -> Void) {
         print("Url request: \(urlStr)")
