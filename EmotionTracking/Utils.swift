@@ -12,7 +12,8 @@ import MessageUI
 
 class Utils {
     
-    
+    static var emotionList = ["Happy", "Sad", "Despressed", "Afraid", "Anger"] //0...4
+
     class func showMessageBox(content: String, viewController: UIViewController){
         let alertPopUp:UIAlertController = UIAlertController(title: "Alert", message: content, preferredStyle: .Alert)
         let cancelAction = UIAlertAction(title: "OK", style: .Cancel){
@@ -41,7 +42,10 @@ class Utils {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             print("Response: \(response)")
-            print("Error: \(error?.localizedDescription)")
+            if (error != nil){
+                print("Error: \(error?.localizedDescription)")
+                completion(result: [:])
+            }
             let strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
             print("Body: \(strData!)")
             

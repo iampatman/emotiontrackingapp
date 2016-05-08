@@ -11,15 +11,17 @@ import Foundation
 class Activity {
     var username: String!
     var thought: String!
-    var emotionId: Int
-    var longitude: Float
-    var latitude: Float
+    var emotionId: Int32
+    var longitude: Double
+    var latitude: Double
+    var time:String
     
-    init(username: String, emotionId: Int, longitude: Float, latitude: Float, thought: String){
+    init(username: String, emotionId: Int32, longitude: Double, latitude: Double, thought: String, time:String){
         self.username = username
         self.emotionId = emotionId
         self.longitude = longitude
         self.latitude = latitude
-        self.thought = thought        
+        self.thought = thought
+        self.time = time //only for hishtory, if it's real please ignore this field
     }
 }

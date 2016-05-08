@@ -21,11 +21,26 @@
 		3F185F4B1CD8D37900EFE11B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F4A1CD8D37900EFE11B /* User.swift */; };
 		3F185F4D1CD8D3BE00EFE11B /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F4C1CD8D3BE00EFE11B /* Activity.swift */; };
 		3F185F4F1CD8D47700EFE11B /* EmotionsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F4E1CD8D47700EFE11B /* EmotionsEnum.swift */; };
+		3F1CA31C1CDE0AC100076736 /* EmotionTrackingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1CA31B1CDE0AC100076736 /* EmotionTrackingTests.swift */; };
+		3F1CA3241CDE0AD300076736 /* LoginUnitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1CA3231CDE0AD300076736 /* LoginUnitTesting.swift */; };
+		3F27DFAA1CDE2ED0006FBF0B /* DetailLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27DFA81CDE2ED0006FBF0B /* DetailLocationView.swift */; };
+		3F27DFAB1CDE2ED0006FBF0B /* LocationObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27DFA91CDE2ED0006FBF0B /* LocationObject.swift */; };
 		3F7E99E91CDB756F00EBC190 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7E99E81CDB756F00EBC190 /* MessageUI.framework */; };
 		3F7E99EB1CDB761800EBC190 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7E99EA1CDB761800EBC190 /* MessageComposer.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3F1CA31E1CDE0AC100076736 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F185F191CD88CCD00EFE11B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F185F201CD88CCD00EFE11B;
+			remoteInfo = EmotionTracking;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		2AFB15C91CDC8D9600CAC5E4 /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 		3F185F211CD88CCD00EFE11B /* EmotionTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F185F241CD88CCD00EFE11B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F185F261CD88CCD00EFE11B /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +58,12 @@
 		3F185F4A1CD8D37900EFE11B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3F185F4C1CD8D3BE00EFE11B /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		3F185F4E1CD8D47700EFE11B /* EmotionsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionsEnum.swift; sourceTree = "<group>"; };
+		3F1CA3191CDE0AC100076736 /* EmotionTrackingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmotionTrackingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F1CA31B1CDE0AC100076736 /* EmotionTrackingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionTrackingTests.swift; sourceTree = "<group>"; };
+		3F1CA31D1CDE0AC100076736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F1CA3231CDE0AD300076736 /* LoginUnitTesting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUnitTesting.swift; sourceTree = "<group>"; };
+		3F27DFA81CDE2ED0006FBF0B /* DetailLocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailLocationView.swift; sourceTree = "<group>"; };
+		3F27DFA91CDE2ED0006FBF0B /* LocationObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationObject.swift; sourceTree = "<group>"; };
 		3F7E99E81CDB756F00EBC190 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3F7E99EA1CDB761800EBC190 /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -57,18 +78,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3F1CA3161CDE0AC100076736 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A4FDDC61CDDA3440033A50E /* Unit Testing */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Unit Testing";
+			sourceTree = "<group>";
+		};
 		3F185F181CD88CCD00EFE11B = {
 			isa = PBXGroup;
 			children = (
+				3F1CA3231CDE0AD300076736 /* LoginUnitTesting.swift */,
 				3F7E99EA1CDB761800EBC190 /* MessageComposer.swift */,
 				3F7E99E81CDB756F00EBC190 /* MessageUI.framework */,
 				3F185F471CD8CC2F00EFE11B /* Bridging-Header.m */,
 				3F185F431CD8CBB300EFE11B /* libsqlite3.tbd */,
 				3F185F231CD88CCD00EFE11B /* EmotionTracking */,
+				3F1CA31A1CDE0AC100076736 /* EmotionTrackingTests */,
 				3F185F221CD88CCD00EFE11B /* Products */,
+				2A4FDDC61CDDA3440033A50E /* Unit Testing */,
 				3F185F461CD8CC2F00EFE11B /* EmotionTracking-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
@@ -77,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				3F185F211CD88CCD00EFE11B /* EmotionTracking.app */,
+				3F1CA3191CDE0AC100076736 /* EmotionTrackingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,6 +123,8 @@
 		3F185F231CD88CCD00EFE11B /* EmotionTracking */ = {
 			isa = PBXGroup;
 			children = (
+				3F27DFA81CDE2ED0006FBF0B /* DetailLocationView.swift */,
+				3F27DFA91CDE2ED0006FBF0B /* LocationObject.swift */,
 				3F185F491CD8D35D00EFE11B /* DataManagement */,
 				3F185F3C1CD89EDC00EFE11B /* LoginViewController.swift */,
 				3F185F241CD88CCD00EFE11B /* AppDelegate.swift */,
@@ -94,6 +135,7 @@
 				3F185F2F1CD88CCD00EFE11B /* LaunchScreen.storyboard */,
 				3F185F321CD88CCD00EFE11B /* Info.plist */,
 				3F185F381CD88CDF00EFE11B /* Utils.swift */,
+				2AFB15C91CDC8D9600CAC5E4 /* MessageComposer.swift */,
 			);
 			path = EmotionTracking;
 			sourceTree = "<group>";
@@ -107,6 +149,15 @@
 				3F185F4E1CD8D47700EFE11B /* EmotionsEnum.swift */,
 			);
 			name = DataManagement;
+			sourceTree = "<group>";
+		};
+		3F1CA31A1CDE0AC100076736 /* EmotionTrackingTests */ = {
+			isa = PBXGroup;
+			children = (
+				3F1CA31B1CDE0AC100076736 /* EmotionTrackingTests.swift */,
+				3F1CA31D1CDE0AC100076736 /* Info.plist */,
+			);
+			path = EmotionTrackingTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +180,24 @@
 			productReference = 3F185F211CD88CCD00EFE11B /* EmotionTracking.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3F1CA3181CDE0AC100076736 /* EmotionTrackingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F1CA3221CDE0AC100076736 /* Build configuration list for PBXNativeTarget "EmotionTrackingTests" */;
+			buildPhases = (
+				3F1CA3151CDE0AC100076736 /* Sources */,
+				3F1CA3161CDE0AC100076736 /* Frameworks */,
+				3F1CA3171CDE0AC100076736 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F1CA31F1CDE0AC100076736 /* PBXTargetDependency */,
+			);
+			name = EmotionTrackingTests;
+			productName = EmotionTrackingTests;
+			productReference = 3F1CA3191CDE0AC100076736 /* EmotionTrackingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -142,6 +211,10 @@
 					3F185F201CD88CCD00EFE11B = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = VBEVMP5SLB;
+					};
+					3F1CA3181CDE0AC100076736 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 3F185F201CD88CCD00EFE11B;
 					};
 				};
 			};
@@ -159,6 +232,7 @@
 			projectRoot = "";
 			targets = (
 				3F185F201CD88CCD00EFE11B /* EmotionTracking */,
+				3F1CA3181CDE0AC100076736 /* EmotionTrackingTests */,
 			);
 		};
 /* End PBXProject section */
@@ -174,6 +248,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3F1CA3171CDE0AC100076736 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -186,7 +267,9 @@
 				3F185F421CD8CB3A00EFE11B /* DataManagement.swift in Sources */,
 				3F185F481CD8CC2F00EFE11B /* Bridging-Header.m in Sources */,
 				3F185F4F1CD8D47700EFE11B /* EmotionsEnum.swift in Sources */,
+				3F27DFAB1CDE2ED0006FBF0B /* LocationObject.swift in Sources */,
 				3F185F4B1CD8D37900EFE11B /* User.swift in Sources */,
+				3F27DFAA1CDE2ED0006FBF0B /* DetailLocationView.swift in Sources */,
 				3F185F271CD88CCD00EFE11B /* FirstViewController.swift in Sources */,
 				3F185F4D1CD8D3BE00EFE11B /* Activity.swift in Sources */,
 				3F185F3D1CD89EDC00EFE11B /* LoginViewController.swift in Sources */,
@@ -195,7 +278,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3F1CA3151CDE0AC100076736 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F1CA3241CDE0AD300076736 /* LoginUnitTesting.swift in Sources */,
+				3F1CA31C1CDE0AC100076736 /* EmotionTrackingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3F1CA31F1CDE0AC100076736 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F185F201CD88CCD00EFE11B /* EmotionTracking */;
+			targetProxy = 3F1CA31E1CDE0AC100076736 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3F185F2A1CD88CCD00EFE11B /* Main.storyboard */ = {
@@ -330,6 +430,31 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EmotionTracking-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Release;
+		};
+		3F1CA3201CDE0AC100076736 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EmotionTrackingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sg.edu.nus.iss.wlad.EmotionTrackingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EmotionTracking.app/EmotionTracking";
+			};
+			name = Debug;
+		};
+		3F1CA3211CDE0AC100076736 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EmotionTrackingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sg.edu.nus.iss.wlad.EmotionTrackingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EmotionTracking.app/EmotionTracking";
 			};
 			name = Release;
 		};
@@ -350,6 +475,15 @@
 			buildConfigurations = (
 				3F185F361CD88CCD00EFE11B /* Debug */,
 				3F185F371CD88CCD00EFE11B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F1CA3221CDE0AC100076736 /* Build configuration list for PBXNativeTarget "EmotionTrackingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F1CA3201CDE0AC100076736 /* Debug */,
+				3F1CA3211CDE0AC100076736 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
