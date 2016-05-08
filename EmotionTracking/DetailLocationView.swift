@@ -27,12 +27,7 @@ class DetailLocationView: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         //self.configureView()
         // Build a programmatic view
-        view.backgroundColor = UIColor(
-            red: 0.8,
-            green: 0.5,
-            blue: 0.2,
-            alpha: 1.0)
-    
+            
        
     }
     @IBAction func sendMessage(){

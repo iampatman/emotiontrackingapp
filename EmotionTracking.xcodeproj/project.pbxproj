@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A672FD91CDEEDEB0067872C /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A672FD81CDEEDEB0067872C /* ActivityViewController.swift */; };
 		3F185F251CD88CCD00EFE11B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F241CD88CCD00EFE11B /* AppDelegate.swift */; };
 		3F185F271CD88CCD00EFE11B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F261CD88CCD00EFE11B /* FirstViewController.swift */; };
 		3F185F291CD88CCD00EFE11B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F281CD88CCD00EFE11B /* SecondViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A672FD81CDEEDEB0067872C /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		2AFB15C91CDC8D9600CAC5E4 /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 		3F185F211CD88CCD00EFE11B /* EmotionTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F185F241CD88CCD00EFE11B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,9 +125,10 @@
 		3F185F231CD88CCD00EFE11B /* EmotionTracking */ = {
 			isa = PBXGroup;
 			children = (
+				3F185F491CD8D35D00EFE11B /* DataManagement */,
+				2A672FD81CDEEDEB0067872C /* ActivityViewController.swift */,
 				3F27DFA81CDE2ED0006FBF0B /* DetailLocationView.swift */,
 				3F27DFA91CDE2ED0006FBF0B /* LocationObject.swift */,
-				3F185F491CD8D35D00EFE11B /* DataManagement */,
 				3F185F3C1CD89EDC00EFE11B /* LoginViewController.swift */,
 				3F185F241CD88CCD00EFE11B /* AppDelegate.swift */,
 				3F185F261CD88CCD00EFE11B /* FirstViewController.swift */,
@@ -273,6 +276,7 @@
 				3F185F271CD88CCD00EFE11B /* FirstViewController.swift in Sources */,
 				3F185F4D1CD8D3BE00EFE11B /* Activity.swift in Sources */,
 				3F185F3D1CD89EDC00EFE11B /* LoginViewController.swift in Sources */,
+				2A672FD91CDEEDEB0067872C /* ActivityViewController.swift in Sources */,
 				3F185F391CD88CDF00EFE11B /* Utils.swift in Sources */,
 				3F7E99EB1CDB761800EBC190 /* MessageComposer.swift in Sources */,
 			);

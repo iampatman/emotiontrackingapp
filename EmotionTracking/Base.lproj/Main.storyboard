@@ -26,7 +26,7 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="+"/>
                                 <connections>
-                                    <segue destination="rcO-Ey-Fxt" kind="showDetail" id="UiC-8C-68H"/>
+                                    <segue destination="kjY-xv-Agq" kind="showDetail" id="k2E-yz-CqB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -101,7 +101,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.36862745098039218" green="0.48627450980392156" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="mqc-S0-dEs">
                         <barButtonItem key="backBarButtonItem" title="Main" id="B6B-2X-beZ"/>
@@ -115,28 +115,119 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccW-ix-DMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1881" y="-250"/>
+            <point key="canvasLocation" x="2003" y="-199"/>
         </scene>
-        <!--What's in your mind?-->
-        <scene sceneID="Byf-uc-622">
+        <!--ActivityPost-->
+        <scene sceneID="03w-Ct-0Gs">
             <objects>
-                <viewController id="XKn-Z6-MCd" sceneMemberID="viewController">
+                <viewController title="ActivityPost" id="wHQ-eN-ZRY" customClass="ActivityViewController" customModule="EmotionTracking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Obq-wz-Iyo"/>
-                        <viewControllerLayoutGuide type="bottom" id="iKU-Yq-H7s"/>
+                        <viewControllerLayoutGuide type="top" id="Ewg-LX-kHj"/>
+                        <viewControllerLayoutGuide type="bottom" id="MHn-IX-mV7"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kL9-3F-UWl">
+                    <view key="view" contentMode="scaleToFill" id="RUF-xm-stl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="thought" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Y8-Ch-mG8">
+                                <rect key="frame" x="20" y="228" width="61" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d8X-cb-ykg">
+                                <rect key="frame" x="20" y="275" width="209" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZs-B3-JmN">
+                                <rect key="frame" x="12" y="143" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smile" translatesAutoresizingMaskIntoConstraints="NO" id="aU7-V2-kHc">
+                                <rect key="frame" x="135" y="73" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="FPD-Ud-40Q" appends="YES" id="3g4-D4-4VW"/>
+                                </connections>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="angry" translatesAutoresizingMaskIntoConstraints="NO" id="AQW-nq-z0j">
+                                <rect key="frame" x="238" y="73" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="happy" translatesAutoresizingMaskIntoConstraints="NO" id="Pdb-Qs-bic">
+                                <rect key="frame" x="84" y="73" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="2ti-As-plm" appends="YES" id="1Jw-SB-c5w"/>
+                                </connections>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sad" translatesAutoresizingMaskIntoConstraints="NO" id="sMY-cH-DWO">
+                                <rect key="frame" x="186" y="73" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="2hK-wj-8ry" appends="YES" id="3er-83-RmO"/>
+                                </connections>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cute" translatesAutoresizingMaskIntoConstraints="NO" id="hWe-fy-mLW">
+                                <rect key="frame" x="30" y="73" width="51" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="iMd-yP-saY" appends="YES" id="4R9-8K-4Ez"/>
+                                </connections>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H88-P1-WiJ">
+                                <rect key="frame" x="104" y="391" width="95" height="41"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="createActivities:" destination="wHQ-eN-ZRY" eventType="touchUpInside" id="Vpl-7t-wbV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.36862745098039218" green="0.48627450980392156" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="What's in your mind?" id="8sH-3q-l2T">
-                        <barButtonItem key="backBarButtonItem" title="Main" id="vMY-xi-bRL"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="What's in your mind?" id="Ueo-7W-nAP">
+                        <barButtonItem key="backBarButtonItem" title="Map" id="8Ut-Lt-QKv"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="thought" destination="d8X-cb-ykg" id="u08-07-U2Y"/>
+                        <outlet property="userNameLabel" destination="uZs-B3-JmN" id="gpl-Nl-WBF"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="i6d-00-FwV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wEp-et-Ulj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="iMd-yP-saY" userLabel="cuteTap">
+                    <connections>
+                        <action selector="cuteTap:" destination="wHQ-eN-ZRY" id="Ayh-A6-3ML"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="2ti-As-plm" userLabel="happyTap">
+                    <connections>
+                        <action selector="happyTap:" destination="wHQ-eN-ZRY" id="eF0-or-DBk"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="FPD-Ud-40Q" userLabel="smileTap">
+                    <connections>
+                        <action selector="smileTap:" destination="wHQ-eN-ZRY" id="aMw-pt-3v3"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="2hK-wj-8ry" userLabel="sadTap">
+                    <connections>
+                        <action selector="sadTap:" destination="wHQ-eN-ZRY" id="wsz-Pz-OfS"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="B1R-eZ-xn6" userLabel="angryTap">
+                    <connections>
+                        <action selector="angryTap:" destination="wHQ-eN-ZRY" id="euO-se-BG1"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1738" y="-989"/>
+            <point key="canvasLocation" x="1971" y="-947"/>
         </scene>
         <!--History-->
         <scene sceneID="wg7-f3-ORb">
@@ -277,7 +368,7 @@
                                 <rect key="frame" x="138" y="384" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" red="0.3692871513" green="0.48694536900000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.36862745098039218" green="0.48627450980392156" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -310,28 +401,6 @@
             <point key="canvasLocation" x="750" y="360"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="2Z3-up-0hA">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rcO-Ey-Fxt" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gM8-Dw-B5i">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Ll3-aq-tVt">
-                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="XKn-Z6-MCd" kind="relationship" relationship="rootViewController" id="O7a-bQ-HXT"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RIE-Cx-SHz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1239" y="-989"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="Imf-BO-nci">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pzm-2j-8gj" sceneMemberID="viewController">
@@ -347,12 +416,35 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jde-Rd-6NP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1360" y="-250"/>
+            <point key="canvasLocation" x="1491" y="-142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mft-3i-lhA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kjY-xv-Agq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ugD-x1-naa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wHQ-eN-ZRY" kind="relationship" relationship="rootViewController" id="q2Y-Yo-n8w"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K7C-CX-YpI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1345" y="-947"/>
         </scene>
     </scenes>
     <resources>
+        <image name="angry" width="175" height="175"/>
+        <image name="cute" width="650" height="637"/>
         <image name="first" width="30" height="30"/>
+        <image name="happy" width="512" height="522"/>
         <image name="map" width="170" height="170"/>
+        <image name="sad" width="650" height="695"/>
         <image name="second" width="30" height="30"/>
+        <image name="smile" width="512" height="522"/>
     </resources>
 </document>
