@@ -51,59 +51,84 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="thought" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Y8-Ch-mG8">
-                                <rect key="frame" x="58" y="248" width="61" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Y8-Ch-mG8">
+                                <rect key="frame" x="17" y="239" width="93" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZs-B3-JmN">
-                                <rect key="frame" x="22" y="402" width="76" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="excited_normal" translatesAutoresizingMaskIntoConstraints="NO" id="hWe-fy-mLW">
-                                <rect key="frame" x="22" y="20" width="50" height="50"/>
+                                <rect key="frame" x="17" y="144" width="50" height="50"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="iMd-yP-saY" appends="YES" id="Qdc-cy-ez2"/>
                                 </connections>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="apathetic_normal" translatesAutoresizingMaskIntoConstraints="NO" id="aU7-V2-kHc">
-                                <rect key="frame" x="138" y="20" width="50" height="50"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="angry_normal" translatesAutoresizingMaskIntoConstraints="NO" id="AQW-nq-z0j">
+                                <rect key="frame" x="260" y="144" width="50" height="50"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="FPD-Ud-40Q" appends="YES" id="3g4-D4-4VW"/>
+                                    <outletCollection property="gestureRecognizers" destination="B1R-eZ-xn6" appends="YES" id="eyS-l8-Bjc"/>
                                 </connections>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="angry_normal" translatesAutoresizingMaskIntoConstraints="NO" id="AQW-nq-z0j">
-                                <rect key="frame" x="254" y="20" width="50" height="50"/>
-                            </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="happy_normal" translatesAutoresizingMaskIntoConstraints="NO" id="Pdb-Qs-bic">
-                                <rect key="frame" x="80" y="20" width="50" height="50"/>
+                                <rect key="frame" x="76" y="144" width="50" height="50"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="2ti-As-plm" appends="YES" id="1Jw-SB-c5w"/>
                                 </connections>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H88-P1-WiJ">
-                                <rect key="frame" x="127" y="427" width="67" height="30"/>
-                                <color key="backgroundColor" red="0.25888600610000001" green="0.88121047470000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <gestureRecognizers/>
-                                <state key="normal" title="Add"/>
-                                <connections>
-                                    <action selector="createActivities:" destination="wHQ-eN-ZRY" eventType="touchUpInside" id="Vpl-7t-wbV"/>
-                                    <segue destination="9pv-A4-QxB" kind="modal" identifier="gotoMapView" id="Jzd-lQ-sVM"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d8X-cb-ykg">
-                                <rect key="frame" x="162" y="244" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sad_normal" translatesAutoresizingMaskIntoConstraints="NO" id="sMY-cH-DWO">
-                                <rect key="frame" x="196" y="20" width="50" height="50"/>
+                                <rect key="frame" x="202" y="144" width="50" height="50"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="2hK-wj-8ry" appends="YES" id="3er-83-RmO"/>
+                                </connections>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d8X-cb-ykg">
+                                <rect key="frame" x="20" y="267" width="290" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="no more than 30 words" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5V4-bd-m6b">
+                                <rect key="frame" x="214" y="306" width="96" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                <color key="textColor" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rVX-Qx-kRD">
+                                <rect key="frame" x="17" y="298" width="293" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZs-B3-JmN">
+                                <rect key="frame" x="98" y="20" width="125" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" red="0.1492311147809634" green="0.61627232684572963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="akr-q9-LH2">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem id="WYN-fg-lf5">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="reply" id="9fy-yr-INe">
+                                            <color key="tintColor" red="0.27058823529999998" green="0.63137254899999995" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <segue destination="9pv-A4-QxB" kind="modal" identifier="backtoView" id="yoA-A2-Kjr"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Add" style="plain" id="nf3-bU-Ep9">
+                                            <color key="tintColor" red="0.27058823529999998" green="0.63137254899999995" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <segue destination="9pv-A4-QxB" kind="modal" identifier="gotoMapView" id="m8s-oc-23t"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="apathetic_normal" translatesAutoresizingMaskIntoConstraints="NO" id="aU7-V2-kHc">
+                                <rect key="frame" x="138" y="144" width="50" height="50"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="FPD-Ud-40Q" appends="YES" id="bIo-il-U8f"/>
                                 </connections>
                             </imageView>
                         </subviews>
@@ -112,6 +137,11 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="angryImage" destination="AQW-nq-z0j" id="lMb-Qv-dKX"/>
+                        <outlet property="apatheticImage" destination="aU7-V2-kHc" id="Vkh-Th-T0v"/>
+                        <outlet property="excitedImage" destination="hWe-fy-mLW" id="7Dg-q6-lwE"/>
+                        <outlet property="happyImage" destination="Pdb-Qs-bic" id="gr2-jV-vTe"/>
+                        <outlet property="sadImage" destination="sMY-cH-DWO" id="Mfs-tw-18E"/>
                         <outlet property="thought" destination="d8X-cb-ykg" id="u08-07-U2Y"/>
                         <outlet property="userNameLabel" destination="uZs-B3-JmN" id="gpl-Nl-WBF"/>
                     </connections>
@@ -143,7 +173,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="794" y="-309"/>
+            <point key="canvasLocation" x="895" y="-303"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
@@ -283,6 +313,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Jzd-lQ-sVM"/>
+        <segue reference="m8s-oc-23t"/>
     </inferredMetricsTieBreakers>
 </document>
