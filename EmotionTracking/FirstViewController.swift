@@ -72,6 +72,10 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
         
         if let annotation = annotation as? LocationObject {
             let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+            //pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+
+            let filename = Utils.emotionImagesFileName[0] + "_normal"
+            pin.image = UIImage(named: filename)
             pin.canShowCallout = true
             pin.animatesDrop = true
             pin.rightCalloutAccessoryView = UIButton.init(type: .DetailDisclosure) as UIView

@@ -95,7 +95,7 @@ class ActivityViewController: UIViewController,UITextFieldDelegate {
     @IBAction func createActivities(sender: AnyObject) {
         self.activityIndicator.startAnimating()
         let usernameStr = userNameLabel.text!
-        let long: Double = 103.776611
+        let long: Double = 103.778611
         let lat: Double = 1.292516
         let thoughtStr = thought.text! as String
         //thought.text = thoughtStr
