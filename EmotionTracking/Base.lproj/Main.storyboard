@@ -42,7 +42,7 @@
                             <constraint firstItem="ucR-Ck-fCe" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="vth-H6-HDU"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="first" selectedImage="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" selectedImage="map" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="addButton" destination="hFR-1N-uPE" id="UKq-lJ-wWh"/>
                         <outlet property="mapView" destination="ucR-Ck-fCe" id="wFG-H5-Wlu"/>
@@ -462,11 +462,11 @@
             </objects>
             <point key="canvasLocation" x="-784" y="-14"/>
         </scene>
-        <!--Second-->
+        <!--History-->
         <scene sceneID="gBW-Hp-gRz">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4ZA-DQ-nEu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="History" image="history" selectedImage="history" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="00o-3R-vOq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -521,10 +521,10 @@
     <resources>
         <image name="angry" width="175" height="175"/>
         <image name="cute" width="650" height="637"/>
-        <image name="first" width="30" height="30"/>
         <image name="happy" width="512" height="522"/>
+        <image name="history" width="25" height="26"/>
+        <image name="map" width="32" height="26"/>
         <image name="sad" width="650" height="695"/>
-        <image name="second" width="30" height="30"/>
         <image name="smile" width="512" height="522"/>
     </resources>
 </document>
