@@ -123,8 +123,8 @@
 		3F185F231CD88CCD00EFE11B /* EmotionTracking */ = {
 			isa = PBXGroup;
 			children = (
-				2A6730191CDF2BC70067872C /* MessageComposer.swift */,
 				3F185F491CD8D35D00EFE11B /* DataManagement */,
+				2A6730191CDF2BC70067872C /* MessageComposer.swift */,
 				2A672FD81CDEEDEB0067872C /* ActivityViewController.swift */,
 				3F27DFA81CDE2ED0006FBF0B /* DetailLocationView.swift */,
 				3F27DFA91CDE2ED0006FBF0B /* LocationObject.swift */,

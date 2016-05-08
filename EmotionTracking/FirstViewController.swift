@@ -143,7 +143,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
         let theRegion: MKCoordinateRegion = MKCoordinateRegionMake(newLocation, theSpan)
         self.mapView.setRegion(theRegion, animated: false)
         self.mapView.mapType = .Standard
-        
         let homePin = MKPointAnnotation()
         homePin.coordinate = coordinate
         homePin.title = "I am here"
@@ -151,6 +150,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
     }
     
     @IBAction func cancelToActivityViewController(segue:UIStoryboardSegue) {
+        
     }
     
 

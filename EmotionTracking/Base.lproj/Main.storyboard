@@ -172,12 +172,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZs-B3-JmN">
-                                <rect key="frame" x="12" y="143" width="76" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smile" translatesAutoresizingMaskIntoConstraints="NO" id="aU7-V2-kHc">
                                 <rect key="frame" x="135" y="73" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -220,6 +214,12 @@
                                 <gestureRecognizers/>
                                 <state key="normal" title="Add"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZs-B3-JmN">
+                                <rect key="frame" x="20" y="166" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.36862745098039218" green="0.48627450980392156" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -229,11 +229,6 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Pao-ck-sPb">
                             <connections>
                                 <segue destination="bDO-YV-Wfd" kind="unwind" unwindAction="cancelToActivityViewController:" id="EzA-sx-MaE"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Post" id="8vK-KA-vMN">
-                            <connections>
-                                <segue destination="bDO-YV-Wfd" kind="unwind" identifier="postActivity" unwindAction="saveActivity:" id="UkA-RJ-nWu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
