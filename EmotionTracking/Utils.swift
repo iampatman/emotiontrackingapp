@@ -15,6 +15,20 @@ class Utils {
     static var emotionList = ["Happy", "Sad", "Despressed", "Afraid", "Anger"] //0...4
     static var emotionImagesFileName = ["excited","happy","apathetic","sad","angry"]
 
+    class func currentDateTime() -> String{
+        let todaysDate:NSDate = NSDate()
+        let dateFormatter:NSDateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
+        let DateInFormat:String = dateFormatter.stringFromDate(todaysDate)
+        return DateInFormat
+    }
+    
+    class func dateFromString(date: String, format: String) -> NSDate {
+        let dateFormatter:NSDateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
+        return dateFormatter.dateFromString(date)!
+        
+    }
     class func showMessageBox(content: String, viewController: UIViewController){
         let alertPopUp:UIAlertController = UIAlertController(title: "Alert", message: content, preferredStyle: .Alert)
         let cancelAction = UIAlertAction(title: "OK", style: .Cancel){

@@ -20,8 +20,8 @@ class Activity {
         self.emotionId = emotionId
         self.longitude = longitude
         self.latitude = latitude
-        self.thought = thought
-        self.time = ""
+        self.thought = thought        
+        self.time = Utils.currentDateTime()
         
     }
     convenience init(username: String, emotionId: Int, longitude: Double, latitude: Double, thought: String, time: String){

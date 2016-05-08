@@ -35,7 +35,7 @@ class DataManagement{
                 print(sqlite3_errmsg(emotionsDB))
             }
             //create activities table
-            sql = "CREATE TABLE IF NOT EXISTS ACTIVITIES (ID INTEGER PRIMARY KEY AUTOINCREMENT, USERNAME TEXT, LONGITUDE DOUBLE, LATITUDE DOUBLE, THOUGHT TEXT, EMOTIONID INT, TIME DATETIME)"
+            sql = "CREATE TABLE IF NOT EXISTS ACTIVITIES (ID INTEGER PRIMARY KEY AUTOINCREMENT, USERNAME TEXT, LONGITUDE DOUBLE, LATITUDE DOUBLE, THOUGHT TEXT, EMOTIONID INT, TIME TEXT)"
             if (sqlite3_exec(emotionsDB, sql, nil, nil, nil) != SQLITE_OK) {
                 print("Failed to create ACTIVITIES table")
                 print(sqlite3_errmsg(emotionsDB))
@@ -57,7 +57,7 @@ class DataManagement{
         sqlite3_prepare_v2(emotionsDB, cSql!, -1, &selectAllStatement, nil)
         
         //insert into tables
-        sqlString = "INSERT INTO ACTIVITIES (username, longitude, latitude, thought, emotionId) VALUES (?, ?, ?, ?, ?)"
+        sqlString = "INSERT INTO ACTIVITIES (username, longitude, latitude, thought, emotionId, time) VALUES (?, ?, ?, ?, ?, ?)"
         cSql = sqlString.cStringUsingEncoding(NSUTF8StringEncoding)
         sqlite3_prepare_v2(emotionsDB, cSql!, -1, &insertStatement, nil)
     }
@@ -70,12 +70,15 @@ class DataManagement{
         let latitudeDob = activity.latitude
         let thoughtStr = activity.thought
         let emotionIdInt = Int32(activity.emotionId)
+        let time = activity.time
         
         sqlite3_bind_text(insertStatement, 1, usernameStr, -1, SQLITE_TRANSIENT)
         sqlite3_bind_double(insertStatement, 2, longitudeDob)
         sqlite3_bind_double(insertStatement, 3, latitudeDob)
         sqlite3_bind_text(insertStatement, 4, thoughtStr, -1, SQLITE_TRANSIENT)
         sqlite3_bind_int(insertStatement, 5, emotionIdInt)
+        sqlite3_bind_text(insertStatement, 6, time, -1, SQLITE_TRANSIENT)
+
         if (sqlite3_step(insertStatement) == SQLITE_DONE) {
             print("Add avtivity successful")
         }else{
@@ -99,7 +102,7 @@ class DataManagement{
             let emotionid_buf:Int32 = sqlite3_column_int(selectAllStatement, 5)
             var time_buf = String.fromCString(UnsafePointer<CChar>(sqlite3_column_text(selectAllStatement, 6)))
             if (time_buf) == nil {
-                time_buf = ""
+                time_buf = Utils.currentDateTime()
             }
             if(username == username_buf) {
                 activities.append(Activity(username: username_buf!, emotionId: Int(emotionid_buf), longitude: longitude_buf, latitude: latitude_buf, thought: thought_buf!, time: time_buf!))
