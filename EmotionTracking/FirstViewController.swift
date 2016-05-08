@@ -125,7 +125,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
                 self.mapView.removeAnnotations(self.locationsResult)
                 self.locationsResult.removeAll()
                 for activity in activitiesList {
-                    self.locationsResult.append(LocationObject(title: Utils.emotionList[((activity["emotionId"] as AnyObject? as? Int) ?? 0)] ?? "", subtitle: (activity["thought"] as AnyObject? as? String) ?? "",username: (activity["username"] as AnyObject? as? String) ?? "", latitude: (activity["latitude"] as AnyObject? as? Double) ?? 1.294455, longitude: (activity["longitude"] as AnyObject? as? Double) ?? 103.7829, time: (activity["time"] as AnyObject? as? NSDate) ?? NSDate(), mobileNumber: (activity["mobileNumber"] as AnyObject? as? String) ?? ""))
+                    self.locationsResult.append(LocationObject(title: Utils.emotionList[((activity["emotionId"] as AnyObject? as? Int) ?? 0)] ?? "", subtitle: (activity["thought"] as AnyObject? as? String) ?? "",username: (activity["username"] as AnyObject? as? String) ?? "", latitude: (activity["latitude"] as AnyObject? as? Double) ?? 1.294455, longitude: (activity["longitude"] as AnyObject? as? Double) ?? 103.7829, time: (activity["time"] as AnyObject? as? NSDate) ?? NSDate(), mobileNumber: (activity["mobilephone"] as AnyObject? as? String) ?? ""))
                     //Show pin on the map based on these values
                     
                 }
