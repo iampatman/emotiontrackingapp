@@ -14,7 +14,7 @@ class ActivityViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var thought: UITextField!
     var emotionIdInt:Int = 0
     
-    @IBAction func cuteTap(sender: AnyObject) {
+    @IBAction func excitedTap(sender: AnyObject) {
         emotionIdInt = 1
     }
     
@@ -22,7 +22,7 @@ class ActivityViewController: UIViewController,UITextFieldDelegate {
         emotionIdInt = 2
     }
     
-    @IBAction func smileTap(sender: AnyObject) {
+    @IBAction func apatheticTap(sender: AnyObject) {
         emotionIdInt = 3
     }
     

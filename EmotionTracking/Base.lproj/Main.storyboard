@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -14,14 +14,14 @@
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFR-1N-uPE">
                                 <rect key="frame" x="268" y="466" width="22" height="22"/>
                                 <color key="backgroundColor" red="0.52377286685341096" green="0.71806076357237625" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <segue destination="wHQ-eN-ZRY" kind="show" id="WD2-QH-Ovj"/>
+                                    <segue destination="wHQ-eN-ZRY" kind="modal" id="WD2-QH-Ovj"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ucR-Ck-fCe">
@@ -37,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="400" y="-302.93333333333334"/>
         </scene>
         <!--Activity View Controller-->
         <scene sceneID="03w-Ct-0Gs">
@@ -48,52 +48,40 @@
                         <viewControllerLayoutGuide type="bottom" id="MHn-IX-mV7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RUF-xm-stl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="thought" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Y8-Ch-mG8">
-                                <rect key="frame" x="54" y="102" width="61" height="21"/>
+                                <rect key="frame" x="58" y="248" width="61" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d8X-cb-ykg">
-                                <rect key="frame" x="164" y="98" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZs-B3-JmN">
                                 <rect key="frame" x="22" y="402" width="76" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cute" translatesAutoresizingMaskIntoConstraints="NO" id="hWe-fy-mLW">
-                                <rect key="frame" x="35" y="20" width="51" height="50"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="excited_normal" translatesAutoresizingMaskIntoConstraints="NO" id="hWe-fy-mLW">
+                                <rect key="frame" x="22" y="20" width="50" height="50"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="iMd-yP-saY" appends="YES" id="4R9-8K-4Ez"/>
+                                    <outletCollection property="gestureRecognizers" destination="iMd-yP-saY" appends="YES" id="Qdc-cy-ez2"/>
                                 </connections>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smile" translatesAutoresizingMaskIntoConstraints="NO" id="aU7-V2-kHc">
-                                <rect key="frame" x="135" y="20" width="50" height="50"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="apathetic_normal" translatesAutoresizingMaskIntoConstraints="NO" id="aU7-V2-kHc">
+                                <rect key="frame" x="138" y="20" width="50" height="50"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="FPD-Ud-40Q" appends="YES" id="3g4-D4-4VW"/>
                                 </connections>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="angry" translatesAutoresizingMaskIntoConstraints="NO" id="AQW-nq-z0j">
-                                <rect key="frame" x="235" y="20" width="50" height="50"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="angry_normal" translatesAutoresizingMaskIntoConstraints="NO" id="AQW-nq-z0j">
+                                <rect key="frame" x="254" y="20" width="50" height="50"/>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="happy" translatesAutoresizingMaskIntoConstraints="NO" id="Pdb-Qs-bic">
-                                <rect key="frame" x="84" y="20" width="50" height="50"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="happy_normal" translatesAutoresizingMaskIntoConstraints="NO" id="Pdb-Qs-bic">
+                                <rect key="frame" x="80" y="20" width="50" height="50"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="2ti-As-plm" appends="YES" id="1Jw-SB-c5w"/>
-                                </connections>
-                            </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sad" translatesAutoresizingMaskIntoConstraints="NO" id="sMY-cH-DWO">
-                                <rect key="frame" x="182" y="20" width="50" height="50"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="2hK-wj-8ry" appends="YES" id="3er-83-RmO"/>
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H88-P1-WiJ">
@@ -103,9 +91,21 @@
                                 <state key="normal" title="Add"/>
                                 <connections>
                                     <action selector="createActivities:" destination="wHQ-eN-ZRY" eventType="touchUpInside" id="Vpl-7t-wbV"/>
-                                    <segue destination="9pv-A4-QxB" kind="show" identifier="gotoMapView" id="Jzd-lQ-sVM"/>
+                                    <segue destination="9pv-A4-QxB" kind="modal" identifier="gotoMapView" id="Jzd-lQ-sVM"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d8X-cb-ykg">
+                                <rect key="frame" x="162" y="244" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sad_normal" translatesAutoresizingMaskIntoConstraints="NO" id="sMY-cH-DWO">
+                                <rect key="frame" x="196" y="20" width="50" height="50"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="2hK-wj-8ry" appends="YES" id="3er-83-RmO"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -117,9 +117,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wEp-et-Ulj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="iMd-yP-saY" userLabel="cuteTap">
+                <tapGestureRecognizer id="iMd-yP-saY" userLabel="excitedTap">
                     <connections>
-                        <action selector="cuteTap:" destination="wHQ-eN-ZRY" id="Ayh-A6-3ML"/>
+                        <action selector="excitedTap:" destination="wHQ-eN-ZRY" id="1Z7-b6-vE6"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="2ti-As-plm" userLabel="happyTap">
@@ -127,9 +127,9 @@
                         <action selector="happyTap:" destination="wHQ-eN-ZRY" id="eF0-or-DBk"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="FPD-Ud-40Q" userLabel="smileTap">
+                <tapGestureRecognizer id="FPD-Ud-40Q" userLabel="apatheticTap">
                     <connections>
-                        <action selector="smileTap:" destination="wHQ-eN-ZRY" id="aMw-pt-3v3"/>
+                        <action selector="apatheticTap:" destination="wHQ-eN-ZRY" id="PTk-WL-UKp"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="2hK-wj-8ry" userLabel="sadTap">
@@ -143,7 +143,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1343" y="-320"/>
+            <point key="canvasLocation" x="794" y="-309"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
@@ -183,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="400" y="340.80000000000001"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -244,7 +244,7 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginAction:" destination="rFW-UE-fgm" eventType="touchUpInside" id="FP9-Ob-hPI"/>
-                                    <segue destination="49e-Tb-3d3" kind="show" identifier="login" id="sSk-BP-nGF"/>
+                                    <segue destination="49e-Tb-3d3" kind="modal" identifier="login" id="sSk-BP-nGF"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Copyright to ISS NUS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rk-WY-5cr">
@@ -270,17 +270,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eMv-au-mXr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-588" y="-6"/>
+            <point key="canvasLocation" x="-313.60000000000002" y="-5.6799999999999997"/>
         </scene>
     </scenes>
     <resources>
-        <image name="angry" width="175" height="175"/>
-        <image name="cute" width="650" height="637"/>
+        <image name="angry_normal" width="108" height="108"/>
+        <image name="apathetic_normal" width="216" height="216"/>
+        <image name="excited_normal" width="108" height="108"/>
         <image name="first" width="30" height="30"/>
-        <image name="happy" width="512" height="522"/>
-        <image name="sad" width="650" height="695"/>
+        <image name="happy_normal" width="108" height="108"/>
+        <image name="sad_normal" width="108" height="108"/>
         <image name="second" width="30" height="30"/>
-        <image name="smile" width="512" height="522"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Jzd-lQ-sVM"/>
