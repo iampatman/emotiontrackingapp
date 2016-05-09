@@ -7,15 +7,21 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ActivityViewController: UIViewController,UITextFieldDelegate {
+class ActivityViewController: UIViewController,UITextFieldDelegate,CLLocationManagerDelegate{
     
     
     var returnCode: Int = 0
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var thought: UITextField!
     var emotionIdInt:Int = 0
-   // var imageViewArray:[UIImageView] = []
+    var long:Double = 0.0
+    var lat:Double = 0.0
+    var noUpdate:Int = 0
+    var locationManager:CLLocationManager!
+    var imageNameArray:[String] = []
+    var imageViewArray:[UIImageView] = []
     
     @IBOutlet weak var excitedImage: UIImageView!
     @IBOutlet weak var happyImage: UIImageView!
@@ -24,71 +30,72 @@ class ActivityViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var angryImage: UIImageView!
 
     @IBAction func excitedTap(sender: AnyObject) {
-        emotionIdInt = 1
-       // excitedImage.image = imageViewArray[x]
-        excitedImage.image = UIImage(named: "excited_select.png" )
-        happyImage.image = UIImage(named: "happy_normal.png")
-        apatheticImage.image = UIImage(named: "apathetic_normal.png")
-        sadImage.image = UIImage(named: "sad_normal.png")
-        angryImage.image = UIImage(named: "angry_normal.png")
+        tapViews(excitedImage, currentViewName: "excited")
     }
     
     @IBAction func happyTap(sender: AnyObject) {
-        emotionIdInt = 2
-        happyImage.image = UIImage(named: "happy_select.png" )
-        excitedImage.image = UIImage(named: "excited_normal.png")
-        apatheticImage.image = UIImage(named: "apathetic_normal.png")
-        sadImage.image = UIImage(named: "sad_normal.png")
-        angryImage.image = UIImage(named: "angry_normal.png")
+        tapViews(happyImage, currentViewName: "happy")
     }
     
     @IBAction func apatheticTap(sender: AnyObject) {
-        emotionIdInt = 3
-        apatheticImage.image = UIImage(named: "apathetic_select.png")
-        excitedImage.image = UIImage(named: "excited_normal.png")
-        happyImage.image = UIImage(named: "happy_normal.png")
-        sadImage.image = UIImage(named: "sad_normal.png")
-        angryImage.image = UIImage(named: "angry_normal.png")
+        tapViews(apatheticImage, currentViewName: "apathetic")
     }
     
     @IBAction func sadTap(sender: AnyObject) {
-        emotionIdInt = 4
-        sadImage.image = UIImage(named: "sad_select.png")
-        excitedImage.image = UIImage(named: "excited_normal.png")
-        happyImage.image = UIImage(named: "happy_normal.png")
-        apatheticImage.image = UIImage(named: "apathetic_normal.png")
-        angryImage.image = UIImage(named: "angry_normal.png")
+        tapViews(sadImage, currentViewName: "sad")
     }
     
     @IBAction func angryTap(sender: AnyObject) {
-        //tapViews(angryImage, imageName: "angry", emotionId: emotionIdInt)
-        emotionIdInt = 5
-        angryImage.image = UIImage(named: "angry_select.png")
-        happyImage.image = UIImage(named: "happy_normal.png")
-        sadImage.image = UIImage(named: "sad_normal.png")
-        apatheticImage.image = UIImage(named: "apathetic_normal.png")
-        sadImage.image = UIImage(named: "sad_normal.png")
+        tapViews(angryImage, currentViewName: "angry")
     }
     
-//    func tapViews(image:UIImageView, imageName:String, emotionId:Int)  {
-//        emotionIdInt = imageViewArray.indexOf(image)! + 1
-//        image.image = UIImage(named: imageName+"_select.png")
-//        //image.
-//    }
+    func tapViews(currentView:UIImageView,currentViewName:String)  {
+        //emotionIdInt = imageViewArray.indexOf(currentView)! + 1
+        //currentView.image = UIImage(named: currentViewName + "_select.png")
+        if (emotionIdInt == 0) {
+            emotionIdInt = imageViewArray.indexOf(currentView)! + 1
+            currentView.image = UIImage(named: currentViewName + "_select.png")
+        }else{
+            imageViewArray[emotionIdInt-1].image = UIImage(named: imageNameArray[emotionIdInt-1])
+            emotionIdInt = imageViewArray.indexOf(currentView)! + 1
+            currentView.image = UIImage(named: currentViewName + "_select.png")
+        }
+    }
+    
+    func addViewsNames()  {
+        imageNameArray.append("excited_normal.png")
+        imageNameArray.append("happy_normal.png")
+        imageNameArray.append("sad_normal.png")
+        imageNameArray.append("apathetic_normal.png")
+        imageNameArray.append("angry_normal.png")
+        imageViewArray.append(excitedImage)
+        imageViewArray.append(happyImage)
+        imageViewArray.append(sadImage)
+        imageViewArray.append(apatheticImage)
+        imageViewArray.append(angryImage)
+    }
    
-//    func addViews()  {
-//        imageViewArray.append(excitedImage)
-//        imageViewArray.append(happyImage)
-//        imageViewArray.append(apatheticImage)
-//        imageViewArray.append(sadImage)
-//        imageViewArray.append(angryImage)
-//    }
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let lastLocation = locations.last?.coordinate
+        lat = lastLocation!.latitude
+        long = lastLocation!.longitude
+        noUpdate += 1
+        if (noUpdate > 30) {
+            locationManager.stopUpdatingLocation()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
        thought.delegate = self
         userNameLabel.text = "trung"
         // Do any additional setup after loading the view, typically from a nib
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        addViewsNames()
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
@@ -111,8 +118,6 @@ class ActivityViewController: UIViewController,UITextFieldDelegate {
     
     func AddActivities() {
         let usernameStr = userNameLabel.text!
-        let long: Double = 103.776611
-        let lat: Double = 1.292516
         let thoughtStr = thought.text! as String
         thought.text = thoughtStr
         
