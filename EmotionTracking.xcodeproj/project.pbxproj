@@ -28,6 +28,7 @@
 		3F27DFAA1CDE2ED0006FBF0B /* DetailLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27DFA81CDE2ED0006FBF0B /* DetailLocationView.swift */; };
 		3F27DFAB1CDE2ED0006FBF0B /* LocationObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27DFA91CDE2ED0006FBF0B /* LocationObject.swift */; };
 		3F7E99E91CDB756F00EBC190 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7E99E81CDB756F00EBC190 /* MessageUI.framework */; };
+		AAB83DD61CE2282E009DF78E /* SecondOneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB83DD51CE2282E009DF78E /* SecondOneCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		3F27DFA81CDE2ED0006FBF0B /* DetailLocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailLocationView.swift; sourceTree = "<group>"; };
 		3F27DFA91CDE2ED0006FBF0B /* LocationObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationObject.swift; sourceTree = "<group>"; };
 		3F7E99E81CDB756F00EBC190 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		AAB83DD51CE2282E009DF78E /* SecondOneCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondOneCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				3F185F2F1CD88CCD00EFE11B /* LaunchScreen.storyboard */,
 				3F185F321CD88CCD00EFE11B /* Info.plist */,
 				3F185F2D1CD88CCD00EFE11B /* Assets.xcassets */,
+				AAB83DD51CE2282E009DF78E /* SecondOneCell.swift */,
 			);
 			path = EmotionTracking;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				3F185F271CD88CCD00EFE11B /* FirstViewController.swift in Sources */,
 				2A67301A1CDF2BC70067872C /* MessageComposer.swift in Sources */,
 				3F185F4D1CD8D3BE00EFE11B /* Activity.swift in Sources */,
+				AAB83DD61CE2282E009DF78E /* SecondOneCell.swift in Sources */,
 				2A1A33871CE1CFFB00AB704B /* Reachability.m in Sources */,
 				3F185F3D1CD89EDC00EFE11B /* LoginViewController.swift in Sources */,
 				2A672FD91CDEEDEB0067872C /* ActivityViewController.swift in Sources */,

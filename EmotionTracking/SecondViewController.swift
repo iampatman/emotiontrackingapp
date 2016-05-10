@@ -12,6 +12,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBOutlet weak var tableView: UITableView!
     
+    
     var username: String = ""
     
     var activityHistory: [Activity] = []
@@ -22,6 +23,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view, typically from a nib.
+        //tableView.registerNib(UINib(nibName: "SecondOneCell", bundle: nil), forCellReuseIdentifier: "SecondOneCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,15 +47,21 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! SecondOneCell
         let activity = activityHistory[activityHistory.count-indexPath.row-1]
-        cell.textLabel?.text = "\(activity.thought)"
-        cell.detailTextLabel?.text = "\(activity.time)"
+        
+        cell.thoughtLable.text = "\(activity.thought)"
+        cell.timeLable.text = "\(activity.time)"
+        //cell.textLabel?.text = "\(activity.thought)"
+        //cell.detailTextLabel?.text = "\(activity.time)"
         if (activity.emotionId < 1 || activity.emotionId > 5){
             activity.emotionId = 1
         }
         let filename = Utils.emotionImagesFileName[activity.emotionId-1] + "_normal"
-        cell.imageView!.image = UIImage(named: filename)
+        cell.imageCell.image = UIImage(named: filename)
+        //UIImage.FromBundle(named: filename))
+        //UIImage.
+        //cell.imageView!.image = UIImage(named: filename)
         return cell
     }
 

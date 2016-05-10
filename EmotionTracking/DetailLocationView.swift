@@ -52,9 +52,9 @@ class DetailLocationView: UIViewController, UITextFieldDelegate, UITextViewDeleg
         textFieldThought.delegate = self
         textFieldEmotion.delegate = self
         message.delegate = self
+       
 
         
-       
     }
     
     
