@@ -15,12 +15,12 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var username: String = ""
     
     var activityHistory: [Activity] = []
-    
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = 50
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -33,7 +33,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         activityHistory = DataManagement.getInstance().selectAllActivities(username)
         tableView.reloadData()
     }
-    
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
@@ -49,13 +48,21 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let activity = activityHistory[activityHistory.count-indexPath.row-1]
         cell.textLabel?.text = "\(activity.thought)"
         cell.detailTextLabel?.text = "\(activity.time)"
-        if (activity.emotionId < 1 || activity.emotionId > 5){
-            activity.emotionId = 1
-        }
-        let filename = Utils.emotionImagesFileName[activity.emotionId-1] + "_normal"
+//        if (activity.emotionId < 1 || activity.emotionId > 5){
+//            activity.emotionId = 1
+//        }
+//        if let thougutLabel = cell.viewWithTag(100) as? UILabel{
+//            thougutLabel.text = activity.thought
+//        }
+//        if let timeLabel = cell.viewWithTag(101) as? UILabel {
+//            timeLabel.text = "\(activity.time)"
+//        }
+         let filename = Utils.emotionImagesFileName[activity.emotionId-1] + "_normal"
+//        if let emotionImage = cell.viewWithTag(102) as? UIImageView {
+//            emotionImage.image = UIImage(named: filename)
+//        }
         cell.imageView!.image = UIImage(named: filename)
         return cell
     }
-
 }
 

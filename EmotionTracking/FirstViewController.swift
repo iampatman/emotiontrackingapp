@@ -21,7 +21,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
         }
     }
     @IBOutlet weak var mapView: MKMapView!
+    
     //var activitiesList: [NSDictionary]?
+    var currentLocationOnMap: CLLocationCoordinate2D?
     var location : LocationObject!
     var username: String = ""
     //For current location
@@ -34,14 +36,14 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = 200
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
-        
         //Receive JSON data and Annotate locations
         //initialData()
         mapView.delegate = self
@@ -56,8 +58,11 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
         print("locations = \(lastLocation)")
         
         if let location1: CLLocation = manager.location {
-            //centerMapOnLocation(location1)
+        
+            centerMapOnLocation(location1)
+            
             let coordinate1: CLLocationCoordinate2D = location1.coordinate
+            
             self.annotateMap(coordinate1)
             locationManager.stopUpdatingLocation();
             // ... proceed with the location and coordintes
@@ -152,7 +157,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
             return
         }
         processViewRunning()
-        
+        locationManager.startUpdatingLocation()
+
         print("call json")
         let params = [:]
         Utils.sendHTTPPostRequest("https://emotionstrackingapp.herokuapp.com/listActivities", params: params){
@@ -160,6 +166,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
             //print(returnJSON["list"])
             if let activitiesList = returnJSON["list"] as? [NSDictionary]{
                 self.mapView.removeAnnotations(self.locationsResult)
+         //       self.mapView.removeAnnotations(self.mapView.annotations)
                 self.locationsResult.removeAll()
                 for activity in activitiesList {
                     let emotionId: Int? = activity["emotionId"] as AnyObject? as? Int

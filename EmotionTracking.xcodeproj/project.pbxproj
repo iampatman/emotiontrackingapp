@@ -213,7 +213,7 @@
 				TargetAttributes = {
 					3F185F201CD88CCD00EFE11B = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = VBEVMP5SLB;
+						DevelopmentTeam = 2RD5ZQZFXS;
 					};
 					3F1CA3181CDE0AC100076736 = {
 						CreatedOnToolsVersion = 7.3;
@@ -413,7 +413,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = EmotionTracking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = sg.edu.nus.iss.wlad.trung;
+				PRODUCT_BUNDLE_IDENTIFIER = sg.edu.nus.iss.wlad.chenyao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EmotionTracking-Bridging-Header.h";
@@ -430,7 +430,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = EmotionTracking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = sg.edu.nus.iss.wlad.trung;
+				PRODUCT_BUNDLE_IDENTIFIER = sg.edu.nus.iss.wlad.chenyao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EmotionTracking-Bridging-Header.h";
