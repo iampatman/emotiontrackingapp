@@ -9,20 +9,19 @@
 import Foundation
 import MessageUI
 
-class MessageComposer: UIViewController, MFMessageComposeViewControllerDelegate {
+class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate {
     
-    func sendMessage(content: String, number: String, parentView: UIViewController){
-        let messageVC: MFMessageComposeViewController = MFMessageComposeViewController()
-        messageVC.body = content;
-        messageVC.recipients = [number]
-        
-        messageVC.messageComposeDelegate = self;
-        if (MFMessageComposeViewController.canSendText()){
-            parentView.presentViewController(messageVC, animated: false, completion: nil)
-        }
+    
+    func configuredMessageComposer() -> MFMessageComposeViewController {
+        let messageComposeVC = MFMessageComposeViewController()
+        messageComposeVC.messageComposeDelegate = self  //  Make sure to set this property to self, so that the controller can be dismissed!
+        return messageComposeVC
     }
     
     func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+
         print("Send message result: \(result.rawValue)")
+
     }
 }

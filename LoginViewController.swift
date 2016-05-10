@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate,MFMessageComposeViewControllerDelegate {
     
     var loginResult: Int = 0
     
@@ -18,7 +19,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         textFieldUsername.delegate = self
         textFieldMobileNumber.delegate = self
     }
-    
+    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+        
+        print("Send message result: \(result.rawValue)")
+        
+    }
+    @IBAction func sendSMS(sender: AnyObject) {
+        let messageComposeVC = MFMessageComposeViewController()
+        
+        messageComposeVC.messageComposeDelegate = self
+        messageComposeVC.body = "Hello"
+        messageComposeVC.recipients = ["123"]
+        self.presentViewController(messageComposeVC, animated: true, completion: nil)
+
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

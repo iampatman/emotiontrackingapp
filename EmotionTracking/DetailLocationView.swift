@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 import MapKit
+import MessageUI
 
-class DetailLocationView: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+class DetailLocationView: UIViewController, UITextFieldDelegate, UITextViewDelegate,MFMessageComposeViewControllerDelegate  {
     var location : LocationObject!
     @IBOutlet weak var userName: UILabel!
 
@@ -22,14 +23,15 @@ class DetailLocationView: UIViewController, UITextFieldDelegate, UITextViewDeleg
     @IBOutlet weak var message: UITextView!
    
     @IBOutlet weak var sendButton: UIButton!
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textFieldMobile.resignFirstResponder()
-        textFieldThought.resignFirstResponder()
-        textFieldEmotion.resignFirstResponder()
-        message.resignFirstResponder()
+
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
         return true
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -54,8 +56,23 @@ class DetailLocationView: UIViewController, UITextFieldDelegate, UITextViewDeleg
         
        
     }
+    
+    
+    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+        print("Send message result: \(result.rawValue)")
+        if (result.rawValue != 0){
+            self.performSegueWithIdentifier("backToMap", sender: self)
+        }
+        
+    }
+
     @IBAction func sendMessage(){
-        MessageComposer().sendMessage(message.text!, number: location.mobileNumber, parentView: self)
+        let messageComposeVC = MFMessageComposeViewController()
+        messageComposeVC.messageComposeDelegate = self
+        messageComposeVC.body = message.text!
+        messageComposeVC.recipients = [location.mobileNumber]
+        self.presentViewController(messageComposeVC, animated: true, completion: nil)
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -64,6 +81,7 @@ class DetailLocationView: UIViewController, UITextFieldDelegate, UITextViewDeleg
         textFieldEmotion.text = location.title
         textFieldThought.text = location.subtitle
         textFieldMobile.text = location.mobileNumber
+        
     }
     
     override func didReceiveMemoryWarning() {

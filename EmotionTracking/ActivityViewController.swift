@@ -157,6 +157,9 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, CLLocationM
         }
     }
     @IBAction func checkFBAcount(sender: AnyObject) {
+        if (!shareFB.on){
+            return;
+        }
         if (SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) == false){
             Utils.showMessageBox("No Facebook account found on device", viewController: self)
             shareFB.setOn(false, animated: true)
@@ -171,7 +174,7 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, CLLocationM
 
             let controller = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
             
-            print(controller.setInitialText(thoughtStr))
+            print(controller.setInitialText("Hello Trung ne"))
             self.presentViewController(controller, animated: true, completion: nil)
         }
     }
