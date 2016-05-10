@@ -8,13 +8,15 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var loginResult: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        textFieldUsername.delegate = self
+        textFieldMobileNumber.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,6 +32,18 @@ class LoginViewController: UIViewController {
         let msgComposer = MessageComposer()
         msgComposer.sendMessage("Hello dude", number: "81733082", parentView: self)
     }
+    
+    @IBAction func aboutUsButton(sender: AnyObject) {
+        Utils.showMessageBox("\nNguyen Bui AN Trung\n Vuong Quy Ngoc\n Gao HaiJun\n Chen Yao\n Tang Ting",viewController: self)
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textFieldUsername.resignFirstResponder()
+        textFieldMobileNumber.resignFirstResponder()
+        return true
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "login"){
             if let nextVC:FirstViewController = (segue.destinationViewController as? UITabBarController)!.viewControllers![0] as? FirstViewController {
@@ -52,6 +66,8 @@ class LoginViewController: UIViewController {
     }
     @IBAction func loginAction(sender: AnyObject) {
         print("login press")
+        textFieldUsername.resignFirstResponder()
+        textFieldMobileNumber.resignFirstResponder()
         activityIndicator.startAnimating()
         let username = textFieldUsername.text
         let mobilePhone = textFieldMobileNumber.text
