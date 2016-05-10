@@ -21,6 +21,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
         }
     }
     @IBOutlet weak var mapView: MKMapView!
+    var coordinate1: CLLocationCoordinate2D = CLLocationCoordinate2D()
+    var currentAnnotation: MKPointAnnotation?
     //var activitiesList: [NSDictionary]?
     var location : LocationObject!
     var username: String = ""
@@ -39,6 +41,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = 100
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         
@@ -57,7 +60,10 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
         
         if let location1: CLLocation = manager.location {
             //centerMapOnLocation(location1)
-            let coordinate1: CLLocationCoordinate2D = location1.coordinate
+            if (currentAnnotation != nil){
+                mapView.removeAnnotation(currentAnnotation!)
+            }
+            coordinate1 = location1.coordinate
             self.annotateMap(coordinate1)
             locationManager.stopUpdatingLocation();
             // ... proceed with the location and coordintes
@@ -152,7 +158,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
             return
         }
         processViewRunning()
-        
+        self.locationManager.startUpdatingLocation()
         print("call json")
         let params = [:]
         Utils.sendHTTPPostRequest("https://emotionstrackingapp.herokuapp.com/listActivities", params: params){
@@ -190,6 +196,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
         let homePin = MKPointAnnotation()
         homePin.coordinate = coordinate
         homePin.title = "I am here"
+        currentAnnotation = homePin
         self.mapView.addAnnotation(homePin)
     }
     
