@@ -26,13 +26,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textFieldUsername: UITextField!
     @IBOutlet weak var textFieldMobileNumber: UITextField!
     
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBAction func sendMessage(sender: AnyObject) {
 
-        let msgComposer = MessageComposer()
-        msgComposer.sendMessage("Hello dude", number: "81733082", parentView: self)
-    }
-    
     @IBAction func aboutUsButton(sender: AnyObject) {
         Utils.showMessageBox("\nNguyen Bui AN Trung\n Vuong Quy Ngoc\n Gao HaiJun\n Chen Yao\n Tang Ting",viewController: self)
         
@@ -66,6 +62,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func loginAction(sender: AnyObject) {
         print("login press")
+        if (textFieldUsername.text == "" || textFieldMobileNumber.text == ""){
+            Utils.showMessageBox("Username and Mobile number can not be empty", viewController: self)
+        }
+        loginButton.enabled = false
         textFieldUsername.resignFirstResponder()
         textFieldMobileNumber.resignFirstResponder()
         activityIndicator.startAnimating()
@@ -78,6 +78,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let returnCode: Int = (returnData["result"] as? Int)!
             print("Result from Login Screen: \(returnCode)")
             self.activityIndicator.stopAnimating()
+            self.loginButton.enabled = true
+
             if (returnCode == 1 || returnCode == 2){
                 self.performSegueWithIdentifier("login", sender: self)
             } else {

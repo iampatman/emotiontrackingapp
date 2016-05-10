@@ -47,9 +47,11 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         let activity = activityHistory[activityHistory.count-indexPath.row-1]
-
         cell.textLabel?.text = "\(activity.thought)"
         cell.detailTextLabel?.text = "\(activity.time)"
+        if (activity.emotionId < 1 || activity.emotionId > 5){
+            activity.emotionId = 1
+        }
         let filename = Utils.emotionImagesFileName[activity.emotionId-1] + "_normal"
         cell.imageView!.image = UIImage(named: filename)
         return cell

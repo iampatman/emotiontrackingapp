@@ -12,7 +12,7 @@ import MessageUI
 
 class Utils {
     
-    static var emotionList = ["Happy", "Sad", "Despressed", "Afraid", "Anger"] //0...4
+    static var emotionList = ["Excited", "Happy", "Apathetic", "Sad", "Angry"] //0...4
     static var emotionImagesFileName = ["excited","happy","apathetic","sad","angry"]
 
     class func currentDateTime() -> String{

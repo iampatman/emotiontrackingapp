@@ -7,22 +7,29 @@
 //
 
 import UIKit
-
-class ActivityViewController: UIViewController,UITextFieldDelegate {
+import CoreLocation
+import Social
+class ActivityViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     
     
+    @IBOutlet weak var postButton: UIBarButtonItem!
+    @IBOutlet weak var shareFB: UISwitch!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var returnCode: Int = 0
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var thought: UITextField!
     var emotionIdInt:Int = 0
-    
+    var long:Double = 0.0
+    var lat:Double = 0.0
+    var username: String = ""
+    var locationManager: CLLocationManager!
     @IBOutlet weak var excitedImage: UIImageView!
     @IBOutlet weak var happyImage: UIImageView!
     @IBOutlet weak var apatheticImage: UIImageView!
     @IBOutlet weak var sadImage: UIImageView!
     @IBOutlet weak var angryImage: UIImageView!
     
+
     @IBAction func excitedTap(sender: AnyObject) {
         emotionIdInt = 1
         // excitedImage.image = imageViewArray[x]
@@ -73,9 +80,38 @@ class ActivityViewController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         thought.delegate = self
-        userNameLabel.text = "trung"
-        
+       
         // Do any additional setup after loading the view, typically from a nib
+        
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        lat = 0
+        long = 0
+        excitedTap(self)
+        locationManager.startUpdatingLocation()
+        print("start getting location")
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let lastLocation = locations.last?.coordinate
+        lat = lastLocation!.latitude
+        long = lastLocation!.longitude
+        print("lat: \(lat)")
+        print("long: \(long)")
+        if (lat != 0 && long != 0) {
+            locationManager.stopUpdatingLocation()
+            print("Stop getting location")
+        }
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
@@ -93,29 +129,50 @@ class ActivityViewController: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func createActivities(sender: AnyObject) {
+        thought.resignFirstResponder()
+        self.postButton.enabled = false
         self.activityIndicator.startAnimating()
-        let usernameStr = userNameLabel.text!
-        let long: Double = 103.778611
-        let lat: Double = 1.292516
         let thoughtStr = thought.text! as String
         //thought.text = thoughtStr
         
-        let newActivity: Activity = Activity(username: usernameStr, emotionId: emotionIdInt, longitude: long, latitude: lat, thought: thoughtStr)
+        let newActivity: Activity = Activity(username: username, emotionId: emotionIdInt, longitude: long, latitude: lat, thought: thoughtStr)
         DataManagement.getInstance().addNewActivity(newActivity)
         
-        let params = ["username": usernameStr, "emotionId":emotionIdInt, "longitude":long, "latitude":lat, "thought":thoughtStr]
-        
+        let params = ["username": username, "emotionId":emotionIdInt, "longitude":long, "latitude":lat, "thought":thoughtStr]
+
         Utils.sendHTTPPostRequest("https://emotionstrackingapp.herokuapp.com/postActivity", params: params){(returnData: NSDictionary) in
             let resultCode: Int = (returnData["result"] as? Int)!
             self.returnCode = resultCode
             print(resultCode)
             self.activityIndicator.stopAnimating()
             self.thought.text = ""
+            self.postButton.enabled = true
+
             if (resultCode == 1){
+                
                 self.performSegueWithIdentifier("backToMap", sender: self)
             } else {
                 Utils.showMessageBox("Add activity failed", viewController: self)
             }
+        }
+    }
+    @IBAction func checkFBAcount(sender: AnyObject) {
+        if (SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) == false){
+            Utils.showMessageBox("No Facebook account found on device", viewController: self)
+            shareFB.setOn(false, animated: true)
+
+        } else {
+            self.shareToFacebook()
+        }
+    }
+    func shareToFacebook(){
+        if (SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook)){
+            let thoughtStr = thought.text! as String
+
+            let controller = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+            
+            print(controller.setInitialText(thoughtStr))
+            self.presentViewController(controller, animated: true, completion: nil)
         }
     }
     

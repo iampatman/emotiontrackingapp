@@ -31,21 +31,20 @@ class LocationObject: NSObject, MKAnnotation  {
         self.time = time
         self.mobileNumber = mobileNumber
     }
-    
     func pinTintColor() -> UIColor!  {
         switch title! as String {
-        case "Happy":
+        case "Excited":
             return UIColor.greenColor()
         case "Sad":
             return UIColor.blueColor()
-        case "Afraid":
-            return UIColor.brownColor()
-        case "Angry":
-            return UIColor.yellowColor()
-        case "Despressed":
+        case "Apathetic":
             return UIColor.darkGrayColor()
-        default:
+        case "Sad":
+            return UIColor.yellowColor()
+        case "Angry":
             return UIColor.redColor()
+        default:
+            return UIColor.whiteColor()
         }
     }
 }

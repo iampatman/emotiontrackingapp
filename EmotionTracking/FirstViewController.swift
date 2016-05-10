@@ -12,7 +12,14 @@ import CoreLocation
 
 class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopoverPresentationControllerDelegate, MKMapViewDelegate
 {
-    
+    @IBOutlet weak var progressView: UIProgressView!
+    var counter:Int = 0 {
+        didSet {
+            let fractionalProgress = Float(counter) / 100.0
+            let animated = counter != 0
+            progressView.setProgress(fractionalProgress, animated: animated)
+        }
+    }
     @IBOutlet weak var mapView: MKMapView!
     //var activitiesList: [NSDictionary]?
     var location : LocationObject!
@@ -27,7 +34,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        NSTimer.scheduledTimerWithTimeInterval(1000.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -36,9 +43,12 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
         locationManager.startUpdatingLocation()
         
         //Receive JSON data and Annotate locations
-        self.updateMap()
         //initialData()
         mapView.delegate = self
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.updateMap()
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -55,9 +65,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
     }
     
     func centerMapOnLocation(location: CLLocation) {
-             let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
         regionRadius, regionRadius)
-            mapView.setRegion(coordinateRegion, animated: true)
+        mapView.setRegion(coordinateRegion, animated: true)
     }
     
     func initialData() {
@@ -74,8 +84,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
             let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
             //pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
 
-            let filename = Utils.emotionImagesFileName[0] + "_normal"
-            pin.image = UIImage(named: filename)
+        //    let filename = Utils.emotionImagesFileName[0] + "_normal"
+         //   pin.image = UIImage(named: filename)
             pin.canShowCallout = true
             pin.animatesDrop = true
             pin.rightCalloutAccessoryView = UIButton.init(type: .DetailDisclosure) as UIView
@@ -111,6 +121,11 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
                 controller.location = location
             }
         }
+        if (segue.identifier == "postActivity"){
+            if let controller = (segue.destinationViewController as! UINavigationController).viewControllers[0] as? ActivityViewController {
+                controller.username = self.username
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -119,7 +134,22 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
     }
     
     
+    func processViewRunning(){
+        self.counter = 0
+        for _ in 0..<100 {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
+                sleep(1)
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.counter += 1
+                    return
+                })
+            })
+        }
+    }
+    
     func updateMap(){
+        processViewRunning()
+        
         print("call json")
         let params = [:]
         Utils.sendHTTPPostRequest("https://emotionstrackingapp.herokuapp.com/listActivities", params: params){
@@ -129,11 +159,18 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
                 self.mapView.removeAnnotations(self.locationsResult)
                 self.locationsResult.removeAll()
                 for activity in activitiesList {
-                    self.locationsResult.append(LocationObject(title: Utils.emotionList[((activity["emotionId"] as AnyObject? as? Int) ?? 0)] ?? "", subtitle: (activity["thought"] as AnyObject? as? String) ?? "",username: (activity["username"] as AnyObject? as? String) ?? "", latitude: (activity["latitude"] as AnyObject? as? Double) ?? 1.294455, longitude: (activity["longitude"] as AnyObject? as? Double) ?? 103.7829, time: (activity["time"] as AnyObject? as? NSDate) ?? NSDate(), mobileNumber: (activity["mobilephone"] as AnyObject? as? String) ?? ""))
+                    let emotionId: Int? = activity["emotionId"] as AnyObject? as? Int
+                    if (emotionId == nil || emotionId < 1 || emotionId > 5){
+                        continue
+                    }
+                    self.locationsResult.append(LocationObject(title: Utils.emotionList[((activity["emotionId"] as AnyObject? as? Int) ?? 0) - 1 ] ?? "", subtitle: (activity["thought"] as AnyObject? as? String) ?? "",username: (activity["username"] as AnyObject? as? String) ?? "", latitude: (activity["latitude"] as AnyObject? as? Double) ?? 1.294455, longitude: (activity["longitude"] as AnyObject? as? Double) ?? 103.7829, time: (activity["time"] as AnyObject? as? NSDate) ?? NSDate(), mobileNumber: (activity["mobilephone"] as AnyObject? as? String) ?? ""))
                     //Show pin on the map based on these values
                     
                 }
+                
                 self.mapView.addAnnotations(self.locationsResult)
+                self.progressView.setProgress(0, animated: true)
+
             }
         }
         
