@@ -148,6 +148,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
     }
     
     func updateMap(){
+        if (Utils.testReachability(self)==false){
+            return
+        }
         processViewRunning()
         
         print("call json")

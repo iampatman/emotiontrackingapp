@@ -79,6 +79,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate,MFMessageCompos
         print("login press")
         if (textFieldUsername.text == "" || textFieldMobileNumber.text == ""){
             Utils.showMessageBox("Username and Mobile number can not be empty", viewController: self)
+            return
+        }
+        if (Utils.testReachability(self)==false){
+            return
         }
         loginButton.enabled = false
         textFieldUsername.resignFirstResponder()

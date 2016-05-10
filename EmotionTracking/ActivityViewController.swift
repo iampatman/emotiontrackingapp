@@ -129,7 +129,11 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, CLLocationM
     }
     
     @IBAction func createActivities(sender: AnyObject) {
+
         thought.resignFirstResponder()
+        if (Utils.testReachability(self)==false){
+            return
+        }
         self.postButton.enabled = false
         self.activityIndicator.startAnimating()
         let thoughtStr = thought.text! as String

@@ -39,7 +39,14 @@ class Utils {
         
     }
     
-    
+    class func testReachability(viewController: UIViewController) -> Bool{
+        let reachability: Reachability = Reachability(hostName: "www.apple.com")
+        let networkStatus: NetworkStatus = reachability.currentReachabilityStatus()
+        if (networkStatus.rawValue == 0){
+            Utils.showMessageBox("Please check your network connection", viewController: viewController)
+        }
+        return networkStatus.rawValue != 0
+    }
 
     class func sendHTTPPostRequest(urlStr: String, params: NSDictionary, completion: (result: NSDictionary) -> Void) {
         print("Url request: \(urlStr)")
