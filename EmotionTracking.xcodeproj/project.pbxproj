@@ -28,6 +28,7 @@
 		3F27DFAA1CDE2ED0006FBF0B /* DetailLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27DFA81CDE2ED0006FBF0B /* DetailLocationView.swift */; };
 		3F27DFAB1CDE2ED0006FBF0B /* LocationObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27DFA91CDE2ED0006FBF0B /* LocationObject.swift */; };
 		3F7E99E91CDB756F00EBC190 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7E99E81CDB756F00EBC190 /* MessageUI.framework */; };
+		AAB40B261CE30CAD005EB88B /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB40B251CE30CAD005EB88B /* GuideViewController.swift */; };
 		AAB83DD61CE2282E009DF78E /* SecondOneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB83DD51CE2282E009DF78E /* SecondOneCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		3F27DFA81CDE2ED0006FBF0B /* DetailLocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailLocationView.swift; sourceTree = "<group>"; };
 		3F27DFA91CDE2ED0006FBF0B /* LocationObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationObject.swift; sourceTree = "<group>"; };
 		3F7E99E81CDB756F00EBC190 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		AAB40B251CE30CAD005EB88B /* GuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		AAB83DD51CE2282E009DF78E /* SecondOneCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondOneCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,6 +144,7 @@
 				3F185F321CD88CCD00EFE11B /* Info.plist */,
 				3F185F2D1CD88CCD00EFE11B /* Assets.xcassets */,
 				AAB83DD51CE2282E009DF78E /* SecondOneCell.swift */,
+				AAB40B251CE30CAD005EB88B /* GuideViewController.swift */,
 			);
 			path = EmotionTracking;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F185F291CD88CCD00EFE11B /* SecondViewController.swift in Sources */,
+				AAB40B261CE30CAD005EB88B /* GuideViewController.swift in Sources */,
 				3F185F251CD88CCD00EFE11B /* AppDelegate.swift in Sources */,
 				3F185F421CD8CB3A00EFE11B /* DataManagement.swift in Sources */,
 				3F185F481CD8CC2F00EFE11B /* Bridging-Header.m in Sources */,

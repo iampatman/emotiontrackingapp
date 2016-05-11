@@ -17,11 +17,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        
         DataManagement.getInstance().initDatabase()
         
+        // get current version
+        let infoDictionary = NSBundle.mainBundle().infoDictionary
+        let currentVersion = infoDictionary!["CFBundleShortVersionString"] as! String
         
+        // get before version
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let appVersion = userDefaults.stringForKey("appVersion")
         
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        // if appVersion == nil, the app is the first start
+        if appVersion != nil || appVersion == currentVersion {
+            
+            userDefaults.setValue(currentVersion, forKey: "appVersion")
+            
+            let loginViewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
+            self.window?.rootViewController = loginViewController
+        }
         
         return true
     }
