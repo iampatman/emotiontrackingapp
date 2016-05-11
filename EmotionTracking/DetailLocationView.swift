@@ -16,10 +16,10 @@ class DetailLocationView: UIViewController, UITextFieldDelegate, UITextViewDeleg
     @IBOutlet weak var userName: UILabel!
 
     //var edidtingCourse : Course!
-    
+    @IBOutlet weak var emotionImage: UIImageView!
+
     @IBOutlet weak var textFieldMobile: UITextField!
     @IBOutlet weak var textFieldThought: UITextField!
-    @IBOutlet weak var textFieldEmotion: UITextField!
     @IBOutlet weak var message: UITextView!
    
     @IBOutlet weak var sendButton: UIButton!
@@ -50,7 +50,6 @@ class DetailLocationView: UIViewController, UITextFieldDelegate, UITextViewDeleg
         
         textFieldMobile.delegate = self
         textFieldThought.delegate = self
-        textFieldEmotion.delegate = self
         message.delegate = self
 
         
@@ -76,11 +75,14 @@ class DetailLocationView: UIViewController, UITextFieldDelegate, UITextViewDeleg
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.title = location.username
-      //  userName.text = location.username
-        textFieldEmotion.text = location.title
+        userName.text = location.username.capitalizedString
+
+    //    textFieldEmotion.text = location.title
         textFieldThought.text = location.subtitle
         textFieldMobile.text = location.mobileNumber
+        let emotionId = Utils.emotionList.indexOf(location.title!)!
+        emotionImage.image = UIImage(named: Utils.emotionImagesFileName[emotionId] + "_normal")
+
         
     }
     

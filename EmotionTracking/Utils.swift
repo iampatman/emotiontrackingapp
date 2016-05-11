@@ -70,7 +70,7 @@ class Utils {
                 print("Error: \(error?.localizedDescription)")
                 completion(result: [:])
             }
-            let strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            //let strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
             //print("Body: \(strData!)")
             
             do {

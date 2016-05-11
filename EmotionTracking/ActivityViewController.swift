@@ -175,7 +175,7 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, CLLocationM
     }
     func shareToFacebook(){
         if (SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook)){
-            let thoughtStr = thought.text! as String
+         //   let thoughtStr = thought.text! as String
 
             let controller = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
             
