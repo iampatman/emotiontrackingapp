@@ -94,7 +94,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
         let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         mapView.setRegion(region, animated: true)
-        self.updateMap()
+        //self.updateMap()
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
