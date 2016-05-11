@@ -13,13 +13,13 @@ import MessageUI
 
 class DetailLocationView: UIViewController, UITextFieldDelegate, UITextViewDelegate,MFMessageComposeViewControllerDelegate  {
     var location : LocationObject!
-    @IBOutlet weak var userName: UILabel!
 
     //var edidtingCourse : Course!
     
     @IBOutlet weak var textFieldMobile: UITextField!
     @IBOutlet weak var textFieldThought: UITextField!
-    @IBOutlet weak var textFieldEmotion: UITextField!
+    @IBOutlet weak var labelEmotion: UILabel!
+    @IBOutlet weak var imageEmotion: UIImageView!
     @IBOutlet weak var message: UITextView!
    
     @IBOutlet weak var sendButton: UIButton!
@@ -50,10 +50,7 @@ class DetailLocationView: UIViewController, UITextFieldDelegate, UITextViewDeleg
         
         textFieldMobile.delegate = self
         textFieldThought.delegate = self
-        textFieldEmotion.delegate = self
         message.delegate = self
-
-        
        
     }
     
@@ -78,10 +75,11 @@ class DetailLocationView: UIViewController, UITextFieldDelegate, UITextViewDeleg
         super.viewWillAppear(animated)
         navigationItem.title = location.username
       //  userName.text = location.username
-        textFieldEmotion.text = location.title
+        labelEmotion.text = location.title
         textFieldThought.text = location.subtitle
         textFieldMobile.text = location.mobileNumber
-        
+        let filename = location.title!.lowercaseString + "_normal"
+        imageEmotion.image = UIImage(named: filename)
     }
     
     override func didReceiveMemoryWarning() {

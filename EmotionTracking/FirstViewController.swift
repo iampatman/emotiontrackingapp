@@ -162,6 +162,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
             return
         }
         processViewRunning()
+        
      //   self.locationManager.startUpdatingLocation()
         print("call json")
         let params = [:]
