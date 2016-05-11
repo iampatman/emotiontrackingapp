@@ -1,6 +1,7 @@
 //
 
 import XCTest
+import Darwin
 @testable import EmotionTracking
 
 class EmotionTrackingTests: XCTestCase {
@@ -46,46 +47,42 @@ class EmotionTrackingTests: XCTestCase {
     func testLogin() {
         //normal login
         //let user1:LoginViewController? = LoginViewController()
-        let user1:LoginViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! LoginViewController
-        let URL = "http://emotionstrackingapp.herokuapp.com/login"
-        let expectation = expectationWithDescription("POST \(URL)")
-        let _ = user1!.view
+        var user1:LoginViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! LoginViewController
+        var _ = user1!.view
         user1!.textFieldUsername.text = "test_1"
         user1!.textFieldMobileNumber.text = "00001"
         user1!.loginButton.sendActionsForControlEvents(.TouchUpInside)
-        expectation.fulfill()
-        
+        //wait since server response need some time
+        sleep(3)
         XCTAssertFalse(user1!.loginButton.enabled, "login button should be disabled or please cleanup obsolate data")
         XCTAssert(user1!.loginResult==0, "login result should be greater than 0")
         
-        //wait since server response need some time
-        waitForExpectationsWithTimeout(3, handler: { error in XCTAssert(true, "set it as true")})
-        
         //abnormal-1: same username but different phone number
-        let user2:LoginViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! LoginViewController
+        var user2:LoginViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! LoginViewController
         let _ = user2!.view
         user2!.textFieldUsername.text = "test_1"
         user2!.textFieldMobileNumber.text = "00002"
         user2!.loginButton.sendActionsForControlEvents(.TouchUpInside)
         
+        //waitForExpectationsWithTimeout(3, handler: { error in})
+        sleep(3)
+
         XCTAssertFalse(user2!.loginButton.enabled, "login button should be enabled")
         XCTAssert(user2!.loginResult==0, "login result should be equal 0")
-        
-        //wait since server response need some time
-        //waitForExpectationsWithTimeout(3, handler: { error in})
-        
         //abnormal-2: same phone number but different username
-        let user3:LoginViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! LoginViewController
+        var user3:LoginViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! LoginViewController
         let _ = user3!.view
         user3!.textFieldUsername.text = "test_2"
         user3!.textFieldMobileNumber.text = "00001"
         user3!.loginButton.sendActionsForControlEvents(.TouchUpInside)
         
+        sleep(3)
         XCTAssertFalse(user2!.loginButton.enabled, "login button should be enabled")
         XCTAssert(user2!.loginResult==0, "login result should be equal 0")
         
-        //wait since server response need some time
-        //waitForExpectationsWithTimeout(3, handler: { error in})
+        user1 = nil;
+        user2 = nil;
+        user3 = nil;
 
     }
     
