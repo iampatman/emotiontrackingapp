@@ -21,7 +21,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         textFieldUsername.delegate = self
         textFieldMobileNumber.delegate = self
         avatarImage.image = UIImage(named: avastarImageList[avastarId])
-
+        loginButton.layer.cornerRadius = 5
+        textFieldUsername.becomeFirstResponder()
     }
     @IBAction func changeAvastarsImage(sender: AnyObject) {
         avastarId += 1

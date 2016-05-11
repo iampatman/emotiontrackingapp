@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2090F2051CE3658A00D55EAE /* ActivityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2090F2041CE3658A00D55EAE /* ActivityTest.swift */; };
 		2A1A33871CE1CFFB00AB704B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1A33861CE1CFFB00AB704B /* Reachability.m */; };
 		2A58810C1CE2D1AB004FF0A4 /* SecondOneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A58810B1CE2D1AB004FF0A4 /* SecondOneCell.swift */; };
 		2A672FD91CDEEDEB0067872C /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A672FD81CDEEDEB0067872C /* ActivityViewController.swift */; };
@@ -44,7 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2090F2041CE3658A00D55EAE /* ActivityTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTest.swift; sourceTree = "<group>"; };
 		2A1A33851CE1CFFB00AB704B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = EmotionTracking/Reachability.h; sourceTree = "<group>"; };
 		2A1A33861CE1CFFB00AB704B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = EmotionTracking/Reachability.m; sourceTree = "<group>"; };
 		2A58810B1CE2D1AB004FF0A4 /* SecondOneCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondOneCell.swift; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 			children = (
 				3F1CA31B1CDE0AC100076736 /* EmotionTrackingTests.swift */,
 				3F1CA31D1CDE0AC100076736 /* Info.plist */,
-				2090F2041CE3658A00D55EAE /* ActivityTest.swift */,
 			);
 			path = EmotionTrackingTests;
 			sourceTree = "<group>";
@@ -299,7 +296,6 @@
 			files = (
 				3F1CA3241CDE0AD300076736 /* LoginUnitTesting.swift in Sources */,
 				3F1CA31C1CDE0AC100076736 /* EmotionTrackingTests.swift in Sources */,
-				2090F2051CE3658A00D55EAE /* ActivityTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
