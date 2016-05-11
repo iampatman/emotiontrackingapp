@@ -23,6 +23,7 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, CLLocationM
     var lat:Double = 0.0
     var username: String = ""
     var locationManager: CLLocationManager!
+    var posted: Bool = false
     @IBOutlet weak var excitedImage: UIImageView!
     @IBOutlet weak var happyImage: UIImageView!
     @IBOutlet weak var apatheticImage: UIImageView!
@@ -154,7 +155,7 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, CLLocationM
             self.postButton.enabled = true
 
             if (resultCode == 1){
-                
+                self.posted = true
                 self.performSegueWithIdentifier("backToMap", sender: self)
             } else {
                 Utils.showMessageBox("Add activity failed", viewController: self)
@@ -187,6 +188,13 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, CLLocationM
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "postActivity"){
             createActivities(sender!)
+        }
+        if (segue.identifier == "backToMap"){
+            if let mainMap = segue.destinationViewController as? FirstViewController {
+                mainMap.reloadMapNeeded = self.posted
+                self.posted = false
+                
+            }
         }
     }
     

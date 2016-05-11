@@ -31,14 +31,14 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     //For current location
     var locationManager:CLLocationManager!
     let regionRadius: CLLocationDistance = 2000
-    
+    var reloadMapNeeded: Bool = true
     //List of nearby users
     var locationsResult = [LocationObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -59,11 +59,15 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
     }
     
     override func viewDidAppear(animated: Bool) {
-        //mapView.showsUserLocation = true
-        let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-        mapView.setRegion(region, animated: true)
-        mapView.reloadInputViews()
-        self.updateMap()
+        mapView.showsUserLocation = true
+       let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+
+        if (self.reloadMapNeeded){
+            mapView.setRegion(region, animated: true)
+            mapView.reloadInputViews()
+            reloadMapNeeded = false
+            self.updateMap()
+        }
     }
     
     
@@ -76,7 +80,6 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         
         if let annotation = annotation as? LocationObject {
             let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
-
             pin.canShowCallout = true
             pin.animatesDrop = true
             pin.rightCalloutAccessoryView = UIButton.init(type: .DetailDisclosure) as UIView

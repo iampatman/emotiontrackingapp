@@ -9,32 +9,28 @@
 import UIKit
 import MessageUI
 
-class LoginViewController: UIViewController, UITextFieldDelegate,MFMessageComposeViewControllerDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var loginResult: Int = 0
-    
+    var avastarId:Int = 0
+    var avastarImageList:[String] = ["avatar_boy.png" , "avatar_girl.png", "avatar_ninja.png", "avatar_princess"]
+    @IBOutlet weak var avatarImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         textFieldUsername.delegate = self
         textFieldMobileNumber.delegate = self
-    }
-    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
-        
-        print("Send message result: \(result.rawValue)")
-        
-    }
-    @IBAction func sendSMS(sender: AnyObject) {
-        let messageComposeVC = MFMessageComposeViewController()
-        
-        messageComposeVC.messageComposeDelegate = self
-        messageComposeVC.body = "Hello"
-        messageComposeVC.recipients = ["123"]
-        self.presentViewController(messageComposeVC, animated: true, completion: nil)
+        avatarImage.image = UIImage(named: avastarImageList[avastarId])
 
     }
-    override func didReceiveMemoryWarning() {
+    @IBAction func changeAvastarsImage(sender: AnyObject) {
+        avastarId += 1
+        while (avastarId == 4) {
+            avastarId = 0
+        }
+        avatarImage.image = UIImage(named: avastarImageList[avastarId])
+    }
+     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -102,7 +98,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate,MFMessageCompos
             if (returnCode == 1 || returnCode == 2){
                 self.performSegueWithIdentifier("login", sender: self)
             } else {
-                Utils.showMessageBox("Your current username is duplicated", viewController: self)
+                Utils.showMessageBox("Your current username is duplicated or you username and mobile number is not matched", viewController: self)
             }            
         }
     }
