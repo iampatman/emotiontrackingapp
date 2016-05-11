@@ -9,7 +9,7 @@
         <!--First View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="EmotionTracking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapView" id="9pv-A4-QxB" customClass="FirstViewController" customModule="EmotionTracking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -173,7 +173,7 @@
         <!--ActivityPost-->
         <scene sceneID="03w-Ct-0Gs">
             <objects>
-                <viewController title="ActivityPost" id="wHQ-eN-ZRY" customClass="ActivityViewController" customModule="EmotionTracking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="activityView" title="ActivityPost" id="wHQ-eN-ZRY" customClass="ActivityViewController" customModule="EmotionTracking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ewg-LX-kHj"/>
                         <viewControllerLayoutGuide type="bottom" id="MHn-IX-mV7"/>
@@ -325,7 +325,7 @@
         <!--History-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="EmotionTracking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="historyView" id="8rJ-Kc-sve" customClass="SecondViewController" customModule="EmotionTracking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
