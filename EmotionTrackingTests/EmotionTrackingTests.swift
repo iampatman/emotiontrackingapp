@@ -82,8 +82,8 @@ class EmotionTrackingTests: XCTestCase {
         
         //wait since server response need some time
         waitForExpectationsWithTimeout(3, handler: { error in})
-
     }
+    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

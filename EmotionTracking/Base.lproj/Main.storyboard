@@ -174,7 +174,7 @@
         <!--ActivityPost-->
         <scene sceneID="03w-Ct-0Gs">
             <objects>
-                <viewController title="ActivityPost" id="wHQ-eN-ZRY" customClass="ActivityViewController" customModule="EmotionTracking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="postActivityView" title="ActivityPost" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wHQ-eN-ZRY" customClass="ActivityViewController" customModule="EmotionTracking" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ewg-LX-kHj"/>
                         <viewControllerLayoutGuide type="bottom" id="MHn-IX-mV7"/>

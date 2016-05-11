@@ -22,8 +22,19 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.dataSource = self
         tableView.rowHeight = 50
         // Do any additional setup after loading the view, typically from a nib.
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(SecondViewController.swiped(_:)))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
+        view.addGestureRecognizer(swipeLeft)
     }
 
+    func swiped(gesture: UIGestureRecognizer)  {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer{
+            if (swipeGesture.direction == UISwipeGestureRecognizerDirection.Left) {
+                print("Right")
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

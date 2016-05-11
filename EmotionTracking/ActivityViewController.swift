@@ -53,14 +53,10 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, CLLocationM
     }
     
     func tapViews(currentView:UIImageView,currentViewName:String)  {
-//        if (emotionIdInt == 0) {
-//            emotionIdInt = imageViewArray.indexOf(currentView)! + 1
-//            currentView.image = UIImage(named: currentViewName + "_select.png")
-//        }else{
             imageViewArray[emotionIdInt-1].image = UIImage(named: imageNameArray[emotionIdInt-1])
             emotionIdInt = imageViewArray.indexOf(currentView)! + 1
             currentView.image = UIImage(named: currentViewName + "_select.png")
-        //}
+        
     }
     
     func addViewsNames()  {
@@ -121,7 +117,7 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, CLLocationM
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        let maxLength = 15
+        let maxLength = 70
         let currentgString:NSString = textField.text!
         let newString:NSString = currentgString.stringByReplacingCharactersInRange(range, withString: string)
         return newString.length <= maxLength
