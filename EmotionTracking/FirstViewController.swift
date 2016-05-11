@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopoverPresentationControllerDelegate, MKMapViewDelegate
+class FirstViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate
 {
     @IBOutlet weak var progressView: UIProgressView!
     var counter:Int = 0 {
@@ -20,10 +20,12 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
             progressView.setProgress(fractionalProgress, animated: animated)
         }
     }
+    
     @IBOutlet weak var mapView: MKMapView!
-    var coordinate1: CLLocationCoordinate2D = CLLocationCoordinate2D()
-    var currentAnnotation: MKPointAnnotation?
-    //var activitiesList: [NSDictionary]?
+    
+    //var coordinate1: CLLocationCoordinate2D = CLLocationCoordinate2D()
+    //var currentAnnotation: MKPointAnnotation?
+    
     var location : LocationObject!
     var username: String = ""
     //For current location
@@ -36,7 +38,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-       // NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -47,51 +49,34 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
         
         //Receive JSON data and Annotate locations
         //initialData()
+        
+        mapView.showsUserLocation = true
+        mapView.userLocation.title = "You are here"
+        let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        mapView.setRegion(region, animated: true)
         mapView.delegate = self
+        mapView.reloadInputViews()
     }
     
     override func viewDidAppear(animated: Bool) {
+        //mapView.showsUserLocation = true
+        let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        mapView.setRegion(region, animated: true)
+        mapView.reloadInputViews()
         self.updateMap()
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let lastLocation = locations.last?.description as String!
-        print("locations = \(lastLocation)")
-        
-        if let location1: CLLocation = manager.location {
-            centerMapOnLocation(location1)
-            if (currentAnnotation != nil){
-                mapView.removeAnnotation(currentAnnotation!)
-            }
-            coordinate1 = location1.coordinate
-            self.annotateMap(coordinate1)
-            //locationManager.stopUpdatingLocation();
-            // ... proceed with the location and coordintes
-        }
-    }
     
-    func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                  regionRadius, regionRadius)
-        mapView.setRegion(coordinateRegion, animated: true)
-    }
-    
-    func initialData() {
-        locationsResult.append(LocationObject(title: "Happy", subtitle: "I AM HAPPY",username: "user1", latitude: 1.29167724, longitude: 103.77683571, time: NSDate(), mobileNumber: "6599998888"))
-        
-        locationsResult.append(LocationObject(title: "Sad", subtitle: "I AM SAD", username: "user2", latitude: 1.294455, longitude: 103.7829, time: NSDate(), mobileNumber: "6577774444"))
-        
-        self.mapView.addAnnotations(self.locationsResult)
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+        let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        mapView.setRegion(region, animated: true)
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
         if let annotation = annotation as? LocationObject {
             let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
-            //pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            
-            //    let filename = Utils.emotionImagesFileName[0] + "_normal"
-            //   pin.image = UIImage(named: filename)
+
             pin.canShowCallout = true
             pin.animatesDrop = true
             pin.rightCalloutAccessoryView = UIButton.init(type: .DetailDisclosure) as UIView
@@ -110,6 +95,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
         
         
     }
+    
     override func prepareForSegue(segue: UIStoryboardSegue,
                                   sender: AnyObject?){
         if (segue.identifier == "showLocationDetail"){
@@ -148,7 +134,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
             return
         }
         processViewRunning()
-     //   self.locationManager.startUpdatingLocation()
+       
         print("call json")
         let params = [:]
         Utils.sendHTTPPostRequest("https://emotionstrackingapp.herokuapp.com/listActivities", params: params){
@@ -186,8 +172,15 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
         let homePin = MKPointAnnotation()
         homePin.coordinate = coordinate
         homePin.title = "I am here"
-        currentAnnotation = homePin
         self.mapView.addAnnotation(homePin)
+    }
+    
+    func initialData() {
+        locationsResult.append(LocationObject(title: "Happy", subtitle: "I AM HAPPY",username: "user1", latitude: 1.29167724, longitude: 103.77683571, time: NSDate(), mobileNumber: "6599998888"))
+        
+        locationsResult.append(LocationObject(title: "Sad", subtitle: "I AM SAD", username: "user2", latitude: 1.294455, longitude: 103.7829, time: NSDate(), mobileNumber: "6577774444"))
+        
+        self.mapView.addAnnotations(self.locationsResult)
     }
     
     @IBAction func cancelToActivityViewController(segue:UIStoryboardSegue) {
