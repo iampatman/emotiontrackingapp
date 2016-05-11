@@ -30,12 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         // if appVersion == nil, the app is the first start
-        if appVersion != nil || appVersion == currentVersion {
+        if appVersion == nil || appVersion != currentVersion {
             
             userDefaults.setValue(currentVersion, forKey: "appVersion")
             
-            let loginViewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
-            self.window?.rootViewController = loginViewController
+            let guideViewController = storyboard.instantiateViewControllerWithIdentifier("GuideViewController") as! GuideViewController
+            self.window?.rootViewController = guideViewController
         }
         
         return true
