@@ -88,27 +88,6 @@ class EmotionTrackingTests: XCTestCase {
         //waitForExpectationsWithTimeout(3, handler: { error in})
 
     }
-    /*
-    func testlogin_2() {
-        //abnormal-1: same username but different phone number
-        let user2:LoginViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! LoginViewController
-        
-        let URL = "http://emotionstrackingapp.herokuapp.com/login"
-        let expectation = expectationWithDescription("POST \(URL)")
-        //let _ = user2!.view
-        user2!.textFieldUsername.text = "test_1"
-        user2!.textFieldMobileNumber.text = "00002"
-        user2!.loginButton.sendActionsForControlEvents(.TouchUpInside)
-        
-        expectation.fulfill()
-
-        XCTAssertTrue(user2!.loginButton.enabled, "login button should be enabled")
-        XCTAssert(user2!.loginResult==0, "login result should be equal 0")
-        
-        //wait since server response need some time
-        waitForExpectationsWithTimeout(3, handler: { error in})
-        
-    }*/
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
