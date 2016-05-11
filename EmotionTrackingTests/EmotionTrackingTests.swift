@@ -1,3 +1,5 @@
+// 
+// Created by Haijun
 //
 
 import XCTest
@@ -10,6 +12,8 @@ class EmotionTrackingTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         // Jun: Clearup server database before testing
+        DataManagement.getInstance().initDatabase()
+        
     }
     
     override func tearDown() {
@@ -43,7 +47,7 @@ class EmotionTrackingTests: XCTestCase {
             task.cancel() 
         }) 
     }
-    
+    //haijun
     func testLogin() {
         //normal login
         //let user1:LoginViewController? = LoginViewController()
@@ -85,10 +89,75 @@ class EmotionTrackingTests: XCTestCase {
         user3 = nil;
 
     }
-    
-    func testPerformanceExample() {
+    //haijun:
+    func testActivity() {
+        //apply one record to server
+        var user_activityScreen:ActivityViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("activityView") as! ActivityViewController
+        
+        let _ = user_activityScreen!.view
+        
+        user_activityScreen?.thought.text = "test2"
+        user_activityScreen?.username = "test_2"
+        //user_activityScreen?.long = 123.2
+        //user_activityScreen?.lat = 2.234
+        
+        //ser_activityScreen?.postButton.actionForLayer(<#T##layer: CALayer##CALayer#>, forKey: <#T##String#>)
+        user_activityScreen?.createActivities(user_activityScreen!);
+        
+        sleep(3)
+        XCTAssert(user_activityScreen?.returnCode==0, "return code should be greater than 0")
+        
+        user_activityScreen = nil
+    }
+    //Haijun
+    func testActivityHistory() {
+        
+        //apply one record to server
+        var user_activityScreen:ActivityViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("activityView") as! ActivityViewController
+        
+        let _ = user_activityScreen!.view
+
+        user_activityScreen?.thought.text = "test"
+        user_activityScreen?.username = "test_1"
+
+        //ser_activityScreen?.postButton.actionForLayer(<#T##layer: CALayer##CALayer#>, forKey: <#T##String#>)
+        user_activityScreen?.createActivities(user_activityScreen!);
+        
+        sleep(3)
+
+        //switch to history panel
+        var user_activityHistory:SecondViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("historyView") as! SecondViewController
+        
+        user_activityHistory?.username = "test_1"
+        
+        let _=user_activityHistory?.view
+        let _=user_activityHistory?.viewDidAppear(true)
+
+        XCTAssert(user_activityHistory?.activityHistory.count > 0, "history item should greater than 0")
+        
+        let activity = user_activityHistory?.activityHistory[(user_activityHistory?.activityHistory.count)!-1];
+        
+        //verify actual data form local database
+        XCTAssert(activity?.thought == "test", "user thought should be 'test'")
+        XCTAssert(activity?.emotionId == 1, "user emotiong Id shoubld be 1")
+        XCTAssert(activity?.latitude == 0, "user latitude should be 1")
+        XCTAssert(activity?.longitude == 0, "user logitude should be 1")
+        XCTAssert(activity?.username == "test_1", "user password should be 'test_1'")
+        
+        //clear up
+        user_activityScreen = nil
+        user_activityHistory = nil
+        
+    }
+    //Haijun:
+    func testPerf_MapCapacity() {
         // This is an example of a performance test case.
         self.measureBlock {
+            var mapView:FirstViewController? = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("mapView") as! FirstViewController
+            
+            //test max capbility of map view
+            let _=mapView!.view
+            
             // Put the code you want to measure the time of here.
         }
     }
