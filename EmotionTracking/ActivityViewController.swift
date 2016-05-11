@@ -11,18 +11,19 @@ import CoreLocation
 import Social
 class ActivityViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     
-    
     @IBOutlet weak var postButton: UIBarButtonItem!
     @IBOutlet weak var shareFB: UISwitch!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var returnCode: Int = 0
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var thought: UITextField!
-    var emotionIdInt:Int = 0
+    var emotionIdInt:Int = 1
     var long:Double = 0.0
     var lat:Double = 0.0
     var username: String = ""
     var locationManager: CLLocationManager!
+    var imageNameArray:[String] = []
+    var imageViewArray:[UIImageView] = []
     var posted: Bool = false
     @IBOutlet weak var excitedImage: UIImageView!
     @IBOutlet weak var happyImage: UIImageView!
@@ -32,50 +33,42 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, CLLocationM
     
 
     @IBAction func excitedTap(sender: AnyObject) {
-        emotionIdInt = 1
-        // excitedImage.image = imageViewArray[x]
-        excitedImage.image = UIImage(named: "excited_select.png" )
-        happyImage.image = UIImage(named: "happy_normal.png")
-        apatheticImage.image = UIImage(named: "apathetic_normal.png")
-        sadImage.image = UIImage(named: "sad_normal.png")
-        angryImage.image = UIImage(named: "angry_normal.png")
+        tapViews(excitedImage, currentViewName: "excited")
     }
     
     @IBAction func happyTap(sender: AnyObject) {
-        emotionIdInt = 2
-        happyImage.image = UIImage(named: "happy_select.png" )
-        excitedImage.image = UIImage(named: "excited_normal.png")
-        apatheticImage.image = UIImage(named: "apathetic_normal.png")
-        sadImage.image = UIImage(named: "sad_normal.png")
-        angryImage.image = UIImage(named: "angry_normal.png")
+        tapViews(happyImage, currentViewName: "happy")
     }
     
     @IBAction func apatheticTap(sender: AnyObject) {
-        emotionIdInt = 3
-        apatheticImage.image = UIImage(named: "apathetic_select.png")
-        excitedImage.image = UIImage(named: "excited_normal.png")
-        happyImage.image = UIImage(named: "happy_normal.png")
-        sadImage.image = UIImage(named: "sad_normal.png")
-        angryImage.image = UIImage(named: "angry_normal.png")
+        tapViews(apatheticImage, currentViewName: "apathetic")
     }
     
     @IBAction func sadTap(sender: AnyObject) {
-        emotionIdInt = 4
-        sadImage.image = UIImage(named: "sad_select.png")
-        excitedImage.image = UIImage(named: "excited_normal.png")
-        happyImage.image = UIImage(named: "happy_normal.png")
-        apatheticImage.image = UIImage(named: "apathetic_normal.png")
-        angryImage.image = UIImage(named: "angry_normal.png")
+       tapViews(sadImage, currentViewName: "sad")
     }
     
     @IBAction func angryTap(sender: AnyObject) {
-        //tapViews(angryImage, imageName: "angry", emotionId: emotionIdInt)
-        emotionIdInt = 5
-        angryImage.image = UIImage(named: "angry_select.png")
-        happyImage.image = UIImage(named: "happy_normal.png")
-        sadImage.image = UIImage(named: "sad_normal.png")
-        apatheticImage.image = UIImage(named: "apathetic_normal.png")
-        sadImage.image = UIImage(named: "sad_normal.png")
+        tapViews(angryImage, currentViewName: "angry")
+    }
+    
+    func tapViews(currentView:UIImageView,currentViewName:String)  {
+        imageViewArray[emotionIdInt-1].image = UIImage(named: imageNameArray[emotionIdInt-1])
+        emotionIdInt = imageViewArray.indexOf(currentView)! + 1
+        currentView.image = UIImage(named: currentViewName + "_select.png")
+    }
+    
+    func addViewsNames()  {
+        imageNameArray.append("excited_normal.png")
+        imageNameArray.append("happy_normal.png")
+        imageNameArray.append("sad_normal.png")
+        imageNameArray.append("apathetic_normal.png")
+        imageNameArray.append("angry_normal.png")
+        imageViewArray.append(excitedImage)
+        imageViewArray.append(happyImage)
+        imageViewArray.append(sadImage)
+        imageViewArray.append(apatheticImage)
+        imageViewArray.append(angryImage)
     }
     
     override func viewDidLoad() {
@@ -83,7 +76,7 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, CLLocationM
         thought.delegate = self
        
         // Do any additional setup after loading the view, typically from a nib
-        
+        addViewsNames()
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -124,7 +117,7 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, CLLocationM
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        let maxLength = 30
+        let maxLength = 100
         let currentgString:NSString = textField.text!
         let newString:NSString = currentgString.stringByReplacingCharactersInRange(range, withString: string)
         return newString.length <= maxLength
@@ -139,7 +132,12 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, CLLocationM
         self.postButton.enabled = false
         self.activityIndicator.startAnimating()
         let thoughtStr = thought.text! as String
-        //thought.text = thoughtStr
+        
+        if (thoughtStr == "") {
+            Utils.showMessageBox("Your input is empty, please add your thought", viewController: self)
+            self.postButton.enabled = true
+            return
+        }
         
         let newActivity: Activity = Activity(username: username, emotionId: emotionIdInt, longitude: long, latitude: lat, thought: thoughtStr)
         DataManagement.getInstance().addNewActivity(newActivity)
@@ -193,7 +191,6 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, CLLocationM
             if let mainMap = segue.destinationViewController as? FirstViewController {
                 mainMap.reloadMapNeeded = self.posted
                 self.posted = false
-                
             }
         }
     }
