@@ -65,13 +65,13 @@ class Utils {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-            print("Response: \(response)")
+           // print("Response: \(response)")
             if (error != nil){
                 print("Error: \(error?.localizedDescription)")
                 completion(result: [:])
             }
             let strData = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print("Body: \(strData!)")
+            //print("Body: \(strData!)")
             
             do {
                 resultJSON = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as! NSDictionary

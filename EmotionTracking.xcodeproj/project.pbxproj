@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A1A33871CE1CFFB00AB704B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1A33861CE1CFFB00AB704B /* Reachability.m */; };
+		2A58810C1CE2D1AB004FF0A4 /* SecondOneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A58810B1CE2D1AB004FF0A4 /* SecondOneCell.swift */; };
 		2A672FD91CDEEDEB0067872C /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A672FD81CDEEDEB0067872C /* ActivityViewController.swift */; };
 		2A67301A1CDF2BC70067872C /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6730191CDF2BC70067872C /* MessageComposer.swift */; };
 		3F185F251CD88CCD00EFE11B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F241CD88CCD00EFE11B /* AppDelegate.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		2A1A33851CE1CFFB00AB704B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = EmotionTracking/Reachability.h; sourceTree = "<group>"; };
 		2A1A33861CE1CFFB00AB704B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = EmotionTracking/Reachability.m; sourceTree = "<group>"; };
+		2A58810B1CE2D1AB004FF0A4 /* SecondOneCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondOneCell.swift; sourceTree = "<group>"; };
 		2A672FD81CDEEDEB0067872C /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		2A6730191CDF2BC70067872C /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 		3F185F211CD88CCD00EFE11B /* EmotionTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,8 +128,9 @@
 		3F185F231CD88CCD00EFE11B /* EmotionTracking */ = {
 			isa = PBXGroup;
 			children = (
-				3F185F241CD88CCD00EFE11B /* AppDelegate.swift */,
 				3F185F491CD8D35D00EFE11B /* DataManagement */,
+				2A58810B1CE2D1AB004FF0A4 /* SecondOneCell.swift */,
+				3F185F241CD88CCD00EFE11B /* AppDelegate.swift */,
 				2A6730191CDF2BC70067872C /* MessageComposer.swift */,
 				2A672FD81CDEEDEB0067872C /* ActivityViewController.swift */,
 				3F27DFA81CDE2ED0006FBF0B /* DetailLocationView.swift */,
@@ -275,6 +278,7 @@
 				3F185F271CD88CCD00EFE11B /* FirstViewController.swift in Sources */,
 				2A67301A1CDF2BC70067872C /* MessageComposer.swift in Sources */,
 				3F185F4D1CD8D3BE00EFE11B /* Activity.swift in Sources */,
+				2A58810C1CE2D1AB004FF0A4 /* SecondOneCell.swift in Sources */,
 				2A1A33871CE1CFFB00AB704B /* Reachability.m in Sources */,
 				3F185F3D1CD89EDC00EFE11B /* LoginViewController.swift in Sources */,
 				2A672FD91CDEEDEB0067872C /* ActivityViewController.swift in Sources */,

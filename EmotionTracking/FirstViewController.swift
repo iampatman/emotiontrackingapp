@@ -21,6 +21,8 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
         }
     }
     @IBOutlet weak var mapView: MKMapView!
+    var coordinate1: CLLocationCoordinate2D = CLLocationCoordinate2D()
+    var currentAnnotation: MKPointAnnotation?
     //var activitiesList: [NSDictionary]?
     var location : LocationObject!
     var username: String = ""
@@ -34,11 +36,12 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
+       // NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: #selector(self.updateMap),userInfo: self,repeats: true)
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = 100
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         
@@ -56,17 +59,20 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
         print("locations = \(lastLocation)")
         
         if let location1: CLLocation = manager.location {
-            //centerMapOnLocation(location1)
-            let coordinate1: CLLocationCoordinate2D = location1.coordinate
+            centerMapOnLocation(location1)
+            if (currentAnnotation != nil){
+                mapView.removeAnnotation(currentAnnotation!)
+            }
+            coordinate1 = location1.coordinate
             self.annotateMap(coordinate1)
-            locationManager.stopUpdatingLocation();
+            //locationManager.stopUpdatingLocation();
             // ... proceed with the location and coordintes
         }
     }
     
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-        regionRadius, regionRadius)
+                                                                  regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
@@ -83,9 +89,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
         if let annotation = annotation as? LocationObject {
             let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
             //pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-
-        //    let filename = Utils.emotionImagesFileName[0] + "_normal"
-         //   pin.image = UIImage(named: filename)
+            
+            //    let filename = Utils.emotionImagesFileName[0] + "_normal"
+            //   pin.image = UIImage(named: filename)
             pin.canShowCallout = true
             pin.animatesDrop = true
             pin.rightCalloutAccessoryView = UIButton.init(type: .DetailDisclosure) as UIView
@@ -98,20 +104,10 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView,
                  calloutAccessoryControlTapped control: UIControl) {
-        //let location = view.annotation as! LocationObject
-        //print("info showed")
+        
         location = view.annotation as! LocationObject
         self.performSegueWithIdentifier("showLocationDetail", sender: self)
-        //let contentController = DetailLocationView()
-        /*let contentController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailLocationView") as UIViewController
-         contentController.modalPresentationStyle = UIModalPresentationStyle.Popover
-         contentController.popoverPresentationController?.sourceView = view
-         contentController.popoverPresentationController?.sourceRect = CGRectMake(30, 50, 10, 10)
-         let detailPopover: UIPopoverPresentationController = contentController.popoverPresentationController!
-         detailPopover.permittedArrowDirections = UIPopoverArrowDirection.Any
-         contentController.preferredContentSize = CGSizeMake(50, 100)
-         contentController.location =
-         presentViewController(contentController, animated: true, completion: nil)*/
+        
         
     }
     override func prepareForSegue(segue: UIStoryboardSegue,
@@ -152,7 +148,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
             return
         }
         processViewRunning()
-        
+     //   self.locationManager.startUpdatingLocation()
         print("call json")
         let params = [:]
         Utils.sendHTTPPostRequest("https://emotionstrackingapp.herokuapp.com/listActivities", params: params){
@@ -173,7 +169,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
                 
                 self.mapView.addAnnotations(self.locationsResult)
                 self.progressView.setProgress(0, animated: true)
-
+                
             }
         }
         
@@ -190,6 +186,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
         let homePin = MKPointAnnotation()
         homePin.coordinate = coordinate
         homePin.title = "I am here"
+        currentAnnotation = homePin
         self.mapView.addAnnotation(homePin)
     }
     
@@ -197,7 +194,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
         
     }
     
-
+    
     
     
     

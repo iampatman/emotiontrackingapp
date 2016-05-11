@@ -35,7 +35,7 @@ class LocationObject: NSObject, MKAnnotation  {
         switch title! as String {
         case "Excited":
             return UIColor.greenColor()
-        case "Sad":
+        case "Happy":
             return UIColor.blueColor()
         case "Apathetic":
             return UIColor.darkGrayColor()

@@ -106,6 +106,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate,MFMessageCompos
             }            
         }
     }
-    
+    @IBAction func logout(segue:UIStoryboardSegue) {
+        self.textFieldUsername.text! = ""
+        self.textFieldMobileNumber.text! = ""
+    }
     
 }

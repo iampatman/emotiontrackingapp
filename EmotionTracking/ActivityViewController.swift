@@ -86,17 +86,22 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, CLLocationM
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = 100
         locationManager.requestAlwaysAuthorization()
+        lat = 0
+        long = 0
     }
     
     override func viewDidAppear(animated: Bool) {
-        lat = 0
-        long = 0
         excitedTap(self)
         locationManager.startUpdatingLocation()
         print("start getting location")
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        print("Stop getting location")
+        locationManager.stopUpdatingLocation()
+    }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -108,10 +113,6 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, CLLocationM
         long = lastLocation!.longitude
         print("lat: \(lat)")
         print("long: \(long)")
-        if (lat != 0 && long != 0) {
-            locationManager.stopUpdatingLocation()
-            print("Stop getting location")
-        }
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
@@ -122,7 +123,7 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, CLLocationM
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        let maxLength = 15
+        let maxLength = 30
         let currentgString:NSString = textField.text!
         let newString:NSString = currentgString.stringByReplacingCharactersInRange(range, withString: string)
         return newString.length <= maxLength
