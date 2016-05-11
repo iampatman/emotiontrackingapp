@@ -422,7 +422,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Imf-BO-nci">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenKeyboardAppears="YES" id="pzm-2j-8gj" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pzm-2j-8gj" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ggL-VW-Wkj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
