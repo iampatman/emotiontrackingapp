@@ -11,6 +11,7 @@
 		2A58810C1CE2D1AB004FF0A4 /* SecondOneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A58810B1CE2D1AB004FF0A4 /* SecondOneCell.swift */; };
 		2A672FD91CDEEDEB0067872C /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A672FD81CDEEDEB0067872C /* ActivityViewController.swift */; };
 		2A67301A1CDF2BC70067872C /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6730191CDF2BC70067872C /* MessageComposer.swift */; };
+		2AFCC8701CE329AD0048A998 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFCC86F1CE329AD0048A998 /* GuideViewController.swift */; };
 		3F185F251CD88CCD00EFE11B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F241CD88CCD00EFE11B /* AppDelegate.swift */; };
 		3F185F271CD88CCD00EFE11B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F261CD88CCD00EFE11B /* FirstViewController.swift */; };
 		3F185F291CD88CCD00EFE11B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185F281CD88CCD00EFE11B /* SecondViewController.swift */; };
@@ -47,6 +48,7 @@
 		2A58810B1CE2D1AB004FF0A4 /* SecondOneCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondOneCell.swift; sourceTree = "<group>"; };
 		2A672FD81CDEEDEB0067872C /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		2A6730191CDF2BC70067872C /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
+		2AFCC86F1CE329AD0048A998 /* GuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		3F185F211CD88CCD00EFE11B /* EmotionTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F185F241CD88CCD00EFE11B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F185F261CD88CCD00EFE11B /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		3F185F231CD88CCD00EFE11B /* EmotionTracking */ = {
 			isa = PBXGroup;
 			children = (
+				2AFCC86F1CE329AD0048A998 /* GuideViewController.swift */,
 				3F185F491CD8D35D00EFE11B /* DataManagement */,
 				2A58810B1CE2D1AB004FF0A4 /* SecondOneCell.swift */,
 				3F185F241CD88CCD00EFE11B /* AppDelegate.swift */,
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F185F291CD88CCD00EFE11B /* SecondViewController.swift in Sources */,
+				2AFCC8701CE329AD0048A998 /* GuideViewController.swift in Sources */,
 				3F185F251CD88CCD00EFE11B /* AppDelegate.swift in Sources */,
 				3F185F421CD8CB3A00EFE11B /* DataManagement.swift in Sources */,
 				3F185F481CD8CC2F00EFE11B /* Bridging-Header.m in Sources */,

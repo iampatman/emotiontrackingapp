@@ -21,6 +21,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DataManagement.getInstance().initDatabase()
         
         
+        // get current version
+        let infoDictionary = NSBundle.mainBundle().infoDictionary
+        let currentVersion = infoDictionary!["CFBundleShortVersionString"] as! String
+        
+        // get before version
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let appVersion = userDefaults.stringForKey("appVersion")
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        // if appVersion == nil, the app is the first start
+        if appVersion == nil || appVersion != currentVersion {
+            
+            userDefaults.setValue(currentVersion, forKey: "appVersion")
+            
+            let guideViewController = storyboard.instantiateViewControllerWithIdentifier("GuideViewController") as! GuideViewController
+            self.window?.rootViewController = guideViewController
+        }
         
         
         return true
