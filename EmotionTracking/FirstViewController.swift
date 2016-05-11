@@ -71,9 +71,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
     }
     
     func initialData() {
-        locationsResult.append(LocationObject(title: "Happy", subtitle: "I AM HAPPY",username: "user1", latitude: 1.29167724, longitude: 103.77683571, time: NSDate(), mobileNumber: "6599998888"))
+        //locationsResult.append(LocationObject(title: "Happy", subtitle: "I AM HAPPY",username: "user1", latitude: 1.29167724, longitude: 103.77683571, time: NSDate(), mobileNumber: "6599998888"))
         
-        locationsResult.append(LocationObject(title: "Sad", subtitle: "I AM SAD", username: "user2", latitude: 1.294455, longitude: 103.7829, time: NSDate(), mobileNumber: "6577774444"))
+        //locationsResult.append(LocationObject(title: "Sad", subtitle: "I AM SAD", username: "user2", latitude: 1.294455, longitude: 103.7829, time: NSDate(), mobileNumber: "6577774444"))
         
         self.mapView.addAnnotations(self.locationsResult)
     }
@@ -166,7 +166,7 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate, UIPopove
                     if (emotionId == nil || emotionId < 1 || emotionId > 5){
                         continue
                     }
-                    self.locationsResult.append(LocationObject(title: Utils.emotionList[((activity["emotionId"] as AnyObject? as? Int) ?? 0) - 1 ] ?? "", subtitle: (activity["thought"] as AnyObject? as? String) ?? "",username: (activity["username"] as AnyObject? as? String) ?? "", latitude: (activity["latitude"] as AnyObject? as? Double) ?? 1.294455, longitude: (activity["longitude"] as AnyObject? as? Double) ?? 103.7829, time: (activity["time"] as AnyObject? as? NSDate) ?? NSDate(), mobileNumber: (activity["mobilephone"] as AnyObject? as? String) ?? ""))
+                    self.locationsResult.append(LocationObject(title: Utils.emotionList[((activity["emotionId"] as AnyObject? as? Int) ?? 0) - 1 ] ?? "",emotionImageId:(activity["emotionId"] as AnyObject? as? Int) ?? 0, subtitle: (activity["thought"] as AnyObject? as? String) ?? "",username: (activity["username"] as AnyObject? as? String) ?? "", latitude: (activity["latitude"] as AnyObject? as? Double) ?? 1.294455, longitude: (activity["longitude"] as AnyObject? as? Double) ?? 103.7829, time: (activity["time"] as AnyObject? as? NSDate) ?? NSDate(), mobileNumber: (activity["mobilephone"] as AnyObject? as? String) ?? ""))
                     //Show pin on the map based on these values
                     
                 }

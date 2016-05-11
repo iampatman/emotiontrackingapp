@@ -12,19 +12,42 @@ import MessageUI
 class LoginViewController: UIViewController, UITextFieldDelegate,MFMessageComposeViewControllerDelegate {
     
     var loginResult: Int = 0
+  
+    @IBOutlet weak var avatarsImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        textFieldUsername.becomeFirstResponder()
         textFieldUsername.delegate = self
         textFieldMobileNumber.delegate = self
+        avatarsImage.image = UIImage(named: avastarImageList[avastarId])
+        //changeAvastarsImage(self)
+        loginButton.layer.cornerRadius = 5
+
     }
+    
+    var avastarId:Int = 0
+    var avastarImageList:[String] = ["avatar_boy.png" , "avatar_girl.png", "avatar_ninja.png", "avatar_princess"]
+    
+    @IBAction func changeAvastarsImage(sender: AnyObject) {
+        avastarId += 1
+        while (avastarId == 4) {
+            avastarId = 0
+        }
+        avatarsImage.image = UIImage(named: avastarImageList[avastarId])
+    }
+
+
     func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
         controller.dismissViewControllerAnimated(true, completion: nil)
         
         print("Send message result: \(result.rawValue)")
         
     }
+    
+
+    
     @IBAction func sendSMS(sender: AnyObject) {
         let messageComposeVC = MFMessageComposeViewController()
         

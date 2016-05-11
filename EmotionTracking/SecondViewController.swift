@@ -23,7 +23,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view, typically from a nib.
-        //tableView.registerNib(UINib(nibName: "SecondOneCell", bundle: nil), forCellReuseIdentifier: "SecondOneCell")
     }
 
     override func didReceiveMemoryWarning() {

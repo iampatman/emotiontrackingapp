@@ -2,6 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "avatar_boy.png",
       "scale" : "1x"
     },
     {

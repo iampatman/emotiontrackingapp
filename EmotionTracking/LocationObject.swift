@@ -16,13 +16,16 @@ class LocationObject: NSObject, MKAnnotation  {
     var latitude: Double
     var longitude: Double
     var time: NSDate
+    var emotionImageId :Int
     var mobileNumber: String
+    
+    
     
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
     
-    init (title: String, subtitle: String, username: String, latitude: Double, longitude: Double, time: NSDate, mobileNumber: String){
+    init ( title: String, emotionImageId:Int, subtitle: String, username: String, latitude: Double, longitude: Double, time: NSDate, mobileNumber: String){
         self.title = title
         self.subtitle = subtitle
         self.username = username
@@ -30,6 +33,7 @@ class LocationObject: NSObject, MKAnnotation  {
         self.longitude = longitude
         self.time = time
         self.mobileNumber = mobileNumber
+        self.emotionImageId = emotionImageId
     }
     func pinTintColor() -> UIColor!  {
         switch title! as String {
